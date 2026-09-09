@@ -432,33 +432,6 @@
   .foot-legal-links a{ text-decoration:underline; text-underline-offset:2px; }
   .foot-legal-links a:hover{ color:var(--accent); }
 
-  /* ---------- LEGAL ---------- */
-  .legal{ background:var(--card); border-top:1px solid var(--line); }
-  .legal-intro{ color:var(--ink-soft); font-size:14.5px; max-width:60ch; margin-top:14px; line-height:1.6; }
-  .legal-list{ margin-top:36px; display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
-  .legal-item{ background:var(--card-strong); }
-  .legal-item summary{
-    cursor:pointer; list-style:none;
-    padding:20px 24px; font-weight:700; font-size:15.5px;
-    display:flex; align-items:center; justify-content:space-between; gap:16px;
-  }
-  .legal-item summary::-webkit-details-marker{ display:none; }
-  .legal-item summary .chev{ flex:none; transition:transform .15s ease; color:var(--ink-faint); }
-  .legal-item[open] summary .chev{ transform:rotate(45deg); }
-  .legal-body{ padding:0 24px 24px; color:var(--ink-soft); font-size:14px; line-height:1.7; }
-  .legal-body h4{
-    font-family:'Karla',sans-serif; text-transform:none; letter-spacing:0;
-    font-size:14px; font-weight:700; color:var(--ink); margin:18px 0 6px;
-  }
-  .legal-body h4:first-child{ margin-top:0; }
-  .legal-body p{ margin:0 0 10px; }
-  .legal-body ul{ margin:0 0 10px; padding-left:20px; }
-  .legal-body li{ margin-bottom:4px; }
-  .legal-placeholder{
-    background:color-mix(in srgb, var(--brass) 12%, transparent);
-    color:var(--brass); font-family:'Space Mono',monospace; font-size:12px;
-    padding:1px 6px; border-radius:4px;
-  }
 </style>
 </head>
 <body>
@@ -746,76 +719,14 @@
   </div>
 </section>
 
-<section class="legal" id="legal">
-  <div class="wrap">
-    <div class="eyebrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>Información legal</div>
-    <h2 style="font-size:clamp(28px,4vw,38px);">Aviso legal, privacidad y cookies</h2>
-    <p class="legal-intro">siShow está todavía en fase de validación con clientes piloto, así que estos textos reflejan el estado real del proyecto — no una plantilla genérica. Los datos marcados como <span class="legal-placeholder">pendiente</span> se completarán en cuanto el proyecto se constituya formalmente como empresa.</p>
-
-    <div class="legal-list">
-      <details class="legal-item">
-        <summary>Aviso legal
-          <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        </summary>
-        <div class="legal-body">
-          <h4>Titular del sitio</h4>
-          <p><strong>siShow</strong> es un proyecto de <strong>Asociación Junior Empresa Daiko</strong>. Domicilio: Plaza San Martín, 1, Madrid, España, 28012. Teléfono: +34 683 35 72 06. NIF: <span class="legal-placeholder">pendiente de publicar</span>. Dirección de contacto para siShow: hola@sishow.example.</p>
-          <h4>Objeto de la web</h4>
-          <p>Página informativa de presentación del producto. No permite compra ni contratación online, no procesa pagos ni datos de tarjetas: el contacto comercial se hace directamente por WhatsApp o email con el equipo.</p>
-          <h4>Propiedad intelectual</h4>
-          <p>Los textos, el diseño y las imágenes de esta web son propiedad de siShow / StarProyect, salvo que se indique lo contrario, y no pueden reproducirse sin autorización.</p>
-          <h4>Responsabilidad</h4>
-          <p>El contenido tiene fines informativos. Las cifras de mercado y de competidores citadas en la web son estimaciones aproximadas y pueden no reflejar las condiciones actuales de cada plataforma.</p>
-        </div>
-      </details>
-
-      <details class="legal-item">
-        <summary>Política de privacidad
-          <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        </summary>
-        <div class="legal-body">
-          <h4>Responsable del tratamiento</h4>
-          <p>Asociación Junior Empresa Daiko, Plaza San Martín, 1, Madrid, España, 28012, a través de su proyecto siShow. Contacto: hola@sishow.example · +34 683 35 72 06.</p>
-          <h4>Qué datos recogemos</h4>
-          <p>Esta web no tiene formulario propio: el contacto se inicia por ti, por WhatsApp o email. Solo tratamos los datos que nos facilitas directamente en esa conversación — normalmente tu nombre, el nombre del negocio y un teléfono o WhatsApp de contacto.</p>
-          <h4>Para qué los usamos</h4>
-          <ul>
-            <li>Responder a tu solicitud de demo o información.</li>
-            <li>Organizar la visita o prueba piloto en tu salón, si sigues adelante.</li>
-          </ul>
-          <p>No usamos tus datos con fines distintos a estos sin pedirte antes tu consentimiento expreso, y no los vendemos ni cedemos a terceros salvo obligación legal.</p>
-          <h4>Cuánto tiempo los conservamos</h4>
-          <p>Mientras dure la conversación comercial o la relación con tu salón, y hasta que nos pidas eliminarlos.</p>
-          <h4>Tus derechos</h4>
-          <p>Puedes pedirnos en cualquier momento acceder a tus datos, rectificarlos, eliminarlos, oponerte a su uso o limitar su tratamiento, escribiendo a hola@sishow.example. Responderemos en un plazo máximo de 30 días.</p>
-        </div>
-      </details>
-
-      <details class="legal-item">
-        <summary>Política de cookies
-          <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        </summary>
-        <div class="legal-body">
-          <h4>Esta web, tal y como está hoy</h4>
-          <p>siShow es, por ahora, una página de presentación estática. No instalamos cookies de publicidad, de redes sociales ni de analítica de terceros.</p>
-          <h4>La calculadora de comisión</h4>
-          <p>Los controles que mueves en la sección "¿Cuánto te está costando la comisión?" se calculan enteramente en tu navegador. No se envía ni se guarda ningún dato tuyo en ningún servidor ni se usa ninguna cookie para ello.</p>
-          <h4>Si esto cambia</h4>
-          <p>Si en el futuro incorporamos analítica para entender cómo se usa la web, o cookies técnicas necesarias para el funcionamiento del panel de reservas, actualizaremos esta política y pediremos tu consentimiento donde la ley lo exija.</p>
-        </div>
-      </details>
-    </div>
-  </div>
-</section>
-
 <footer>
   <div class="wrap foot-row">
     <div class="logo" style="font-size:19px;">siShow<span class="dot"><svg width="0.62em" height="0.62em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.05em;"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg></span></div>
     <div>Sistema de reservas para peluquerías y barberías · borrador de landing, StarProyect · 2026</div>
     <div class="foot-legal-links">
-      <a href="#legal">Aviso legal</a>
-      <a href="#legal">Privacidad</a>
-      <a href="#legal">Cookies</a>
+      <a href="aviso-legal.html">Aviso legal</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="cookies.html">Cookies</a>
     </div>
   </div>
 </footer>
