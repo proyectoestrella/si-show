@@ -191,15 +191,6 @@
   }
   .hero-note svg{ flex:none; }
 
-  .hero-badge{
-    display:inline-flex; align-items:center; gap:9px;
-    border:1.5px dashed var(--line-strong);
-    border-radius:30px;
-    padding:7px 16px 7px 11px;
-    font-size:12.5px; font-weight:700; color:var(--ink-soft);
-    margin-bottom:22px;
-  }
-  .hero-badge svg{ color:var(--brass); flex:none; }
 
   /* ticket visual */
   .ticket-wrap{ position:relative; padding:8px 0; }
@@ -263,44 +254,6 @@
     margin-top:14px; font-family:'Space Mono',monospace; letter-spacing:0.03em;
   }
 
-  /* ---------- PAIN SECTION ---------- */
-  .pain{ background:var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line); position:relative; overflow:hidden; }
-  .pain h2{ font-size:clamp(30px,4vw,42px); max-width:16ch; }
-  .pain-intro{ display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap; align-items:flex-end; margin-bottom:44px;}
-  .pain-intro p{ color:var(--ink-soft); max-width:42ch; font-size:15.5px; line-height:1.6; }
-  .stat-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:1px;
-    background:var(--line);
-    border:1px solid var(--line);
-    border-radius:14px;
-    overflow:hidden;
-  }
-  @media (max-width:760px){ .stat-grid{ grid-template-columns:repeat(2,1fr); } }
-  .stat{
-    background:var(--card);
-    padding:28px 22px;
-  }
-  .stat-icon{
-    color:var(--accent);
-    opacity:0.6;
-    margin-bottom:12px;
-  }
-  .stat .num{
-    font-family:'Big Shoulders Display',sans-serif;
-    font-weight:800;
-    font-size:44px;
-    color:var(--accent);
-    line-height:1;
-  }
-  .stat .label{
-    margin-top:10px; font-size:13.5px; color:var(--ink-soft); line-height:1.4;
-  }
-  .stat-source{
-    margin-top:18px; font-size:12px; color:var(--ink-faint); font-family:'Space Mono',monospace;
-  }
-
   /* ---------- FEATURES ---------- */
   .section-head{ max-width:56ch; margin-bottom:48px; }
   .section-head h2{ font-size:clamp(30px,4vw,42px); margin-top:10px; }
@@ -345,25 +298,108 @@
     padding:2px 7px; border-radius:3px;
   }
 
+  /* ---------- AI AGENT ---------- */
+  .ia-section{
+    background:var(--ink);
+    color:var(--paper);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .ia-grid{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:52px; align-items:center; }
+  @media (max-width:900px){ .ia-grid{ grid-template-columns:1fr; gap:36px; } }
+  .ia-eyebrow{ color:var(--brass-soft); }
+  .ia-eyebrow svg{ color:var(--brass-soft); }
+  .ia-section h2{ font-size:clamp(32px,4.4vw,46px); color:var(--paper); max-width:17ch; }
+  .ia-lede{ color:rgba(244,241,230,0.72); font-size:16px; line-height:1.6; margin:20px 0 28px; max-width:52ch; }
+  .ia-points{ display:flex; flex-direction:column; gap:14px; }
+  .ia-point{
+    display:flex; gap:12px; align-items:flex-start;
+    font-size:14.5px; line-height:1.5; color:rgba(244,241,230,0.9);
+  }
+  .ia-point svg{ flex:none; color:var(--brass-soft); margin-top:1px; }
+
+  .ia-chat{
+    background:rgba(244,241,230,0.05);
+    border:1px solid rgba(244,241,230,0.16);
+    border-radius:16px;
+    padding:22px;
+    display:flex; flex-direction:column; gap:12px;
+  }
+  .ia-chat-head{
+    display:flex; align-items:center; gap:9px;
+    font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase;
+    color:rgba(244,241,230,0.55);
+    padding-bottom:12px; border-bottom:1px solid rgba(244,241,230,0.12);
+  }
+  .ia-dot{ width:8px; height:8px; border-radius:50%; background:var(--good); flex:none; }
+  .ia-msg{ font-size:14.5px; line-height:1.5; padding:12px 15px; border-radius:12px; max-width:88%; }
+  .ia-msg.you{
+    align-self:flex-end; background:rgba(244,241,230,0.14); color:var(--paper);
+    border-bottom-right-radius:4px;
+  }
+  .ia-msg.bot{
+    align-self:flex-start; background:var(--accent); color:var(--accent-ink);
+    border-bottom-left-radius:4px;
+  }
+  .ia-chat-note{
+    font-family:'Space Mono',monospace; font-size:11px; color:rgba(244,241,230,0.4);
+    text-align:center; margin-top:4px;
+  }
+
   /* ---------- COMPARISON MODEL CARDS ---------- */
   .ledger-section{ background:var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line); position:relative; overflow:hidden; }
-  .model-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-  @media (max-width:760px){ .model-grid{ grid-template-columns:1fr; } }
-  .model-card{
-    background:var(--card-strong); border:1px solid var(--line-strong); border-radius:14px; padding:30px;
+  .model-grid{
+    display:grid; grid-template-columns:1fr auto 1fr; gap:20px; align-items:center;
   }
-  .model-card.us{ border-color:var(--accent); box-shadow:var(--shadow); }
-  .model-label{
-    font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.05em; text-transform:uppercase;
-    color:var(--ink-faint); margin-bottom:18px;
+  @media (max-width:820px){ .model-grid{ grid-template-columns:1fr; gap:14px; } }
+  .model-vs{
+    font-family:'Big Shoulders Display',sans-serif; font-weight:800; font-size:20px;
+    color:var(--ink-faint);
+    width:46px; height:46px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--paper); border:1px solid var(--line-strong);
   }
-  .model-card.us .model-label{ color:var(--accent); }
+  .model-card{ border-radius:16px; padding:30px; }
+  .model-card.them{
+    background:transparent;
+    border:1px dashed var(--line-strong);
+    color:var(--ink-faint);
+  }
+  .model-card.us{
+    background:var(--accent);
+    border:1px solid var(--accent-strong);
+    box-shadow:0 10px 30px -14px rgba(43,93,69,0.7);
+    transform:scale(1.03);
+  }
+  @media (max-width:820px){ .model-card.us{ transform:none; } }
+  .model-tag{
+    display:inline-block;
+    font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    padding:4px 10px; border-radius:20px; margin-bottom:16px;
+  }
+  .model-tag.them{ background:color-mix(in srgb, var(--bad) 12%, transparent); color:var(--bad); }
+  .model-tag.us{ background:rgba(255,255,255,0.16); color:var(--accent-ink); }
+  .model-title{
+    font-family:'Big Shoulders Display',sans-serif; font-weight:800;
+    font-size:28px; text-transform:uppercase; letter-spacing:0.01em;
+    margin-bottom:20px; line-height:1;
+    display:flex; align-items:baseline;
+  }
+  .model-card.them .model-title{ color:var(--ink-soft); }
+  .model-card.us .model-title{ color:var(--card-strong); }
+  .model-card.us .model-title .dot{ color:var(--brass-soft); display:inline-flex; }
   .model-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px; }
-  .model-list li{ font-size:15px; line-height:1.5; color:var(--ink-soft); display:flex; gap:10px; align-items:flex-start; }
-  .model-list strong{ color:var(--ink); }
-  .dot{ flex:none; width:9px; height:9px; border-radius:50%; margin-top:6px; }
-  .dot.good{ background:var(--good); }
-  .dot.bad{ background:var(--bad); opacity:0.7; }
+  .model-list li{ font-size:15px; line-height:1.5; display:flex; gap:11px; align-items:flex-start; }
+  .model-card.them .model-list li{ color:var(--ink-soft); }
+  .model-card.us .model-list li{ color:rgba(255,255,255,0.92); }
+  .model-card.them .model-list strong{ color:var(--ink); }
+  .model-card.us .model-list strong{ color:var(--card-strong); }
+  .mark{
+    flex:none; width:20px; height:20px; border-radius:50%; margin-top:1px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .mark.bad{ background:color-mix(in srgb, var(--bad) 14%, transparent); color:var(--bad); }
+  .mark.good{ background:rgba(255,255,255,0.2); color:var(--card-strong); }
 
   /* ---------- CALCULATOR ---------- */
   .calc-grid{
@@ -381,16 +417,32 @@
   input[type=range]{
     width:100%; accent-color:var(--accent); cursor:pointer;
   }
-  .calc-results{ display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
-  .calc-row{
-    background:var(--card-strong); padding:18px 22px;
-    display:flex; justify-content:space-between; align-items:center; gap:16px;
+  .calc-results{ display:flex; flex-direction:column; gap:12px; margin-top:18px; }
+  .calc-card{ border-radius:16px; padding:20px 22px; }
+  .calc-card.them{ background:transparent; border:1px dashed var(--line-strong); }
+  .calc-card.us{ background:var(--accent); border:1px solid var(--accent-strong); }
+  .calc-card-tag{
+    display:inline-block;
+    font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.07em; text-transform:uppercase;
+    padding:4px 10px; border-radius:20px; margin-bottom:12px;
   }
-  .calc-row.us{ background:color-mix(in srgb, var(--accent) 12%, var(--card-strong)); }
-  .calc-row .who{ font-weight:700; font-size:15px; }
-  .calc-row .who small{ display:block; font-weight:500; font-size:12px; color:var(--ink-faint); margin-top:2px; }
-  .calc-row .amount{ font-family:'Space Mono',monospace; font-weight:700; font-size:19px; }
-  .calc-row.us .amount{ color:var(--accent); }
+  .calc-card-tag.them{ background:color-mix(in srgb, var(--bad) 12%, transparent); color:var(--bad); }
+  .calc-card-tag.us{ background:rgba(255,255,255,0.18); color:var(--accent-ink); }
+  .calc-amount{
+    font-family:'Big Shoulders Display',sans-serif; font-weight:800;
+    font-size:clamp(34px,5vw,46px); line-height:1;
+    display:flex; align-items:baseline; gap:9px; flex-wrap:wrap;
+  }
+  .calc-amount span{
+    font-family:'Karla',sans-serif; font-weight:600; font-size:13.5px; letter-spacing:0;
+  }
+  .calc-card.them .calc-amount{ color:var(--bad); }
+  .calc-card.them .calc-amount span{ color:var(--ink-faint); }
+  .calc-card.us .calc-amount{ color:var(--card-strong); }
+  .calc-card.us .calc-amount span{ color:rgba(255,255,255,0.8); }
+  .calc-card-note{ font-size:13px; margin-top:8px; }
+  .calc-card.them .calc-card-note{ color:var(--ink-faint); }
+  .calc-card.us .calc-card-note{ color:rgba(255,255,255,0.8); }
   .calc-foot{ font-size:12.5px; color:var(--ink-faint); margin-top:14px; line-height:1.6; }
 
   /* ---------- PROCESS ---------- */
@@ -440,7 +492,6 @@
   <div class="wrap header-row">
     <div class="logo">siShow<span class="dot"><svg width="0.62em" height="0.62em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.05em;"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg></span></div>
     <nav>
-      <a href="#problema">El problema</a>
       <a href="#producto">Producto</a>
       <a href="#comparativa">Cómo cobramos</a>
       <a href="#contacto">Contacto</a>
@@ -455,10 +506,6 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="hero-badge">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
-        Hecho por y para salones de barrio
-      </div>
       <div class="eyebrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>Software de reservas para peluquerías y barberías</div>
       <h1>Tu agenda.<br>Tus clientes.<br><em>Sin comisión.</em></h1>
       <p class="lede">siShow es el sistema de reservas para peluquerías y barberías de barrio: recordatorios que bajan los plantones, ficha de cliente con historial real y un panel con analítica e IA — sin quedarnos con un euro de cada cliente que reservas.</p>
@@ -482,7 +529,7 @@
           <div class="ticket-badge">SISHOW</div>
         </div>
         <div class="ticket-rows">
-          <div class="ticket-row"><span>Cliente</span><span>Marta R.</span></div>
+          <div class="ticket-row"><span>Cliente</span><span>Pedro Rotger</span></div>
           <div class="ticket-row"><span>Servicio</span><span>Corte + barba</span></div>
           <div class="ticket-row"><span>Profesional</span><span>Javi</span></div>
           <div class="ticket-row"><span>Fecha</span><span>Vie 12, 18:30</span></div>
@@ -495,42 +542,6 @@
       </div>
       <div class="ticket-caption">Ejemplo ilustrativo del flujo de reserva</div>
     </div>
-  </div>
-</section>
-
-<section class="pain" id="problema">
-<svg class="bg-decor" style="bottom:-40px; left:-30px; width:160px; height:160px; opacity:0.06; transform:rotate(-28deg); color:var(--pole-red);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
-  <div class="wrap">
-    <div class="pain-intro">
-      <div>
-        <div class="eyebrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>Lo que nos cuentan al entrevistar salones</div>
-        <h2>El día a día que siShow viene a arreglar</h2>
-      </div>
-      <p>Antes de escribir una línea de código hablamos con peluqueros y barberos reales sobre cómo gestionan hoy sus citas. Esto es lo que aparece una y otra vez.</p>
-    </div>
-    <div class="stat-grid">
-      <div class="stat">
-        <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        <div class="num">40–90</div>
-        <div class="label">llamadas al día que interrumpen a alguien con las manos ocupadas en un cliente</div>
-      </div>
-      <div class="stat">
-        <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="9.5" y1="14.5" x2="14.5" y2="19.5"/><line x1="14.5" y1="14.5" x2="9.5" y2="19.5"/></svg>
-        <div class="num">~6</div>
-        <div class="label">plantones sin avisar a la semana, en un salón mediano — hueco que casi nunca se rellena</div>
-      </div>
-      <div class="stat">
-        <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
-        <div class="num">~20%</div>
-        <div class="label">de comisión sobre la reserva pagado hoy a plataformas de terceros, cita tras cita</div>
-      </div>
-      <div class="stat">
-        <svg class="stat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        <div class="num">12</div>
-        <div class="label">meses de permanencia habituales en esos contratos, mientras la plataforma se queda con tus clientes</div>
-      </div>
-    </div>
-    <div class="stat-source">Fuente: entrevistas de descubrimiento con barberías y peluquerías, StarProyect · cifras a confirmar en cada negocio concreto</div>
   </div>
 </section>
 
@@ -577,8 +588,8 @@
           <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
         </div>
         <div>
-          <h3>Analítica y asistente de IA</h3>
-          <p>Ingresos por servicio y un asistente que responde preguntas sobre tu propio negocio — incluido de serie, no como extra de pago.</p>
+          <h3>Analítica de tu negocio</h3>
+          <p>Ingresos por servicio, clientes que repiten, horas que se te quedan vacías — en gráficos que se entienden de un vistazo.</p>
           <span class="tag">Incluido siempre</span>
         </div>
       </div>
@@ -606,6 +617,41 @@
   </div>
 </section>
 
+<section class="ia-section" id="ia">
+  <div class="wrap ia-grid">
+    <div>
+      <div class="eyebrow ia-eyebrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>Incluido en el sistema</div>
+      <h2>Un agente de IA que aprende de tu negocio</h2>
+      <p class="ia-lede">No es un chatbot genérico pegado por fuera: va integrado en tu panel y aprende de tus propios datos — tus servicios, tus clientes, tus horas punta. Le preguntas en lenguaje normal y te contesta con lo que pasa en tu salón.</p>
+      <div class="ia-points">
+        <div class="ia-point">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Le preguntas como a un empleado, sin menús ni informes que aprender
+        </div>
+        <div class="ia-point">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 6l-9.5 9.5-5-5L1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          Cuanto más usas el sistema, mejor conoce tu negocio
+        </div>
+        <div class="ia-point">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Responde solo con los datos de tu salón, no busca nada fuera
+        </div>
+      </div>
+    </div>
+
+    <div class="ia-chat">
+      <div class="ia-chat-head">
+        <span class="ia-dot"></span>Asistente de siShow
+      </div>
+      <div class="ia-msg you">¿Qué servicio me ha dado más ingresos este mes?</div>
+      <div class="ia-msg bot">Corte + barba: 41 citas y el 38 % de tus ingresos. Ha subido un 12 % respecto al mes pasado.</div>
+      <div class="ia-msg you">¿Y qué clientes llevan tiempo sin venir?</div>
+      <div class="ia-msg bot">Tienes 14 clientes que no vuelven desde hace más de 3 meses. ¿Te preparo un mensaje para ellos?</div>
+      <div class="ia-chat-note">Conversación de ejemplo</div>
+    </div>
+  </div>
+</section>
+
 <section class="ledger-section" id="comparativa">
 <svg class="bg-decor" style="bottom:-40px; left:-30px; width:190px; height:190px; opacity:0.07; transform:rotate(-22deg); color:var(--brass);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
   <div class="wrap">
@@ -615,22 +661,27 @@
       <p>La mayoría de plataformas de reservas cobran una cuota y, además, un porcentaje de cada cliente nuevo que te traen — cita tras cita, mientras dure el contrato. siShow funciona distinto.</p>
     </div>
     <div class="model-grid">
-      <div class="model-card">
-        <div class="model-label">Modelo habitual del sector</div>
+      <div class="model-card them">
+        <div class="model-tag them">Así cobra el mercado</div>
+        <div class="model-title">Otras plataformas de reservas</div>
         <ul class="model-list">
-          <li><span class="dot bad"></span>Cuota mensual <strong>+ comisión</strong> por cada cliente nuevo</li>
-          <li><span class="dot bad"></span>La comisión sigue aplicándose cita tras cita</li>
-          <li><span class="dot bad"></span>Permanencia larga habitual antes de poder irte</li>
-          <li><span class="dot bad"></span>El cliente queda asociado al marketplace, no solo a tu salón</li>
+          <li><span class="mark bad"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>Cuota mensual <strong>+ comisión</strong> por cada cliente nuevo</li>
+          <li><span class="mark bad"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>La comisión sigue aplicándose cita tras cita</li>
+          <li><span class="mark bad"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>Permanencia larga antes de poder irte</li>
+          <li><span class="mark bad"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>El cliente queda asociado al marketplace, no solo a tu salón</li>
         </ul>
       </div>
+
+      <div class="model-vs">VS</div>
+
       <div class="model-card us">
-        <div class="model-label">siShow</div>
+        <div class="model-tag us">Así cobramos nosotros</div>
+        <div class="model-title">siShow<span class="dot">&nbsp;<svg width="0.6em" height="0.6em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg></span></div>
         <ul class="model-list">
-          <li><span class="dot good"></span>Una cuota fija, decidas lo que decidas cobrar tú</li>
-          <li><span class="dot good"></span><strong>Sin comisión</strong> por cliente, nunca</li>
-          <li><span class="dot good"></span>Sin permanencia obligatoria</li>
-          <li><span class="dot good"></span>Tus clientes viven en tu propia base de datos, no en la nuestra</li>
+          <li><span class="mark good"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Una cuota fija, cobres lo que cobres tú</li>
+          <li><span class="mark good"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><strong>Sin comisión</strong> por cliente, nunca</li>
+          <li><span class="mark good"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Sin permanencia obligatoria</li>
+          <li><span class="mark good"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Tus clientes viven en tu propia base de datos, no en la nuestra</li>
         </ul>
       </div>
     </div>
@@ -642,8 +693,8 @@
   <div class="wrap calc-grid">
     <div>
       <div class="eyebrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>Calculadora</div>
-      <h2 style="font-size:clamp(28px,4vw,38px);">¿Cuánto te está costando la comisión?</h2>
-      <p style="color:var(--ink-soft); font-size:15px; margin-top:14px; line-height:1.6;">Mueve los controles con tus propios números para ver lo que suele suponer un modelo por comisión al mes. Con siShow, sea cual sea tu volumen, esa parte es siempre cero.</p>
+      <h2 style="font-size:clamp(28px,4vw,38px);">Lo que te cobrarían otras plataformas</h2>
+      <p style="color:var(--ink-soft); font-size:15px; margin-top:14px; line-height:1.6;">Casi todas las plataformas de reservas se llevan un porcentaje de cada cliente nuevo que te traen. Mueve los controles con tus números y verás cuánto supone eso al mes. <strong>No es el precio de siShow</strong>: con nosotros esa parte es siempre cero.</p>
     </div>
     <div>
       <div class="calc-controls">
@@ -670,8 +721,8 @@
 <svg class="bg-decor" style="top:-30px; left:-20px; width:150px; height:150px; opacity:0.05; transform:rotate(18deg); color:var(--pole-red);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>  <div class="wrap">
     <div class="section-head">
       <div class="eyebrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>Cómo empezamos</div>
-      <h2>Te lo dejamos funcionando, no te lo dejamos solo</h2>
-      <p>Sabemos que no tienes tiempo de "cacharrear" con un panel nuevo entre cliente y cliente. Por eso el setup lo hacemos nosotros, contigo delante.</p>
+      <h2>Lo montamos nosotros y te acompañamos en todo el proceso</h2>
+      <p>Sabemos que no tienes tiempo de "cacharrear" con un panel nuevo entre cliente y cliente. Nosotros lo dejamos funcionando, contigo delante, y seguimos ahí después — no te damos un programa y te dejamos solo con él.</p>
     </div>
     <div class="steps">
       <div class="step">
@@ -688,8 +739,8 @@
       </div>
       <div class="step">
         <div class="n c-red">3</div>
-        <h3>Un mes de prueba real</h3>
-        <p>Reservas de verdad, recordatorios de verdad. Pagas solo si te ha servido.</p>
+        <h3>Empiezas a recibir reservas</h3>
+        <p>Tus clientes reservan desde tu web a cualquier hora, y el recordatorio sale solo antes de cada cita.</p>
         <div class="step-line"></div>
       </div>
       <div class="step">
@@ -710,11 +761,11 @@
     <h2>¿Le echamos un vistazo a tu agenda?</h2>
     <p>Nada de formularios largos. Escríbenos por WhatsApp y te enseñamos siShow con los datos de tu propio salón, esta semana.</p>
     <div class="hero-actions">
-      <a class="cta-btn" href="#" onclick="return false;">
+      <a class="cta-btn" href="https://wa.me/34622107116?text=Hola%2C%20os%20escribo%20desde%20la%20web%20de%20siShow.%20Tengo%20una%20peluquer%C3%ADa%20y%20me%20gustar%C3%ADa%20ver%20una%20demo%20con%20los%20datos%20de%20mi%20sal%C3%B3n.%20%C2%BFCu%C3%A1ndo%20os%20viene%20bien%3F" target="_blank" rel="noopener">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.32 4.95L2 22l5.2-1.36a9.9 9.9 0 004.84 1.24h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.03.28-3.45-.72-2.9-1.2-4.76-4.15-4.9-4.34-.14-.2-1.17-1.55-1.17-2.96 0-1.4.74-2.09 1-2.38.26-.28.57-.35.76-.35.2 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .9 2.15.08.15.13.32.02.52-.1.2-.16.32-.32.5-.16.18-.34.4-.48.54-.16.16-.33.33-.14.65.19.32.85 1.4 1.83 2.27 1.26 1.12 2.32 1.47 2.64 1.63.32.16.5.14.7-.08.18-.22.8-.93 1.01-1.25.2-.32.4-.27.68-.16.28.1 1.76.83 2.06.98.3.15.5.22.58.35.08.13.08.75-.16 1.43z"/></svg>
         Escribir por WhatsApp
       </a>
-      <a class="cta-btn cta-ghost" href="mailto:hola@sishow.example">Escribir por email</a>
+      <a class="cta-btn cta-ghost" href="mailto:infosishow@gmail.com?subject=Quiero%20ver%20una%20demo%20de%20siShow&amp;body=Hola%2C%0A%0AOs%20escribo%20desde%20la%20web%20de%20siShow.%20Tengo%20una%20peluquer%C3%ADa%20y%20me%20gustar%C3%ADa%20ver%20c%C3%B3mo%20funcionar%C3%ADa%20con%20la%20informaci%C3%B3n%20de%20mi%20sal%C3%B3n.%0A%0ANombre%20del%20negocio%3A%0ACiudad%3A%0ATel%C3%A9fono%20de%20contacto%3A%0A%0AGracias.">Escribir por email</a>
     </div>
   </div>
 </section>
@@ -755,13 +806,15 @@
     const comision = clientes * ticket * rate;
 
     results.innerHTML = `
-      <div class="calc-row">
-        <div class="who">Modelo por comisión<small>${comisionEl.value}% sobre clientes nuevos</small></div>
-        <div class="amount mono">${fmt(comision)}<span style="font-size:11px; color:var(--ink-faint); font-weight:400;">/mes</span></div>
+      <div class="calc-card them">
+        <div class="calc-card-tag them">Con otra plataforma</div>
+        <div class="calc-amount">${fmt(comision)}<span>al mes solo en comisiones</span></div>
+        <div class="calc-card-note">${comisionEl.value} % de cada cliente nuevo que te traen</div>
       </div>
-      <div class="calc-row us">
-        <div class="who">siShow<small>cuota fija, sin comisión</small></div>
-        <div class="amount mono">0,00 €<span style="font-size:11px; color:var(--ink-faint); font-weight:400;">/mes en comisión</span></div>
+      <div class="calc-card us">
+        <div class="calc-card-tag us">Con siShow</div>
+        <div class="calc-amount">0 €<span>al mes en comisiones</span></div>
+        <div class="calc-card-note">Pagas una cuota fija, tengas las citas que tengas.</div>
       </div>`;
   }
 
