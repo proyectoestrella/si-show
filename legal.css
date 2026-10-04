@@ -1,0 +1,224 @@
+/* ═══════════════════════════════════════════════
+   siShow · hoja de estilos de las páginas legales
+   Compartida por aviso-legal.html, privacidad.html y cookies.html
+═══════════════════════════════════════════════ */
+
+:root {
+  --bg:      #FAFAF8;
+  --bg-2:    #F2EFE9;
+  --ink:     #16120D;
+  --ink-2:   #5E564E;
+  --ink-3:   #A99E92;
+  --gold:    #C48C30;
+  --gold-xt: #FDF9EF;
+  --gold-tx: #8A5E0E;
+  --border:  #E0DDD6;
+  --dark:    #0C1018;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:      #100E0A;
+    --bg-2:    #191511;
+    --ink:     #F0EDE5;
+    --ink-2:   #ADA49A;
+    --ink-3:   #6A6358;
+    --gold:    #D4A040;
+    --gold-xt: #1A1508;
+    --gold-tx: #D4A040;
+    --border:  #2E2924;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:      #100E0A;
+  --bg-2:    #191511;
+  --ink:     #F0EDE5;
+  --ink-2:   #ADA49A;
+  --ink-3:   #6A6358;
+  --gold:    #D4A040;
+  --gold-xt: #1A1508;
+  --gold-tx: #D4A040;
+  --border:  #2E2924;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+a { color: inherit; }
+a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ── Cabecera oscura ────────────────────────── */
+.lg-header {
+  background: var(--dark);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.lg-header-row {
+  max-width: 780px; margin: 0 auto;
+  padding: 1.125rem clamp(1.25rem, 5vw, 2rem);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem;
+}
+.lg-logo {
+  font-family: 'Fraunces', Georgia, serif;
+  font-optical-sizing: auto;
+  font-size: 1.375rem; font-weight: 700;
+  letter-spacing: -.03em;
+  color: #F0EDE6; text-decoration: none;
+}
+.lg-logo .dot { color: #C48C30; }
+.lg-back {
+  font-size: .8125rem; font-weight: 500;
+  color: rgba(240,237,230,.6);
+  text-decoration: none;
+  transition: color .15s;
+}
+.lg-back:hover { color: rgba(240,237,230,.95); }
+
+/* ── Encabezado de página ───────────────────── */
+.lg-hero {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-2);
+}
+.lg-hero-inner {
+  max-width: 780px; margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 5vw, 2rem);
+}
+.lg-eyebrow {
+  font-size: .6875rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--gold-tx); margin-bottom: .75rem;
+}
+.lg-hero h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-optical-sizing: auto;
+  font-size: clamp(2rem, 5vw, 2.875rem);
+  font-weight: 700; line-height: 1.08;
+  letter-spacing: -.03em; text-wrap: balance;
+  color: var(--ink);
+}
+.lg-updated {
+  display: inline-block; margin-top: 1.125rem;
+  font-size: .75rem; font-weight: 600;
+  color: var(--gold-tx);
+  background: var(--gold-xt);
+  border: 1px solid var(--border);
+  padding: .3125rem .75rem; border-radius: 999px;
+}
+
+/* ── Cuerpo del texto legal ─────────────────── */
+.lg-body {
+  max-width: 780px; margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 3.75rem) clamp(1.25rem, 5vw, 2rem) 4rem;
+}
+.lg-body > * + * { margin-top: 1.125rem; }
+
+.lg-body h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-optical-sizing: auto;
+  font-size: 1.3125rem; font-weight: 700;
+  letter-spacing: -.02em; line-height: 1.25;
+  color: var(--ink);
+  margin-top: 2.75rem; text-wrap: balance;
+}
+.lg-body h2:first-child { margin-top: 0; }
+
+.lg-body p, .lg-body li {
+  font-size: .9375rem;
+  color: var(--ink-2);
+  line-height: 1.75;
+  max-width: 68ch;
+}
+.lg-body strong { color: var(--ink); font-weight: 600; }
+
+.lg-body ul, .lg-body ol {
+  padding-left: 1.25rem;
+  display: flex; flex-direction: column; gap: .5rem;
+}
+.lg-body li::marker { color: var(--gold); }
+
+.lg-body a:not(.lg-back) {
+  color: var(--gold-tx);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+.lg-body a:not(.lg-back):hover { text-decoration-thickness: 2px; }
+
+/* Bloque de identificación del responsable */
+.lg-ident {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 1.25rem 1.375rem;
+}
+.lg-ident dl {
+  display: grid; grid-template-columns: auto 1fr;
+  gap: .5rem 1.25rem;
+  font-size: .875rem;
+}
+@media (max-width: 480px) {
+  .lg-ident dl { grid-template-columns: 1fr; gap: .125rem; }
+  .lg-ident dd { margin-bottom: .625rem; }
+}
+.lg-ident dt {
+  font-size: .6875rem; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase;
+  color: var(--ink-3); padding-top: .2rem;
+}
+.lg-ident dd { color: var(--ink); font-weight: 500; }
+
+/* Definiciones dentro del texto (tratamiento / finalidad / base) */
+.lg-deflist {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.lg-deflist > div {
+  display: grid; grid-template-columns: 11rem 1fr;
+  gap: 1rem;
+  padding: .875rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+.lg-deflist > div:last-child { border-bottom: none; }
+@media (max-width: 560px) {
+  .lg-deflist > div { grid-template-columns: 1fr; gap: .25rem; }
+}
+.lg-deflist dt {
+  font-size: .6875rem; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase;
+  color: var(--gold-tx); padding-top: .25rem;
+}
+.lg-deflist dd { font-size: .9375rem; color: var(--ink-2); line-height: 1.7; }
+
+/* ── Pie ────────────────────────────────────── */
+.lg-footer {
+  background: #08090E;
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+.lg-footer-inner {
+  max-width: 780px; margin: 0 auto;
+  padding: 2rem clamp(1.25rem, 5vw, 2rem);
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 1rem;
+}
+.lg-footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.lg-footer-links a, .lg-footer-meta {
+  font-size: .8125rem;
+  color: rgba(240,237,230,.42);
+  text-decoration: none;
+}
+.lg-footer-links a:hover { color: rgba(240,237,230,.8); }
+.lg-footer-links a[aria-current="page"] { color: #C48C30; }
+.lg-footer-meta { font-size: .75rem; color: rgba(240,237,230,.3); }
