@@ -50,6 +50,9 @@
   --gold-lt:  #FBF0DC;
   --gold-xt:  #FDF9EF;
   --gold-tx:  #8A5E0E;
+  --fresh:    #2F7A50;
+  --fresh-tx: #1F5536;
+  --fresh-lt: #E3F2E8;
   --white:    #FFFFFF;
   --border:   #E0DDD6;
   --bord-2:   #CCC8C0;
@@ -69,6 +72,9 @@
     --gold-lt: #2A2010;
     --gold-xt: #1A1508;
     --gold-tx: #D4A040;
+    --fresh:    #4FAE7C;
+    --fresh-tx: #4FAE7C;
+    --fresh-lt: #15301F;
     --white:   #1C1814;
     --border:  #2E2924;
     --bord-2:  #3A3530;
@@ -86,6 +92,9 @@
   --gold-lt: #2A2010;
   --gold-xt: #1A1508;
   --gold-tx: #D4A040;
+  --fresh:    #4FAE7C;
+  --fresh-tx: #4FAE7C;
+  --fresh-lt: #15301F;
   --white:   #1C1814;
   --border:  #2E2924;
   --bord-2:  #3A3530;
@@ -103,6 +112,7 @@ body {
   line-height: 1.6;
 }
 a { color: inherit; }
+[hidden] { display: none !important; }
 
 /* Foco visible — accesibilidad */
 a:focus-visible, button:focus-visible {
@@ -399,6 +409,53 @@ footer a:focus-visible,
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
+
+/* Cabecera "tijeras" — motivo propio del sector, reemplaza el bloque de texto suelto */
+.scissors-head {
+  margin-bottom: 3rem;
+}
+.scissors-line {
+  position: relative;
+  display: flex; align-items: center; gap: 1rem;
+  margin: 1.75rem 0 1.5rem;
+}
+.scissors-line::before {
+  content: '';
+  flex: 1; height: 2px;
+  background-image: linear-gradient(to right, var(--bord-2) 0 10px, transparent 10px 18px);
+  background-size: 18px 2px;
+  background-repeat: repeat-x;
+}
+.scissors-icon {
+  flex-shrink: 0;
+  width: 34px; height: 34px;
+  color: var(--fresh-tx);
+  transform-origin: 50% 50%;
+  transition: transform .5s var(--ease, cubic-bezier(.22,1,.36,1));
+}
+.scissors-head.is-cut .scissors-icon {
+  transform: translateX(6px) rotate(-6deg);
+}
+.scissors-line::after {
+  content: '';
+  flex: 1; height: 2px;
+  background: var(--bord-2);
+}
+.pain-pills {
+  display: flex; flex-wrap: wrap; gap: .625rem;
+  margin-bottom: 0;
+}
+.pain-pill {
+  font-size: .8125rem; font-weight: 600; color: var(--ink-2);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: .5rem 1rem; border-radius: 999px;
+}
+.scissors-lead { margin-bottom: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .scissors-icon { transition: none; }
+}
+
 .pain-grid {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem;
 }
@@ -422,7 +479,7 @@ footer a:focus-visible,
   display: flex; align-items: center; gap: .5rem;
   font-size: .6875rem; font-weight: 700;
   letter-spacing: .08em; text-transform: uppercase;
-  color: var(--gold-tx);
+  color: var(--fresh-tx);
 }
 .pain-arrow::before, .pain-arrow::after {
   content: ''; flex: 1; height: 1px; background: var(--border);
@@ -459,12 +516,100 @@ footer a:focus-visible,
   width: 22px; height: 22px; stroke: var(--gold-tx); fill: none;
   stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round;
 }
+.feat-ico.fresh { background: var(--fresh-lt); }
+.feat-ico.fresh svg { stroke: var(--fresh-tx); }
 .feat-title {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: .9375rem; font-weight: 700;
   color: var(--ink); margin-bottom: .375rem;
 }
 .feat-desc { font-size: .875rem; color: var(--ink-2); line-height: 1.65; }
+
+/* ═══════════════════════════════════════════════
+   CALCULADORA DE TIEMPO
+═══════════════════════════════════════════════ */
+.calc-bg { background: var(--bg); }
+.calc-card {
+  display: grid; grid-template-columns: 1.05fr 1fr;
+  border: 1px solid var(--border); border-radius: 18px;
+  overflow: hidden; margin-top: 2.5rem;
+}
+@media (max-width: 820px) { .calc-card { grid-template-columns: 1fr; } }
+
+.calc-controls { padding: clamp(1.75rem, 3.5vw, 2.5rem); background: var(--white); }
+.calc-field + .calc-field { margin-top: 1.75rem; }
+.calc-field-top {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 1rem; margin-bottom: .125rem;
+}
+.calc-label { font-size: .875rem; font-weight: 700; color: var(--ink); }
+.calc-val {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.25rem; font-weight: 700; color: var(--gold-tx);
+  letter-spacing: -.02em; font-variant-numeric: tabular-nums;
+}
+.calc-help { font-size: .75rem; color: var(--ink-3); margin-bottom: .75rem; }
+
+.calc-range {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 22px; background: transparent; cursor: pointer; display: block;
+}
+.calc-range::-webkit-slider-runnable-track { height: 6px; border-radius: 99px; background: var(--bg-3); }
+.calc-range::-moz-range-track { height: 6px; border-radius: 99px; background: var(--bg-3); }
+.calc-range::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 20px; height: 20px; margin-top: -7px; border-radius: 50%;
+  background: var(--gold); border: 3px solid var(--white);
+  box-shadow: 0 1px 6px rgba(138,94,14,.35); transition: transform .12s;
+}
+.calc-range::-moz-range-thumb {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--gold); border: 3px solid var(--white);
+}
+.calc-range:hover::-webkit-slider-thumb { transform: scale(1.1); }
+.calc-range:focus-visible { outline: 2px solid var(--gold-tx); outline-offset: 3px; }
+
+.calc-result {
+  padding: clamp(1.75rem, 3.5vw, 2.5rem);
+  background: linear-gradient(145deg, #C48C30 0%, #A87220 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+}
+.calc-result-ey {
+  font-size: .6875rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(255,255,255,.75); margin-bottom: 1.25rem;
+}
+.calc-gauge { position: relative; width: 168px; height: 168px; margin-bottom: 1.25rem; }
+.calc-gauge svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.calc-gauge-track { fill: none; stroke: rgba(255,255,255,.22); stroke-width: 10; }
+.calc-gauge-fill {
+  fill: none; stroke: #fff; stroke-width: 10; stroke-linecap: round;
+  transition: stroke-dashoffset .35s var(--ease, cubic-bezier(.22,1,.36,1));
+}
+.calc-gauge-num {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.calc-gauge-h {
+  font-family: 'Fraunces', Georgia, serif; font-size: 2.25rem; font-weight: 700;
+  color: #fff; line-height: 1; letter-spacing: -.03em;
+  font-variant-numeric: tabular-nums;
+}
+.calc-gauge-unit { font-size: .75rem; color: rgba(255,255,255,.65); margin-top: .25rem; }
+.calc-equiv { font-size: .9375rem; color: rgba(255,255,255,.82); margin-bottom: 1.5rem; }
+.calc-equiv strong { color: #fff; }
+.calc-chips { display: flex; gap: .75rem; margin-bottom: 1.5rem; }
+.calc-chip {
+  background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.22);
+  border-radius: 10px; padding: .625rem .875rem; text-align: center; min-width: 88px;
+}
+.calc-chip b {
+  display: block; font-family: 'Fraunces', Georgia, serif; font-size: 1rem;
+  color: #fff; font-variant-numeric: tabular-nums;
+}
+.calc-chip span { font-size: .6875rem; color: rgba(255,255,255,.65); }
+.calc-disclaimer { font-size: .75rem; color: rgba(255,255,255,.6); line-height: 1.55; max-width: 32ch; }
+@media (prefers-reduced-motion: reduce) { .calc-gauge-fill { transition: none; } }
 
 /* ═══════════════════════════════════════════════
    PRECIOS
@@ -625,6 +770,36 @@ footer a:focus-visible,
 }
 .m-sent-note.is-on { display: flex; }
 .m-sent-note svg { flex-shrink: 0; margin-top: .1rem; }
+
+.m-agenda-toggle {
+  display: block; width: 100%; text-align: center;
+  background: none; border: none; cursor: pointer;
+  font-family: inherit; font-size: .75rem; font-weight: 700;
+  color: #8A5E0E; padding: .5rem 0 0;
+}
+.m-agenda-toggle[hidden] { display: none; }
+.m-agenda-toggle:hover { color: #C48C30; }
+
+.m-agenda {
+  margin-top: .625rem; padding: .75rem .875rem;
+  background: #FAFAF8; border: 1px solid #E0DDD6; border-radius: 10px;
+}
+.m-agenda-row {
+  display: flex; align-items: center; gap: .5rem;
+  padding: .375rem 0; font-size: .75rem; color: #16120D;
+}
+.m-agenda-time { font-weight: 700; font-variant-numeric: tabular-nums; width: 34px; flex-shrink: 0; }
+.m-agenda-what { flex: 1; color: #5E564E; }
+.m-agenda-row.is-new {
+  background: #FDF9EF; margin: 0 -.5rem; padding: .375rem .5rem; border-radius: 6px;
+}
+.m-agenda-row.is-new .m-agenda-what { color: #16120D; font-weight: 600; }
+.m-agenda-badge {
+  font-size: .625rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  color: #8A5E0E; background: #FBF0DC; padding: .125rem .4375rem; border-radius: 999px;
+  flex-shrink: 0;
+}
+.m-agenda-note { font-size: .6875rem; color: #A99E92; margin-top: .5rem; line-height: 1.45; }
 
 /* ═══════════════════════════════════════════════
    SELECTOR DE TAMAÑO DE EQUIPO (precios)
@@ -830,6 +1005,7 @@ footer {
     <a href="#" class="nav-logo" aria-label="siShow, inicio">si<span class="dot">S</span>how</a>
     <ul class="nav-links">
       <li><a href="#funciones">Funciones</a></li>
+      <li><a href="#calculadora">Haz tus números</a></li>
       <li><a href="#precios">Precios</a></li>
       <li><a href="#faq">Preguntas</a></li>
     </ul>
@@ -925,6 +1101,28 @@ footer {
               <span>Tu solicitud ha llegado al salón. Te avisarán en cuanto la confirmen.</span>
             </p>
 
+            <button type="button" class="m-agenda-toggle" id="demo-ver-agenda" hidden>
+              Ver cómo la ve el equipo ↓
+            </button>
+
+            <div class="m-agenda" id="demo-agenda" hidden>
+              <p class="m-lbl">Agenda de Valeria · miércoles</p>
+              <div class="m-agenda-row">
+                <span class="m-agenda-time">11:00</span>
+                <span class="m-agenda-what">Peinado · Sara G.</span>
+              </div>
+              <div class="m-agenda-row is-new">
+                <span class="m-agenda-time">12:00</span>
+                <span class="m-agenda-what">Corte + Tinte · tu solicitud</span>
+                <span class="m-agenda-badge">Pendiente</span>
+              </div>
+              <div class="m-agenda-row">
+                <span class="m-agenda-time">16:00</span>
+                <span class="m-agenda-what">Mechas · Lucía M.</span>
+              </div>
+              <p class="m-agenda-note">El hueco queda reservado para tu solicitud hasta que el salón la confirme o la rechace.</p>
+            </div>
+
             <p class="m-foot">
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="1.5" y="3" width="7" height="5.5" rx="1"/><path d="M3.5 3V2a1.5 1.5 0 013 0v1"/></svg>
               El salón confirma tu cita
@@ -941,11 +1139,22 @@ footer {
 <section class="pain-bg" aria-labelledby="h2-porque">
   <div class="inner">
     <p class="section-ey">Por qué siShow</p>
-    <h2 class="section-h2" id="h2-porque">Lo que te está<br>costando hoy</h2>
-    <p class="section-lead">
-      Tres situaciones habituales en los salones de belleza, las peluquerías y las barberías,
-      y cómo cambian con siShow.
-    </p>
+    <h2 class="section-h2" id="h2-porque">Corta con lo<br>que te frena.</h2>
+
+    <div class="scissors-head" id="scissors-head">
+      <p class="pain-pills">
+        <span class="pain-pill">Llamadas a deshora</span>
+        <span class="pain-pill">Citas por mensaje, sin orden</span>
+        <span class="pain-pill">Comisión que no para de subir</span>
+      </p>
+      <div class="scissors-line" aria-hidden="true">
+        <svg class="scissors-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+      </div>
+      <p class="section-lead scissors-lead">
+        Tres situaciones habituales en los salones de belleza, las peluquerías y las barberías,
+        y cómo cambian con siShow.
+      </p>
+    </div>
 
     <div class="pain-grid">
 
@@ -1009,7 +1218,7 @@ footer {
       </article>
 
       <article class="feat">
-        <div class="feat-ico">
+        <div class="feat-ico fresh">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><polyline points="9,14 11,16 15,12"/></svg>
         </div>
         <h3 class="feat-title">Agenda de equipo</h3>
@@ -1025,7 +1234,7 @@ footer {
       </article>
 
       <article class="feat">
-        <div class="feat-ico">
+        <div class="feat-ico fresh">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/><path d="M8 3.5A9 9 0 0 1 21 12"/></svg>
         </div>
         <h3 class="feat-title">Preguntas al reservar</h3>
@@ -1041,12 +1250,93 @@ footer {
       </article>
 
       <article class="feat">
-        <div class="feat-ico">
+        <div class="feat-ico fresh">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <h3 class="feat-title">Accesos por rol</h3>
         <p class="feat-desc">Gerente, subencargada, recepción y estilista. Cada persona ve y hace solo lo suyo. Invitación por correo.</p>
       </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ CALCULADORA DE TIEMPO ════════════════════════════════════════════ -->
+<section class="calc-bg" id="calculadora" aria-labelledby="h2-calc">
+  <div class="inner">
+    <p class="section-ey">Hazlo con tus números</p>
+    <h2 class="section-h2" id="h2-calc">¿Cuánto tiempo se<br>te va en gestionar citas?</h2>
+    <p class="section-lead">
+      Ajusta los datos a un mes normal de tu salón. Se calcula entero en tu navegador:
+      no se envía ni se guarda nada.
+    </p>
+
+    <div class="calc-card">
+
+      <div class="calc-controls">
+
+        <div class="calc-field">
+          <div class="calc-field-top">
+            <label class="calc-label" for="ct-citas">Citas que gestionas al día</label>
+            <output class="calc-val" id="ctv-citas" for="ct-citas">12</output>
+          </div>
+          <p class="calc-help">Llamadas, mensajes y anotaciones a mano.</p>
+          <input class="calc-range" type="range" id="ct-citas" min="2" max="40" step="1" value="12">
+        </div>
+
+        <div class="calc-field">
+          <div class="calc-field-top">
+            <label class="calc-label" for="ct-minutos">Minutos por cita</label>
+            <output class="calc-val" id="ctv-minutos" for="ct-minutos">5</output>
+          </div>
+          <p class="calc-help">Lo que tardas en apuntarla, confirmarla y recordarla.</p>
+          <input class="calc-range" type="range" id="ct-minutos" min="1" max="20" step="1" value="5">
+        </div>
+
+        <div class="calc-field">
+          <div class="calc-field-top">
+            <label class="calc-label" for="ct-dias">Días de trabajo al mes</label>
+            <output class="calc-val" id="ctv-dias" for="ct-dias">22</output>
+          </div>
+          <p class="calc-help">Los días que el salón abre y gestiona citas.</p>
+          <input class="calc-range" type="range" id="ct-dias" min="10" max="30" step="1" value="22">
+        </div>
+
+      </div>
+
+      <div class="calc-result">
+        <p class="calc-result-ey">Tiempo dedicado al mes</p>
+
+        <div class="calc-gauge">
+          <svg viewBox="0 0 168 168" aria-hidden="true">
+            <circle class="calc-gauge-track" cx="84" cy="84" r="74"/>
+            <circle class="calc-gauge-fill" id="ct-gauge" cx="84" cy="84" r="74"
+                    stroke-dasharray="464.96" stroke-dashoffset="464.96"/>
+          </svg>
+          <div class="calc-gauge-num">
+            <span class="calc-gauge-h" id="ct-horas">22</span>
+            <span class="calc-gauge-unit">h / mes</span>
+          </div>
+        </div>
+
+        <p class="calc-equiv">Equivale a <strong id="ct-jornadas">2,8</strong> jornadas de 8 horas</p>
+
+        <div class="calc-chips">
+          <div class="calc-chip">
+            <b id="ct-chip-dia">60 min</b>
+            <span>al día</span>
+          </div>
+          <div class="calc-chip">
+            <b id="ct-chip-citas">264</b>
+            <span>citas al mes</span>
+          </div>
+        </div>
+
+        <p class="calc-disclaimer">
+          Estimación del tiempo que dedicas hoy a gestionar citas a mano. No es un ahorro
+          garantizado: con siShow tú sigues revisando y confirmando cada solicitud.
+        </p>
+      </div>
 
     </div>
   </div>
@@ -1339,6 +1629,7 @@ footer {
         "@type": "ContactPoint",
         "contactType": "ventas",
         "email": "infosishow@gmail.com",
+        "telephone": "+34622107116",
         "availableLanguage": ["es"]
       }
     },
@@ -1565,8 +1856,10 @@ document.documentElement.lang = 'es';
   grupo('.m-pro');
   grupo('.m-slot:not(.off)');
 
-  var enviar = document.getElementById('demo-enviar');
-  var aviso  = document.getElementById('demo-aviso');
+  var enviar    = document.getElementById('demo-enviar');
+  var aviso     = document.getElementById('demo-aviso');
+  var verAgenda = document.getElementById('demo-ver-agenda');
+  var agenda    = document.getElementById('demo-agenda');
   var temporizador;
 
   function ocultarAviso() {
@@ -1577,6 +1870,8 @@ document.documentElement.lang = 'es';
       enviar.classList.remove('is-sent');
       enviar.textContent = 'Solicitar cita →';
     }
+    if (verAgenda) verAgenda.hidden = true;
+    if (agenda) agenda.hidden = true;
   }
 
   if (enviar && aviso) {
@@ -1584,10 +1879,83 @@ document.documentElement.lang = 'es';
       aviso.classList.add('is-on');
       enviar.classList.add('is-sent');
       enviar.textContent = 'Solicitud enviada';
+      if (verAgenda) verAgenda.hidden = false;
       clearTimeout(temporizador);
-      temporizador = setTimeout(ocultarAviso, 6000);
+      temporizador = setTimeout(ocultarAviso, 9000);
     });
   }
+
+  if (verAgenda && agenda) {
+    verAgenda.addEventListener('click', function () {
+      var abierta = !agenda.hidden;
+      agenda.hidden = abierta;
+      verAgenda.textContent = abierta ? 'Ver cómo la ve el equipo ↓' : 'Ocultar agenda ↑';
+      clearTimeout(temporizador);
+      temporizador = setTimeout(ocultarAviso, 9000);
+    });
+  }
+}());
+
+/* ── Tijeras: se mueven al entrar la sección en pantalla ── */
+(function () {
+  var head = document.getElementById('scissors-head');
+  if (!head) return;
+  var hecho = false;
+  new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (e) {
+      if (e.isIntersecting && !hecho) {
+        hecho = true;
+        head.classList.add('is-cut');
+      }
+    });
+  }, { threshold: .5 }).observe(head);
+}());
+
+/* ── Calculadora de tiempo ── */
+(function () {
+  var citas   = document.getElementById('ct-citas');
+  var minutos = document.getElementById('ct-minutos');
+  var dias    = document.getElementById('ct-dias');
+  if (!citas || !minutos || !dias) return;
+
+  var vCitas   = document.getElementById('ctv-citas');
+  var vMinutos = document.getElementById('ctv-minutos');
+  var vDias    = document.getElementById('ctv-dias');
+  var horasEl  = document.getElementById('ct-horas');
+  var jornadas = document.getElementById('ct-jornadas');
+  var chipDia  = document.getElementById('ct-chip-dia');
+  var chipMes  = document.getElementById('ct-chip-citas');
+  var gauge    = document.getElementById('ct-gauge');
+
+  var CIRCUNFERENCIA = 2 * Math.PI * 74;   // r=74
+  var TOPE_HORAS = 60;                      // circulo completo a partir de aqui
+
+  function pinta() {
+    var nCitas   = +citas.value;
+    var nMinutos = +minutos.value;
+    var nDias    = +dias.value;
+
+    var minDia  = nCitas * nMinutos;
+    var minMes  = minDia * nDias;
+    var horas   = minMes / 60;
+    var citasMes = nCitas * nDias;
+
+    vCitas.textContent   = nCitas;
+    vMinutos.textContent = nMinutos;
+    vDias.textContent    = nDias;
+
+    horasEl.textContent  = horas.toLocaleString('es-ES', { maximumFractionDigits: 1 });
+    jornadas.textContent = (horas / 8).toLocaleString('es-ES', { maximumFractionDigits: 1 });
+    chipDia.textContent  = minDia + ' min';
+    chipMes.textContent  = citasMes.toLocaleString('es-ES');
+
+    var frac = Math.min(horas / TOPE_HORAS, 1);
+    var offset = CIRCUNFERENCIA * (1 - frac);
+    gauge.setAttribute('stroke-dashoffset', offset.toFixed(1));
+  }
+
+  [citas, minutos, dias].forEach(function (c) { c.addEventListener('input', pinta); });
+  pinta();
 }());
 
 /* ── Precios: el plan destacado sigue al tamaño del equipo ── */
