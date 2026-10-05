@@ -70,6 +70,7 @@ a:focus-visible {
   gap: 1rem;
 }
 .lg-logo {
+  display: inline-flex; align-items: center; gap: .4375rem;
   font-family: 'Fraunces', Georgia, serif;
   font-optical-sizing: auto;
   font-size: 1.375rem; font-weight: 700;
@@ -77,6 +78,7 @@ a:focus-visible {
   color: #F0EDE6; text-decoration: none;
 }
 .lg-logo .dot { color: #C48C30; }
+.lg-logo svg { width: 23px; height: 23px; flex-shrink: 0; }
 .lg-back {
   font-size: .8125rem; font-weight: 500;
   color: rgba(240,237,230,.6);
