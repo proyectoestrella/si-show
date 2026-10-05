@@ -218,7 +218,10 @@ footer a:focus-visible,
 }
 @media (max-width: 860px) {
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-visual { order: -1; }
+  /* El titular va primero en móvil: la demo es la prueba de lo que
+     acabas de leer, no lo primero que ve alguien que no sabe qué es
+     siShow todavía. En escritorio los dos se ven a la vez, así que no
+     hace falta ningún orden especial ahí. */
 }
 
 .hero-eyebrow {
