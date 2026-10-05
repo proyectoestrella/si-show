@@ -8,6 +8,13 @@
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://sishow.es/">
 
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="siShow">
@@ -159,6 +166,7 @@ footer a:focus-visible,
 }
 
 .nav-logo {
+  display: flex; align-items: center; gap: .5rem;
   font-family: 'Fraunces', Georgia, serif;
   font-optical-sizing: auto;
   font-size: 1.5rem; font-weight: 700;
@@ -168,6 +176,7 @@ footer a:focus-visible,
 }
 .nav.is-scrolled .nav-logo { color: var(--ink); }
 .nav-logo .dot { color: #C48C30; }
+.nav-logo svg { width: 26px; height: 26px; flex-shrink: 0; }
 
 .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
 .nav-links a {
@@ -958,12 +967,14 @@ footer {
 @media (max-width: 760px) { .ft-inner { grid-template-columns: 1fr; gap: 2rem; } }
 
 .ft-logo {
+  display: inline-flex; align-items: center; gap: .4375rem;
   font-family: 'Fraunces', Georgia, serif;
   font-size: 1.375rem; font-weight: 700;
   color: #F0EDE6; text-decoration: none;
-  letter-spacing: -.025em; display: inline-block; margin-bottom: .75rem;
+  letter-spacing: -.025em; margin-bottom: .75rem;
 }
 .ft-logo .dot { color: #C48C30; }
+.ft-logo svg { width: 23px; height: 23px; flex-shrink: 0; }
 .ft-about {
   font-size: .8125rem; line-height: 1.7;
   max-width: 40ch; color: rgba(240,237,230,.42);
@@ -1002,7 +1013,24 @@ footer {
 <!-- ════════════════════════════════════════════ NAV ════════════════════════════════════════════ -->
 <header>
   <nav class="nav" id="nav" aria-label="Navegación principal">
-    <a href="#" class="nav-logo" aria-label="siShow, inicio">si<span class="dot">S</span>how</a>
+    <a href="#" class="nav-logo" aria-label="siShow, inicio">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <line x1="50" y1="46" x2="17" y2="9" stroke="#C48C30" stroke-width="7" stroke-linecap="round"/>
+        <line x1="50" y1="46" x2="83" y2="9" stroke="#C48C30" stroke-width="7" stroke-linecap="round"/>
+        <line x1="50" y1="46" x2="27" y2="75" stroke="#C48C30" stroke-width="7" stroke-linecap="round"/>
+        <line x1="50" y1="46" x2="73" y2="75" stroke="#C48C30" stroke-width="7" stroke-linecap="round"/>
+        <circle cx="27" cy="79" r="12.5" fill="none" stroke="#C48C30" stroke-width="7"/>
+        <circle cx="73" cy="79" r="12.5" fill="none" stroke="#C48C30" stroke-width="7"/>
+        <circle cx="50" cy="46" r="10.5" fill="#0C1018"/>
+        <circle cx="50" cy="46" r="10.5" fill="none" stroke="#C48C30" stroke-width="2"/>
+        <line x1="50" y1="38.5" x2="50" y2="34" stroke="#C48C30" stroke-width="2" stroke-linecap="round"/>
+        <line x1="50" y1="53.5" x2="50" y2="58" stroke="#C48C30" stroke-width="2" stroke-linecap="round"/>
+        <line x1="42.5" y1="46" x2="38" y2="46" stroke="#C48C30" stroke-width="2" stroke-linecap="round"/>
+        <line x1="57.5" y1="46" x2="62" y2="46" stroke="#C48C30" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="50" cy="46" r="2.75" fill="#C48C30"/>
+      </svg>
+      si<span class="dot">S</span>how
+    </a>
     <ul class="nav-links">
       <li><a href="#funciones">Funciones</a></li>
       <li><a href="#calculadora">Haz tus números</a></li>
@@ -1569,7 +1597,24 @@ footer {
 <footer>
   <div class="ft-inner">
     <div>
-      <a href="#" class="ft-logo">si<span class="dot">S</span>how</a>
+      <a href="#" class="ft-logo">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <line x1="50" y1="46" x2="17" y2="9" stroke="#C48C30" stroke-width="7" stroke-linecap="round"/>
+          <line x1="50" y1="46" x2="83" y2="9" stroke="#C48C30" stroke-width="7" stroke-linecap="round"/>
+          <line x1="50" y1="46" x2="27" y2="75" stroke="#C48C30" stroke-width="7" stroke-linecap="round"/>
+          <line x1="50" y1="46" x2="73" y2="75" stroke="#C48C30" stroke-width="7" stroke-linecap="round"/>
+          <circle cx="27" cy="79" r="12.5" fill="none" stroke="#C48C30" stroke-width="7"/>
+          <circle cx="73" cy="79" r="12.5" fill="none" stroke="#C48C30" stroke-width="7"/>
+          <circle cx="50" cy="46" r="10.5" fill="#08090E"/>
+          <circle cx="50" cy="46" r="10.5" fill="none" stroke="#C48C30" stroke-width="2"/>
+          <line x1="50" y1="38.5" x2="50" y2="34" stroke="#C48C30" stroke-width="2" stroke-linecap="round"/>
+          <line x1="50" y1="53.5" x2="50" y2="58" stroke="#C48C30" stroke-width="2" stroke-linecap="round"/>
+          <line x1="42.5" y1="46" x2="38" y2="46" stroke="#C48C30" stroke-width="2" stroke-linecap="round"/>
+          <line x1="57.5" y1="46" x2="62" y2="46" stroke="#C48C30" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="50" cy="46" r="2.75" fill="#C48C30"/>
+        </svg>
+        si<span class="dot">S</span>how
+      </a>
       <p class="ft-about">
         siShow es software de reservas y gestión de agenda para salones de belleza,
         peluquerías y barberías. Tu propia página de reservas, cuota fija al mes
