@@ -312,6 +312,12 @@ footer a:focus-visible,
   border: 1px solid rgba(255,255,255,.08);
   box-shadow: 0 24px 60px rgba(0,0,0,.55), 0 4px 16px rgba(0,0,0,.35);
 }
+/* En escritorio el hueco junto al titular es mucho más ancho que un móvil
+   real — ensanchamos solo aquí para que no se quede flotando fino y
+   perdido en ese espacio. El móvil (≤860px) conserva su proporción. */
+@media (min-width: 861px) {
+  .mockup { max-width: 420px; }
+}
 
 .m-header { background: #1A2B50; padding: 1.375rem 1.25rem 1.125rem; }
 .m-salon-name {
