@@ -1,1662 +1,38 @@
-<!doctype html>
-<html lang="es">
-<head>
+<!DOCTYPE html>
+
+<html data-theme="dark" lang="es"><head>
 <title>Software de reservas para peluquerías y barberías | siShow</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Software de reservas y agenda para salones de belleza, peluquerías y barberías. Cuota fija al mes, sin comisión por cliente. Pide una demo gratuita.">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-<link rel="canonical" href="https://sishow.es/">
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Reservas y agenda para peluquerías, barberías y salones de belleza. Cuota fija, sin comisión por cita. Reserva una reunión de 30 min sin compromiso." name="description"/>
+<meta content="index, follow, max-image-preview:large, max-snippet:-1" name="robots"/>
+<link href="https://sishow.es/" rel="canonical"/>
 <!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-<link rel="shortcut icon" href="/favicon.ico">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/favicon-48.png" rel="icon" sizes="48x48" type="image/png"/>
+<link href="/favicon-512.png" rel="icon" sizes="512x512" type="image/png"/>
+<link href="/favicon.ico" rel="shortcut icon"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
 <!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="siShow">
-<meta property="og:locale" content="es_ES">
-<meta property="og:url" content="https://sishow.es/">
-<meta property="og:title" content="Software de reservas para peluquerías y barberías | siShow">
-<meta property="og:description" content="Tu propia página de reservas, tu agenda y tus fichas. Cuota fija al mes, sin comisión por cliente. Pide una demo gratuita.">
-<meta property="og:image" content="https://sishow.es/og-sishow.jpg">
-<meta property="og:image:width" content="800">
-<meta property="og:image:height" content="420">
-<meta property="og:image:alt" content="siShow: tus clientes reservan online, tú sigues mandando">
-
+<meta content="website" property="og:type"/>
+<meta content="siShow" property="og:site_name"/>
+<meta content="es_ES" property="og:locale"/>
+<meta content="https://sishow.es/" property="og:url"/>
+<meta content="Software de reservas para peluquerías y barberías | siShow" property="og:title"/>
+<meta content="Tu propia página de reservas, tu agenda y tus fichas. Cuota fija al mes, sin comisión por cliente. Reserva una reunión de 30 min, sin compromiso." property="og:description"/>
+<meta content="https://sishow.es/og-sishow.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="siShow · Más agenda, menos lío. Tu web de reservas y tu agenda de equipo." property="og:image:alt"/>
 <!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Software de reservas para peluquerías y barberías | siShow">
-<meta name="twitter:description" content="Tu propia página de reservas, sin comisión por cliente. Cuota fija al mes.">
-<meta name="twitter:image" content="https://sishow.es/og-sishow.jpg">
-
-<meta name="theme-color" content="#0C1018">
-<meta name="author" content="siShow · Asociación Junior Empresa Daiko">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,300&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-/* ═══════════════════════════════════════════════
-   TOKENS — secciones claras (cuerpo)
-   Hero / CTA / Footer usan valores fijos (siempre oscuros)
-═══════════════════════════════════════════════ */
-:root {
-  --bg:       #FAFAF8;
-  --bg-2:     #F2EFE9;
-  --bg-3:     #E8E3DB;
-  --ink:      #16120D;
-  --ink-2:    #7B7167;
-  --ink-3:    #A99E92;
-  --gold:     #C48C30;
-  --gold-h:   #D4A040;
-  --gold-lt:  #FBF0DC;
-  --gold-xt:  #FDF9EF;
-  --gold-tx:  #8A5E0E;
-  --fresh:    #2F7A50;
-  --fresh-tx: #1F5536;
-  --fresh-lt: #E3F2E8;
-  --white:    #FFFFFF;
-  --border:   #E0DDD6;
-  --bord-2:   #CCC8C0;
-  --r:        12px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg:      #100E0A;
-    --bg-2:    #191511;
-    --bg-3:    #221E18;
-    --ink:     #F0EDE5;
-    --ink-2:   #9A9284;
-    --ink-3:   #6A6358;
-    --gold:    #D4A040;
-    --gold-h:  #E2B050;
-    --gold-lt: #2A2010;
-    --gold-xt: #1A1508;
-    --gold-tx: #D4A040;
-    --fresh:    #4FAE7C;
-    --fresh-tx: #4FAE7C;
-    --fresh-lt: #15301F;
-    --white:   #1C1814;
-    --border:  #2E2924;
-    --bord-2:  #3A3530;
-  }
-}
-:root[data-theme="dark"] {
-  --bg:      #100E0A;
-  --bg-2:    #191511;
-  --bg-3:    #221E18;
-  --ink:     #F0EDE5;
-  --ink-2:   #9A9284;
-  --ink-3:   #6A6358;
-  --gold:    #D4A040;
-  --gold-h:  #E2B050;
-  --gold-lt: #2A2010;
-  --gold-xt: #1A1508;
-  --gold-tx: #D4A040;
-  --fresh:    #4FAE7C;
-  --fresh-tx: #4FAE7C;
-  --fresh-lt: #15301F;
-  --white:   #1C1814;
-  --border:  #2E2924;
-  --bord-2:  #3A3530;
-}
-
-/* ═══════════════════════════════════════════════
-   RESET + BASE
-═══════════════════════════════════════════════ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
-body {
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  background: var(--bg);
-  color: var(--ink);
-  line-height: 1.6;
-}
-a { color: inherit; }
-[hidden] { display: none !important; }
-
-/* Foco visible — accesibilidad */
-a:focus-visible, button:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-.hero-section a:focus-visible,
-.cta-section a:focus-visible,
-footer a:focus-visible,
-.nav a:focus-visible { outline-color: #D4A040; }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
-}
-
-/* Salto al contenido */
-.skip {
-  position: absolute; left: -9999px; top: 0; z-index: 400;
-  background: #C48C30; color: #fff;
-  padding: .75rem 1.25rem; border-radius: 0 0 8px 0;
-  font-size: .875rem; font-weight: 700; text-decoration: none;
-}
-.skip:focus { left: 0; }
-
-/* ═══════════════════════════════════════════════
-   NAV
-═══════════════════════════════════════════════ */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 300;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 clamp(1.25rem, 4vw, 3.5rem);
-  height: 62px;
-  background: transparent;
-  border-bottom: 1px solid transparent;
-  transition: background .28s ease, border-color .28s ease;
-}
-.nav.is-scrolled {
-  background: color-mix(in srgb, var(--bg) 92%, transparent);
-  border-color: var(--border);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.nav-logo {
-  display: flex; align-items: center; gap: .5rem;
-  font-family: 'Fraunces', Georgia, serif;
-  font-optical-sizing: auto;
-  font-size: 1.5rem; font-weight: 700;
-  letter-spacing: -0.03em;
-  color: #F0EDE6; text-decoration: none;
-  transition: color .2s;
-}
-.nav.is-scrolled .nav-logo { color: var(--ink); }
-.nav-logo .dot { color: #C48C30; }
-.nav-logo svg { width: 26px; height: 26px; flex-shrink: 0; }
-
-.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
-.nav-links a {
-  font-size: .875rem; font-weight: 500;
-  color: rgba(240,237,230,.65);
-  text-decoration: none; transition: color .2s;
-}
-.nav-links a:hover { color: rgba(240,237,230,.95); }
-.nav.is-scrolled .nav-links a { color: var(--ink-2); }
-.nav.is-scrolled .nav-links a:hover { color: var(--ink); }
-
-.nav-btn {
-  display: inline-flex; align-items: center;
-  background: #C48C30; color: #fff;
-  padding: .5rem 1.25rem; border-radius: 8px;
-  font-size: .875rem; font-weight: 600;
-  text-decoration: none; transition: background .15s;
-}
-.nav-btn:hover { background: #D4A040; }
-
-@media (max-width: 760px) { .nav-links { display: none; } }
-
-/* ═══════════════════════════════════════════════
-   HERO — siempre oscuro
-═══════════════════════════════════════════════ */
-.hero-section {
-  background:
-    radial-gradient(ellipse 65% 100% at 72% 55%, rgba(196,140,48,.11) 0%, transparent 62%),
-    radial-gradient(ellipse 40% 60% at 25% 30%, rgba(255,255,255,.025) 0%, transparent 55%),
-    #0C1018;
-  padding-top: 62px;
-}
-
-.hero-inner {
-  max-width: 1200px; margin: 0 auto;
-  padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 3.5rem) clamp(3.5rem, 7vw, 6rem);
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: clamp(2.5rem, 5vw, 5rem); align-items: center;
-}
-@media (max-width: 860px) {
-  .hero-inner { grid-template-columns: 1fr; }
-  /* El titular va primero en móvil: la demo es la prueba de lo que
-     acabas de leer, no lo primero que ve alguien que no sabe qué es
-     siShow todavía. En escritorio los dos se ven a la vez, así que no
-     hace falta ningún orden especial ahí. */
-}
-
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: .4rem;
-  font-size: .6875rem; font-weight: 700;
-  letter-spacing: .1em; text-transform: uppercase;
-  color: #C48C30;
-  border: 1px solid rgba(196,140,48,.3);
-  padding: .3125rem .75rem; border-radius: 999px;
-  margin-bottom: 1.5rem;
-}
-
-.hero-h1 {
-  font-family: 'Fraunces', Georgia, serif;
-  font-optical-sizing: auto;
-  font-size: clamp(2.75rem, 5.5vw, 4.25rem);
-  font-weight: 700; line-height: 1.06;
-  letter-spacing: -.035em; text-wrap: balance;
-  color: #F0EDE6; margin-bottom: 1.375rem;
-}
-.hero-h1 em { font-style: italic; font-weight: 300; color: #C48C30; }
-
-.hero-lead {
-  font-size: 1.0625rem; color: rgba(240,237,230,.62);
-  max-width: 44ch; line-height: 1.72; margin-bottom: 2.25rem;
-}
-
-.hero-actions {
-  display: flex; align-items: center; gap: 1rem;
-  flex-wrap: wrap; margin-bottom: 2.5rem;
-}
-
-.btn-gold {
-  display: inline-flex; align-items: center;
-  background: #C48C30; color: #fff;
-  padding: .875rem 2rem; border-radius: 9px;
-  font-size: 1rem; font-weight: 700; text-decoration: none;
-  transition: background .15s, box-shadow .15s;
-  box-shadow: 0 4px 18px rgba(196,140,48,.35);
-}
-.btn-gold:hover { background: #D4A040; box-shadow: 0 6px 24px rgba(196,140,48,.45); }
-
-.btn-ghost-light {
-  display: inline-flex; align-items: center; gap: .35rem;
-  color: rgba(240,237,230,.65);
-  font-size: .9375rem; font-weight: 500;
-  text-decoration: none; transition: color .15s;
-}
-.btn-ghost-light:hover { color: rgba(240,237,230,.9); }
-
-.hero-trust { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
-.trust-pill {
-  display: flex; align-items: center; gap: .4rem;
-  font-size: .8125rem; color: rgba(240,237,230,.55); font-weight: 500;
-}
-.trust-pill-icon {
-  width: 15px; height: 15px;
-  background: rgba(196,140,48,.2); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.trust-pill-icon svg {
-  width: 9px; height: 9px; stroke: #C48C30; fill: none;
-  stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
-}
-
-/* ═══════════════════════════════════════════════
-   MOCKUP
-═══════════════════════════════════════════════ */
-.hero-visual { display: flex; justify-content: center; position: relative; }
-
-.mockup-outer {
-  position: relative;
-  animation: float 5.5s ease-in-out infinite;
-  will-change: transform;
-}
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50%     { transform: translateY(-10px); }
-}
-.mockup-outer::before {
-  content: ''; position: absolute; inset: -20px;
-  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(196,140,48,.18) 0%, transparent 70%);
-  border-radius: 999px; z-index: -1;
-}
-
-.mockup {
-  background: #FAFAF8;
-  border-radius: 24px; overflow: hidden;
-  width: 100%; max-width: 330px;
-  border: 1px solid rgba(255,255,255,.08);
-  box-shadow: 0 24px 60px rgba(0,0,0,.55), 0 4px 16px rgba(0,0,0,.35);
-}
-/* En escritorio el hueco junto al titular es mucho más ancho que un móvil
-   real — ensanchamos solo aquí para que no se quede flotando fino y
-   perdido en ese espacio. El móvil (≤860px) conserva su proporción. */
-@media (min-width: 861px) {
-  .mockup { max-width: 470px; }
-}
-
-.m-header { background: #1A2B50; padding: 1.375rem 1.25rem 1.125rem; }
-.m-salon-name {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 1.125rem; font-weight: 600;
-  color: #fff; letter-spacing: -.02em;
-}
-.m-salon-sub { font-size: .75rem; color: rgba(255,255,255,.55); margin-top: .125rem; }
-.m-nc {
-  display: inline-flex; align-items: center; gap: .3rem; margin-top: .625rem;
-  background: rgba(196,140,48,.25);
-  border: 1px solid rgba(196,140,48,.4);
-  padding: .25rem .625rem; border-radius: 999px;
-  font-size: .6875rem; font-weight: 700; color: #D4A040;
-  letter-spacing: .04em; text-transform: uppercase;
-}
-
-.m-body { padding: 1rem 1.125rem 1.25rem; }
-.m-lbl {
-  font-size: .6875rem; font-weight: 700;
-  letter-spacing: .07em; text-transform: uppercase;
-  color: #A99E92; margin-bottom: .5rem;
-}
-.m-svcs { display: flex; flex-direction: column; gap: .375rem; margin-bottom: .875rem; }
-.m-svc {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: .5625rem .875rem;
-  border: 1.5px solid #E0DDD6; border-radius: 8px;
-  font-size: .875rem; font-weight: 500;
-  color: #16120D; background: #FAFAF8;
-}
-.m-svc.sel { border-color: #C48C30; background: #FDF9EF; color: #8A5E0E; }
-.m-svc-dur { font-size: .75rem; color: #A99E92; font-variant-numeric: tabular-nums; }
-.m-svc.sel .m-svc-dur { color: #C48C30; }
-
-.m-pros { display: flex; gap: .5rem; margin-bottom: .875rem; }
-.m-pro {
-  flex: 1; text-align: center; padding: .5rem .25rem;
-  border: 1.5px solid #E0DDD6; border-radius: 8px;
-  font-size: .8125rem; font-weight: 500;
-  color: #16120D; background: #FAFAF8;
-}
-.m-pro.sel { border-color: #C48C30; background: #FDF9EF; color: #8A5E0E; }
-.m-pro-av {
-  width: 28px; height: 28px; border-radius: 50%;
-  background: #FBF0DC; margin: 0 auto .3rem;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: .875rem; color: #8A5E0E;
-}
-
-.m-slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: .3125rem; margin-bottom: 1rem; }
-.m-slot {
-  text-align: center; padding: .4375rem 0;
-  border: 1.5px solid #E0DDD6; border-radius: 7px;
-  font-size: .8125rem; font-weight: 500;
-  color: #16120D; background: #FAFAF8;
-  font-variant-numeric: tabular-nums;
-}
-.m-slot.sel { border-color: #C48C30; background: #C48C30; color: #fff; }
-.m-slot.off { opacity: .28; }
-
-.m-cta {
-  width: 100%; background: #C48C30; color: #fff;
-  padding: .8125rem; border-radius: 9px;
-  font-size: .9375rem; font-weight: 700;
-  text-align: center; border: none; letter-spacing: -.01em;
-}
-.m-foot {
-  display: flex; align-items: center; justify-content: center; gap: .35rem;
-  margin-top: .625rem; font-size: .6875rem; color: #A99E92;
-}
-
-/* ═══════════════════════════════════════════════
-   HELPERS DE SECCIÓN
-═══════════════════════════════════════════════ */
-.section-ey {
-  font-size: .6875rem; font-weight: 700;
-  letter-spacing: .1em; text-transform: uppercase;
-  color: var(--gold-tx); display: block; margin-bottom: .75rem;
-}
-.section-h2 {
-  font-family: 'Fraunces', Georgia, serif;
-  font-optical-sizing: auto;
-  font-size: clamp(1.875rem, 3.75vw, 2.625rem);
-  font-weight: 700; line-height: 1.1;
-  letter-spacing: -.028em; text-wrap: balance;
-  margin-bottom: .875rem; color: var(--ink);
-}
-.section-lead {
-  font-size: 1rem; color: var(--ink-2);
-  max-width: 58ch; line-height: 1.72; margin-bottom: 3rem;
-}
-.inner {
-  max-width: 1200px; margin: 0 auto;
-  padding: clamp(4rem, 7.5vw, 6.5rem) clamp(1.25rem, 4vw, 3.5rem);
-}
-
-/* ═══════════════════════════════════════════════
-   DOLOR → SOLUCIÓN
-═══════════════════════════════════════════════ */
-.pain-bg {
-  background: var(--bg-2);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-/* Cabecera "tijeras" — motivo propio del sector, reemplaza el bloque de texto suelto */
-.scissors-head {
-  margin-bottom: 3rem;
-}
-.scissors-line {
-  position: relative;
-  display: flex; align-items: center; gap: 1rem;
-  margin: 1.75rem 0 1.5rem;
-}
-.scissors-line::before {
-  content: '';
-  flex: 1; height: 2px;
-  background-image: linear-gradient(to right, var(--bord-2) 0 10px, transparent 10px 18px);
-  background-size: 18px 2px;
-  background-repeat: repeat-x;
-}
-.scissors-icon {
-  flex-shrink: 0;
-  width: 34px; height: 34px;
-  color: var(--fresh-tx);
-  transform-origin: 50% 50%;
-  transition: transform .5s var(--ease, cubic-bezier(.22,1,.36,1));
-}
-.scissors-head.is-cut .scissors-icon {
-  transform: translateX(6px) rotate(-6deg);
-}
-.scissors-line::after {
-  content: '';
-  flex: 1; height: 2px;
-  background: var(--bord-2);
-}
-.pain-pills {
-  display: flex; flex-wrap: wrap; gap: .625rem;
-  margin-bottom: 0;
-}
-.pain-pill {
-  font-size: .8125rem; font-weight: 600; color: var(--ink-2);
-  background: var(--bg);
-  border: 1px solid var(--border);
-  padding: .5rem 1rem; border-radius: 999px;
-}
-.scissors-lead { margin-bottom: 0; }
-@media (prefers-reduced-motion: reduce) {
-  .scissors-icon { transition: none; }
-}
-
-.pain-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem;
-}
-.pain-card {
-  background: var(--bg); border: 1px solid var(--border);
-  border-radius: 14px; padding: 1.625rem;
-  display: flex; flex-direction: column; gap: 1rem;
-}
-.pain-before {
-  background: var(--bg-3);
-  border-left: 3px solid var(--bord-2);
-  border-radius: 0 8px 8px 0; padding: .875rem 1rem;
-  font-size: .875rem; color: var(--ink-2); line-height: 1.6;
-}
-.pain-before-tag {
-  font-size: .6875rem; font-weight: 700;
-  letter-spacing: .07em; text-transform: uppercase;
-  color: var(--ink-3); margin-bottom: .4rem; display: block;
-}
-.pain-arrow {
-  display: flex; align-items: center; gap: .5rem;
-  font-size: .6875rem; font-weight: 700;
-  letter-spacing: .08em; text-transform: uppercase;
-  color: var(--fresh-tx);
-}
-.pain-arrow::before, .pain-arrow::after {
-  content: ''; flex: 1; height: 1px; background: var(--border);
-}
-.pain-after-title {
-  font-size: .9375rem; font-weight: 700;
-  color: var(--ink); line-height: 1.35;
-}
-.pain-after-desc {
-  font-size: .8125rem; color: var(--ink-2);
-  line-height: 1.6; margin-top: .375rem;
-}
-
-/* ═══════════════════════════════════════════════
-   FUNCIONES
-═══════════════════════════════════════════════ */
-.feat-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.25rem; margin-top: 2.75rem;
-}
-.feat {
-  padding: 1.625rem; border: 1px solid var(--border);
-  border-radius: 14px; background: var(--white);
-  transition: border-color .2s, transform .2s;
-}
-.feat:hover { border-color: rgba(196,140,48,.5); transform: translateY(-2px); }
-.feat-ico {
-  width: 44px; height: 44px;
-  background: var(--gold-xt); border-radius: 11px;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 1.125rem;
-}
-.feat-ico svg {
-  width: 22px; height: 22px; stroke: var(--gold-tx); fill: none;
-  stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round;
-}
-.feat-ico.fresh { background: var(--fresh-lt); }
-.feat-ico.fresh svg { stroke: var(--fresh-tx); }
-.feat-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: .9375rem; font-weight: 700;
-  color: var(--ink); margin-bottom: .375rem;
-}
-.feat-desc { font-size: .875rem; color: var(--ink-2); line-height: 1.65; }
-
-/* ═══════════════════════════════════════════════
-   CALCULADORA DE TIEMPO
-═══════════════════════════════════════════════ */
-.calc-bg { background: var(--bg); }
-.calc-card {
-  display: grid; grid-template-columns: 1.05fr 1fr;
-  border: 1px solid var(--border); border-radius: 18px;
-  overflow: hidden; margin-top: 2.5rem;
-}
-@media (max-width: 820px) { .calc-card { grid-template-columns: 1fr; } }
-
-.calc-controls { padding: clamp(1.75rem, 3.5vw, 2.5rem); background: var(--white); }
-.calc-field + .calc-field { margin-top: 1.75rem; }
-.calc-field-top {
-  display: flex; align-items: baseline; justify-content: space-between;
-  gap: 1rem; margin-bottom: .125rem;
-}
-.calc-label { font-size: .875rem; font-weight: 700; color: var(--ink); }
-.calc-val {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 1.25rem; font-weight: 700; color: var(--gold-tx);
-  letter-spacing: -.02em; font-variant-numeric: tabular-nums;
-}
-.calc-help { font-size: .75rem; color: var(--ink-3); margin-bottom: .75rem; }
-
-.calc-range {
-  -webkit-appearance: none; appearance: none;
-  width: 100%; height: 22px; background: transparent; cursor: pointer; display: block;
-}
-.calc-range::-webkit-slider-runnable-track { height: 6px; border-radius: 99px; background: var(--bg-3); }
-.calc-range::-moz-range-track { height: 6px; border-radius: 99px; background: var(--bg-3); }
-.calc-range::-webkit-slider-thumb {
-  -webkit-appearance: none; appearance: none;
-  width: 20px; height: 20px; margin-top: -7px; border-radius: 50%;
-  background: var(--gold); border: 3px solid var(--white);
-  box-shadow: 0 1px 6px rgba(138,94,14,.35); transition: transform .12s;
-}
-.calc-range::-moz-range-thumb {
-  width: 14px; height: 14px; border-radius: 50%;
-  background: var(--gold); border: 3px solid var(--white);
-}
-.calc-range:hover::-webkit-slider-thumb { transform: scale(1.1); }
-.calc-range:focus-visible { outline: 2px solid var(--gold-tx); outline-offset: 3px; }
-
-.calc-result {
-  padding: clamp(1.75rem, 3.5vw, 2.5rem);
-  background: linear-gradient(145deg, #C48C30 0%, #A87220 100%);
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center;
-}
-.calc-result-ey {
-  font-size: .6875rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-  color: rgba(255,255,255,.75); margin-bottom: 1.25rem;
-}
-.calc-gauge { position: relative; width: 168px; height: 168px; margin-bottom: 1.25rem; }
-.calc-gauge svg { width: 100%; height: 100%; transform: rotate(-90deg); }
-.calc-gauge-track { fill: none; stroke: rgba(255,255,255,.22); stroke-width: 10; }
-.calc-gauge-fill {
-  fill: none; stroke: #fff; stroke-width: 10; stroke-linecap: round;
-  transition: stroke-dashoffset .35s var(--ease, cubic-bezier(.22,1,.36,1));
-}
-.calc-gauge-num {
-  position: absolute; inset: 0;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-}
-.calc-gauge-h {
-  font-family: 'Fraunces', Georgia, serif; font-size: 2.25rem; font-weight: 700;
-  color: #fff; line-height: 1; letter-spacing: -.03em;
-  font-variant-numeric: tabular-nums;
-}
-.calc-gauge-unit { font-size: .75rem; color: rgba(255,255,255,.65); margin-top: .25rem; }
-.calc-equiv { font-size: .9375rem; color: rgba(255,255,255,.82); margin-bottom: 1.5rem; }
-.calc-equiv strong { color: #fff; }
-.calc-chips { display: flex; gap: .75rem; margin-bottom: 1.5rem; }
-.calc-chip {
-  background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.22);
-  border-radius: 10px; padding: .625rem .875rem; text-align: center; min-width: 88px;
-}
-.calc-chip b {
-  display: block; font-family: 'Fraunces', Georgia, serif; font-size: 1rem;
-  color: #fff; font-variant-numeric: tabular-nums;
-}
-.calc-chip span { font-size: .6875rem; color: rgba(255,255,255,.65); }
-.calc-disclaimer { font-size: .75rem; color: rgba(255,255,255,.6); line-height: 1.55; max-width: 32ch; }
-@media (prefers-reduced-motion: reduce) { .calc-gauge-fill { transition: none; } }
-
-/* ═══════════════════════════════════════════════
-   PRECIOS
-═══════════════════════════════════════════════ */
-.pricing-bg {
-  background: var(--bg-2);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.pricing-note {
-  display: inline-flex; align-items: center; gap: .4rem;
-  font-size: .8125rem; color: var(--ink-2); font-weight: 500;
-  background: var(--bg-2); border: 1px solid var(--border);
-  padding: .5rem 1rem; border-radius: 8px; margin-bottom: 2.75rem;
-}
-.plan-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.375rem;
-}
-.plan {
-  background: var(--white); border: 1px solid var(--border);
-  border-radius: 16px; padding: 2rem 1.875rem;
-  display: flex; flex-direction: column;
-}
-.plan.gold {
-  background: linear-gradient(145deg, #C48C30 0%, #A87220 100%);
-  border-color: #C48C30;
-  box-shadow: 0 8px 40px rgba(196,140,48,.3), 0 2px 8px rgba(196,140,48,.2);
-}
-.plan-badge {
-  font-size: .6875rem; font-weight: 700;
-  letter-spacing: .07em; text-transform: uppercase;
-  background: rgba(255,255,255,.2); color: rgba(255,255,255,.9);
-  display: inline-block; align-self: flex-start;
-  padding: .25rem .625rem; border-radius: 5px; margin-bottom: .875rem;
-}
-.plan-name {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: .75rem; font-weight: 700;
-  letter-spacing: .09em; text-transform: uppercase;
-  color: var(--ink-2); margin-bottom: .5rem;
-}
-.plan.gold .plan-name { color: rgba(255,255,255,.65); }
-.plan-price {
-  font-family: 'Fraunces', Georgia, serif;
-  font-optical-sizing: auto;
-  font-size: 3rem; font-weight: 700;
-  letter-spacing: -.04em; line-height: 1;
-  color: var(--ink); font-variant-numeric: tabular-nums;
-  display: flex; align-items: flex-start; gap: .12rem; margin-bottom: .25rem;
-}
-.plan.gold .plan-price { color: #fff; }
-.plan-price sup {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 1.25rem; font-weight: 700;
-  vertical-align: super; letter-spacing: 0; margin-top: .35rem;
-}
-.plan-period { font-size: .8125rem; color: var(--ink-2); }
-.plan.gold .plan-period { color: rgba(255,255,255,.62); }
-.plan-sep { height: 1px; background: var(--border); margin: 1.125rem 0; }
-.plan.gold .plan-sep { background: rgba(255,255,255,.2); }
-.plan-setup { font-size: .8125rem; color: var(--ink-2); margin-bottom: 1.5rem; }
-.plan.gold .plan-setup { color: rgba(255,255,255,.62); }
-.plan-feats {
-  list-style: none; flex: 1;
-  display: flex; flex-direction: column; gap: .625rem; margin-bottom: 2rem;
-}
-.plan-feats li {
-  display: flex; align-items: flex-start; gap: .625rem;
-  font-size: .875rem; color: var(--ink); line-height: 1.4;
-}
-.plan.gold .plan-feats li { color: rgba(255,255,255,.9); }
-.chk {
-  width: 17px; height: 17px; min-width: 17px;
-  border-radius: 50%; background: var(--gold-lt);
-  display: flex; align-items: center; justify-content: center; margin-top: .1rem;
-}
-.plan.gold .chk { background: rgba(255,255,255,.22); }
-.chk svg {
-  width: 10px; height: 10px; stroke: var(--gold-tx); fill: none;
-  stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
-}
-.plan.gold .chk svg { stroke: #fff; }
-.plan-cta {
-  display: block; text-align: center; padding: .8125rem;
-  border-radius: 9px; font-size: .9375rem; font-weight: 700;
-  text-decoration: none; border: 1.5px solid var(--gold);
-  color: var(--gold-tx); transition: all .15s;
-}
-.plan-cta:hover { background: var(--gold-lt); }
-.plan.gold .plan-cta {
-  background: rgba(255,255,255,.2);
-  border-color: rgba(255,255,255,.4); color: #fff;
-}
-.plan.gold .plan-cta:hover { background: rgba(255,255,255,.3); }
-
-/* ═══════════════════════════════════════════════
-   FAQ
-═══════════════════════════════════════════════ */
-.faq-bg { background: var(--bg); }
-.faq-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.25rem 2.5rem; margin-top: 2.5rem;
-}
-.faq-item {
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid var(--border);
-}
-.faq-q {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: .9375rem; font-weight: 700;
-  color: var(--ink); line-height: 1.4; margin-bottom: .4375rem;
-  display: flex; gap: .5rem;
-}
-.faq-q::before {
-  content: '·'; color: var(--gold);
-  font-weight: 700; flex-shrink: 0;
-}
-.faq-a { font-size: .875rem; color: var(--ink-2); line-height: 1.68; }
-
-/* ═══════════════════════════════════════════════
-   MOCKUP INTERACTIVO — estados y botones
-═══════════════════════════════════════════════ */
-.m-demo-chip {
-  position: absolute; top: .75rem; right: .75rem; z-index: 2;
-  font-size: .5625rem; font-weight: 700;
-  letter-spacing: .1em; text-transform: uppercase;
-  background: rgba(12,16,24,.72); color: rgba(240,237,230,.85);
-  border: 1px solid rgba(255,255,255,.18);
-  padding: .1875rem .4375rem; border-radius: 4px;
-  backdrop-filter: blur(4px);
-}
-
-/* Los selectores del mockup son botones reales */
-.m-svc, .m-pro, .m-slot {
-  font-family: inherit; text-align: inherit;
-  cursor: pointer; width: 100%;
-  transition: border-color .14s, background-color .14s, color .14s, transform .1s;
-}
-.m-svc:hover:not(.sel), .m-pro:hover:not(.sel), .m-slot:hover:not(.sel):not(.off) {
-  border-color: #C9B894;
-}
-.m-svc:active, .m-pro:active, .m-slot:active:not(.off) { transform: scale(.985); }
-.m-slot.off { cursor: not-allowed; }
-.m-svc:focus-visible, .m-pro:focus-visible, .m-slot:focus-visible, .m-cta:focus-visible {
-  outline: 2px solid #1A2B50; outline-offset: 2px;
-}
-.m-cta { cursor: pointer; transition: background-color .18s; }
-.m-cta:hover { background: #D4A040; }
-
-/* Estado de confirmación tras pulsar «Solicitar cita» */
-.m-cta.is-sent { background: #1A2B50; }
-.m-sent-note {
-  display: none; align-items: flex-start; gap: .4rem;
-  margin-top: .625rem; padding: .5rem .625rem;
-  background: #FDF9EF; border: 1px solid #EBD9B4;
-  border-radius: 7px;
-  font-size: .6875rem; line-height: 1.45; color: #8A5E0E;
-}
-.m-sent-note.is-on { display: flex; }
-.m-sent-note svg { flex-shrink: 0; margin-top: .1rem; }
-
-.m-agenda-toggle {
-  display: block; width: 100%; text-align: center;
-  background: none; border: none; cursor: pointer;
-  font-family: inherit; font-size: .75rem; font-weight: 700;
-  color: #8A5E0E; padding: .5rem 0 0;
-}
-.m-agenda-toggle[hidden] { display: none; }
-.m-agenda-toggle:hover { color: #C48C30; }
-
-.m-agenda {
-  margin-top: .625rem; padding: .75rem .875rem;
-  background: #FAFAF8; border: 1px solid #E0DDD6; border-radius: 10px;
-}
-.m-agenda-row {
-  display: flex; align-items: center; gap: .5rem;
-  padding: .375rem 0; font-size: .75rem; color: #16120D;
-}
-.m-agenda-time { font-weight: 700; font-variant-numeric: tabular-nums; width: 34px; flex-shrink: 0; }
-.m-agenda-what { flex: 1; color: #5E564E; }
-.m-agenda-row.is-new {
-  background: #FDF9EF; margin: 0 -.5rem; padding: .375rem .5rem; border-radius: 6px;
-}
-.m-agenda-row.is-new .m-agenda-what { color: #16120D; font-weight: 600; }
-.m-agenda-badge {
-  font-size: .625rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
-  color: #8A5E0E; background: #FBF0DC; padding: .125rem .4375rem; border-radius: 999px;
-  flex-shrink: 0;
-}
-.m-agenda-note { font-size: .6875rem; color: #A99E92; margin-top: .5rem; line-height: 1.45; }
-
-/* ═══════════════════════════════════════════════
-   SELECTOR DE TAMAÑO DE EQUIPO (precios)
-═══════════════════════════════════════════════ */
-.team-picker {
-  display: flex; align-items: center; flex-wrap: wrap;
-  gap: 1rem 1.5rem;
-  padding: 1.125rem 1.375rem;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  margin-bottom: 2rem;
-}
-.team-q {
-  font-size: .875rem; font-weight: 600; color: var(--ink);
-}
-.team-opts {
-  display: flex; gap: .375rem;
-  background: var(--bg-2);
-  padding: .25rem; border-radius: 9px;
-}
-.team-opt {
-  font-family: inherit;
-  font-size: .8125rem; font-weight: 600;
-  color: var(--ink-2); background: transparent;
-  border: none; cursor: pointer;
-  padding: .4375rem .9375rem; border-radius: 7px;
-  transition: background-color .16s, color .16s, box-shadow .16s;
-  white-space: nowrap;
-}
-.team-opt:hover { color: var(--ink); }
-.team-opt[aria-pressed="true"] {
-  background: var(--white); color: var(--gold-tx);
-  box-shadow: 0 1px 4px rgba(22,18,13,.1);
-}
-.team-opt:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-
-/* El plan destacado se mueve con transición */
-.plan {
-  transition: background .3s ease, border-color .3s ease, box-shadow .3s ease;
-}
-.plan-badge { display: none; }
-.plan.gold .plan-badge { display: inline-block; }
-
-@media (prefers-reduced-motion: reduce) {
-  .plan, .team-opt { transition: none; }
-}
-
-/* ═══════════════════════════════════════════════
-   FAQ PLEGABLE (nativo, sin JavaScript)
-═══════════════════════════════════════════════ */
-.faq-item {
-  padding: 0; border-bottom: 1px solid var(--border);
-}
-.faq-item > summary {
-  display: flex; align-items: flex-start; gap: .75rem;
-  padding: 1rem 0;
-  cursor: pointer; list-style: none;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: .9375rem; font-weight: 700;
-  color: var(--ink); line-height: 1.4;
-  transition: color .15s;
-}
-.faq-item > summary::-webkit-details-marker { display: none; }
-.faq-item > summary:hover { color: var(--gold-tx); }
-.faq-qt {
-  font: inherit; color: inherit; margin: 0;
-  text-wrap: pretty;
-}
-.faq-item > summary:focus-visible {
-  outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 5px;
-}
-
-/* Signo +/− dibujado en CSS */
-.faq-sign {
-  position: relative; flex-shrink: 0;
-  width: 16px; height: 16px; margin-top: .2rem;
-}
-.faq-sign::before, .faq-sign::after {
-  content: ''; position: absolute;
-  background: var(--gold); border-radius: 2px;
-  transition: transform .22s ease, opacity .22s ease;
-}
-.faq-sign::before { top: 7px; left: 1px; width: 14px; height: 2px; }
-.faq-sign::after  { left: 7px; top: 1px; width: 2px; height: 14px; }
-.faq-item[open] .faq-sign::after { transform: rotate(90deg); opacity: 0; }
-
-.faq-a {
-  font-size: .875rem; color: var(--ink-2);
-  line-height: 1.68; padding: 0 0 1.125rem 1.75rem;
-  max-width: 62ch;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .faq-sign::before, .faq-sign::after { transition: none; }
-}
-
-/* ═══════════════════════════════════════════════
-   CTA FINAL — siempre oscuro
-═══════════════════════════════════════════════ */
-.cta-section {
-  background:
-    radial-gradient(ellipse 80% 120% at 50% 110%, rgba(196,140,48,.12) 0%, transparent 60%),
-    #0C1018;
-  border-top: 1px solid rgba(255,255,255,.06);
-}
-.cta-inner {
-  max-width: 640px; margin: 0 auto; text-align: center;
-  padding: clamp(4.5rem, 9vw, 7rem) clamp(1.25rem, 4vw, 3.5rem);
-}
-.cta-inner h2 {
-  font-family: 'Fraunces', Georgia, serif;
-  font-optical-sizing: auto;
-  font-size: clamp(2rem, 4.5vw, 3.125rem);
-  font-weight: 700; color: #F0EDE6;
-  letter-spacing: -.03em; text-wrap: balance;
-  line-height: 1.1; margin-bottom: 1rem;
-}
-.cta-inner p {
-  font-size: 1.0625rem; color: rgba(240,237,230,.58);
-  margin-bottom: 2.5rem; line-height: 1.7;
-  max-width: 46ch; margin-left: auto; margin-right: auto;
-}
-.cta-btns { display: flex; justify-content: center; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
-.btn-gold-lg {
-  display: inline-flex; align-items: center; gap: .625rem;
-  background: #C48C30; color: #fff;
-  padding: 1rem 2.25rem; border-radius: 10px;
-  font-size: 1.0625rem; font-weight: 700; text-decoration: none;
-  box-shadow: 0 4px 20px rgba(196,140,48,.4);
-  transition: background .15s, box-shadow .15s;
-}
-.btn-gold-lg:hover { background: #D4A040; box-shadow: 0 6px 28px rgba(196,140,48,.5); }
-.btn-gold-lg svg { flex-shrink: 0; }
-.cta-email {
-  color: rgba(240,237,230,.55);
-  font-size: .9375rem; font-weight: 500;
-  text-decoration: none; transition: color .15s;
-}
-.cta-email:hover { color: rgba(240,237,230,.85); }
-
-/* ═══════════════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════════════ */
-footer {
-  background: #08090E;
-  border-top: 1px solid rgba(255,255,255,.06);
-  color: rgba(240,237,230,.4);
-}
-.ft-inner {
-  max-width: 1200px; margin: 0 auto;
-  padding: 3rem clamp(1.25rem, 4vw, 3.5rem) 2rem;
-  display: grid; grid-template-columns: 1.4fr 1fr 1fr;
-  gap: 2.5rem;
-}
-@media (max-width: 760px) { .ft-inner { grid-template-columns: 1fr; gap: 2rem; } }
-
-.ft-logo {
-  display: inline-flex; align-items: center; gap: .4375rem;
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 1.375rem; font-weight: 700;
-  color: #F0EDE6; text-decoration: none;
-  letter-spacing: -.025em; margin-bottom: .75rem;
-}
-.ft-logo .dot { color: #C48C30; }
-.ft-logo svg { width: 23px; height: 23px; flex-shrink: 0; }
-.ft-about {
-  font-size: .8125rem; line-height: 1.7;
-  max-width: 40ch; color: rgba(240,237,230,.42);
-}
-.ft-entity {
-  font-size: .75rem; margin-top: .875rem;
-  color: rgba(240,237,230,.3);
-}
-.ft-col-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: .6875rem; font-weight: 700;
-  letter-spacing: .09em; text-transform: uppercase;
-  color: rgba(240,237,230,.55); margin-bottom: .875rem;
-}
-.ft-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
-.ft-list a {
-  font-size: .8125rem; color: rgba(240,237,230,.42);
-  text-decoration: none; transition: color .15s;
-}
-.ft-list a:hover { color: rgba(240,237,230,.8); }
-
-.ft-bottom {
-  max-width: 1200px; margin: 0 auto;
-  padding: 1.25rem clamp(1.25rem, 4vw, 3.5rem) 2rem;
-  border-top: 1px solid rgba(255,255,255,.06);
-  display: flex; justify-content: space-between; flex-wrap: wrap; gap: .75rem;
-  font-size: .75rem; color: rgba(240,237,230,.3);
-}
-.ft-bottom a { color: rgba(240,237,230,.4); text-decoration: none; }
-.ft-bottom a:hover { color: rgba(240,237,230,.7); }
-</style>
-</head>
-<body>
-<a href="#contenido" class="skip">Saltar al contenido</a>
-
-<!-- ════════════════════════════════════════════ NAV ════════════════════════════════════════════ -->
-<header>
-  <nav class="nav" id="nav" aria-label="Navegación principal">
-    <a href="#" class="nav-logo" aria-label="siShow, inicio">
-      <svg viewBox="0 0 100 100" aria-hidden="true">
-        <line x1="50" y1="46" x2="17" y2="9" stroke="#C48C30" stroke-width="7" stroke-linecap="round"/>
-        <line x1="50" y1="46" x2="83" y2="9" stroke="#C48C30" stroke-width="7" stroke-linecap="round"/>
-        <line x1="50" y1="46" x2="27" y2="75" stroke="#C48C30" stroke-width="7" stroke-linecap="round"/>
-        <line x1="50" y1="46" x2="73" y2="75" stroke="#C48C30" stroke-width="7" stroke-linecap="round"/>
-        <circle cx="27" cy="79" r="12.5" fill="none" stroke="#C48C30" stroke-width="7"/>
-        <circle cx="73" cy="79" r="12.5" fill="none" stroke="#C48C30" stroke-width="7"/>
-        <circle cx="50" cy="46" r="10.5" fill="#0C1018"/>
-        <circle cx="50" cy="46" r="10.5" fill="none" stroke="#C48C30" stroke-width="2"/>
-        <line x1="50" y1="38.5" x2="50" y2="34" stroke="#C48C30" stroke-width="2" stroke-linecap="round"/>
-        <line x1="50" y1="53.5" x2="50" y2="58" stroke="#C48C30" stroke-width="2" stroke-linecap="round"/>
-        <line x1="42.5" y1="46" x2="38" y2="46" stroke="#C48C30" stroke-width="2" stroke-linecap="round"/>
-        <line x1="57.5" y1="46" x2="62" y2="46" stroke="#C48C30" stroke-width="2" stroke-linecap="round"/>
-        <circle cx="50" cy="46" r="2.75" fill="#C48C30"/>
-      </svg>
-      <span class="word">si<span class="dot">S</span>how</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#funciones">Funciones</a></li>
-      <li><a href="#calculadora">Haz tus números</a></li>
-      <li><a href="#precios">Precios</a></li>
-      <li><a href="#faq">Preguntas</a></li>
-    </ul>
-    <a href="mailto:infosishow@gmail.com?subject=Quiero%20una%20demo%20de%20siShow" class="nav-btn">Pide una demo →</a>
-  </nav>
-</header>
-
-<main id="contenido">
-
-<!-- ════════════════════════════════════════════ HERO ════════════════════════════════════════════ -->
-<section class="hero-section" id="hero-anchor" aria-labelledby="h1-principal">
-  <div class="hero-inner">
-
-    <div class="hero-copy">
-      <p class="hero-eyebrow">Software de reservas · Sin comisión</p>
-
-      <h1 class="hero-h1" id="h1-principal">
-        Tus clientes reservan<br>
-        online. <em>Mientras tú<br>sigues trabajando.</em>
-      </h1>
-
-      <p class="hero-lead">
-        Software de reservas para salones de belleza, peluquerías y barberías.
-        Tu propia página, tu agenda, tus fichas. Cuota fija al mes: sin comisiones,
-        sin letra pequeña.
-      </p>
-
-      <div class="hero-actions">
-        <a href="mailto:infosishow@gmail.com?subject=Quiero%20una%20demo%20de%20siShow" class="btn-gold">Pide una demo gratuita</a>
-        <a href="#funciones" class="btn-ghost-light">Ver funciones ↓</a>
-      </div>
-
-      <div class="hero-trust">
-        <p class="trust-pill">
-          <span class="trust-pill-icon"><svg viewBox="0 0 9 9" aria-hidden="true"><polyline points="1.5,4.5 3.5,6.5 7.5,2.5"/></svg></span>
-          Sin comisión por cliente
-        </p>
-        <p class="trust-pill">
-          <span class="trust-pill-icon"><svg viewBox="0 0 9 9" aria-hidden="true"><polyline points="1.5,4.5 3.5,6.5 7.5,2.5"/></svg></span>
-          Tu web de reservas
-        </p>
-        <p class="trust-pill">
-          <span class="trust-pill-icon"><svg viewBox="0 0 9 9" aria-hidden="true"><polyline points="1.5,4.5 3.5,6.5 7.5,2.5"/></svg></span>
-          Montaje incluido
-        </p>
-      </div>
-    </div>
-
-    <div class="hero-visual">
-      <div class="mockup-outer">
-        <span class="m-demo-chip">Demo</span>
-        <div class="mockup" id="demo" role="group" aria-label="Demostración interactiva de una página de reservas de siShow. Puedes probar a elegir servicio, profesional y hora.">
-          <div class="m-header">
-            <p class="m-salon-name">Estudio Valeria</p>
-            <p class="m-salon-sub">Salón de belleza</p>
-            <p class="m-nc">
-              <svg width="9" height="9" viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><polyline points="1.5,4.5 3.5,6.5 7.5,2.5"/></svg>
-              Sin comisión
-            </p>
-          </div>
-
-          <div class="m-body">
-            <p class="m-lbl" id="lbl-svc">Elige servicio</p>
-            <div class="m-svcs" role="group" aria-labelledby="lbl-svc">
-              <button type="button" class="m-svc sel" aria-pressed="true">Corte + Tinte <span class="m-svc-dur">50 min</span></button>
-              <button type="button" class="m-svc" aria-pressed="false">Mechas <span class="m-svc-dur">90 min</span></button>
-              <button type="button" class="m-svc" aria-pressed="false">Peinado <span class="m-svc-dur">30 min</span></button>
-            </div>
-
-            <p class="m-lbl" id="lbl-pro">Profesional</p>
-            <div class="m-pros" role="group" aria-labelledby="lbl-pro">
-              <button type="button" class="m-pro sel" aria-pressed="true"><span class="m-pro-av" aria-hidden="true">V</span>Valeria</button>
-              <button type="button" class="m-pro" aria-pressed="false"><span class="m-pro-av" aria-hidden="true">S</span>Sara</button>
-              <button type="button" class="m-pro" aria-pressed="false"><span class="m-pro-av" aria-hidden="true">L</span>Lucía</button>
-            </div>
-
-            <p class="m-lbl" id="lbl-hora">Lunes 6 oct · horas libres</p>
-            <div class="m-slots" role="group" aria-labelledby="lbl-hora">
-              <button type="button" class="m-slot off" disabled aria-label="10:00, ocupada">10:00</button>
-              <button type="button" class="m-slot" aria-pressed="false">11:00</button>
-              <button type="button" class="m-slot sel" aria-pressed="true">12:00</button>
-              <button type="button" class="m-slot" aria-pressed="false">16:00</button>
-              <button type="button" class="m-slot" aria-pressed="false">17:00</button>
-              <button type="button" class="m-slot off" disabled aria-label="18:00, ocupada">18:00</button>
-              <button type="button" class="m-slot" aria-pressed="false">18:30</button>
-              <button type="button" class="m-slot" aria-pressed="false">19:00</button>
-            </div>
-
-            <button type="button" class="m-cta" id="demo-enviar">Solicitar cita →</button>
-
-            <p class="m-sent-note" id="demo-aviso" role="status">
-              <svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5.5" cy="5.5" r="4.25"/><polyline points="3.5,5.6 4.9,7 7.5,4"/></svg>
-              <span>Tu solicitud ha llegado al salón. Te avisarán en cuanto la confirmen.</span>
-            </p>
-
-            <button type="button" class="m-agenda-toggle" id="demo-ver-agenda" hidden>
-              Ver cómo la ve el equipo ↓
-            </button>
-
-            <div class="m-agenda" id="demo-agenda" hidden>
-              <p class="m-lbl">Agenda de Valeria · miércoles</p>
-              <div class="m-agenda-row">
-                <span class="m-agenda-time">11:00</span>
-                <span class="m-agenda-what">Peinado · Sara G.</span>
-              </div>
-              <div class="m-agenda-row is-new">
-                <span class="m-agenda-time">12:00</span>
-                <span class="m-agenda-what">Corte + Tinte · tu solicitud</span>
-                <span class="m-agenda-badge">Pendiente</span>
-              </div>
-              <div class="m-agenda-row">
-                <span class="m-agenda-time">16:00</span>
-                <span class="m-agenda-what">Mechas · Lucía M.</span>
-              </div>
-              <p class="m-agenda-note">El hueco queda reservado para tu solicitud hasta que el salón la confirme o la rechace.</p>
-            </div>
-
-            <p class="m-foot">
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="1.5" y="3" width="7" height="5.5" rx="1"/><path d="M3.5 3V2a1.5 1.5 0 013 0v1"/></svg>
-              El salón confirma tu cita
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════ DOLOR → SOLUCIÓN ════════════════════════════════════════════ -->
-<section class="pain-bg" aria-labelledby="h2-porque">
-  <div class="inner">
-    <p class="section-ey">Por qué siShow</p>
-    <h2 class="section-h2" id="h2-porque">Corta con lo<br>que te frena.</h2>
-
-    <div class="scissors-head" id="scissors-head">
-      <p class="pain-pills">
-        <span class="pain-pill">Llamadas a deshora</span>
-        <span class="pain-pill">Citas por mensaje, sin orden</span>
-        <span class="pain-pill">Comisión que no para de subir</span>
-      </p>
-      <div class="scissors-line" aria-hidden="true">
-        <svg class="scissors-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
-      </div>
-      <p class="section-lead scissors-lead">
-        Tres situaciones habituales en los salones de belleza, las peluquerías y las barberías,
-        y cómo cambian con siShow.
-      </p>
-    </div>
-
-    <div class="pain-grid">
-
-      <article class="pain-card">
-        <div class="pain-before">
-          <span class="pain-before-tag">Hoy</span>
-          Usas otra plataforma de reservas y cada mes ves crecer la comisión. Tus clientes son tuyos, pero el porcentaje que pagas no deja de subir.
-        </div>
-        <p class="pain-arrow">Con siShow</p>
-        <div>
-          <h3 class="pain-after-title">Cuota fija. Nunca comisión por cita.</h3>
-          <p class="pain-after-desc">Lo que cobras es tuyo. siShow no toca tu caja.</p>
-        </div>
-      </article>
-
-      <article class="pain-card">
-        <div class="pain-before">
-          <span class="pain-before-tag">Hoy</span>
-          El teléfono no para. Mientras atiendes a alguien, pierdes llamadas y las citas se apuntan a mano.
-        </div>
-        <p class="pain-arrow">Con siShow</p>
-        <div>
-          <h3 class="pain-after-title">Tu cliente reserva solo, a cualquier hora.</h3>
-          <p class="pain-after-desc">Tú confirmas cuando te va bien. Menos llamadas, menos huecos vacíos.</p>
-        </div>
-      </article>
-
-      <article class="pain-card">
-        <div class="pain-before">
-          <span class="pain-before-tag">Hoy</span>
-          No sabes cuánta gente vendrá. Días con cola y días sin nadie, y es imposible organizar el equipo con antelación.
-        </div>
-        <p class="pain-arrow">Con siShow</p>
-        <div>
-          <h3 class="pain-after-title">Agenda visible con antelación para todo el equipo.</h3>
-          <p class="pain-after-desc">Ves los huecos antes, planificas mejor y la hoja del día siempre lista.</p>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════ FUNCIONES ════════════════════════════════════════════ -->
-<section id="funciones" aria-labelledby="h2-funciones">
-  <div class="inner">
-    <p class="section-ey">Funciones</p>
-    <h2 class="section-h2" id="h2-funciones">Todo lo que necesitas,<br>nada de lo que no.</h2>
-    <p class="section-lead">
-      Estas son las funciones reales del software de reservas de siShow, disponibles desde el primer día.
-    </p>
-
-    <div class="feat-grid">
-
-      <article class="feat">
-        <div class="feat-ico">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        </div>
-        <h3 class="feat-title">Tu propia web de reservas</h3>
-        <p class="feat-desc">Una página con el nombre y los colores de tu salón. El cliente pide cita sin crear cuenta y tú confirmas cada solicitud.</p>
-      </article>
-
-      <article class="feat">
-        <div class="feat-ico fresh">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><polyline points="9,14 11,16 15,12"/></svg>
-        </div>
-        <h3 class="feat-title">Agenda de equipo</h3>
-        <p class="feat-desc">Vista de día, semana y mes para todo el equipo, sincronizada en todos los dispositivos. Hoja del día imprimible.</p>
-      </article>
-
-      <article class="feat">
-        <div class="feat-ico">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M19 8l1.5 1.5L23 7"/></svg>
-        </div>
-        <h3 class="feat-title">Fichas de clientes</h3>
-        <p class="feat-desc">Historial de visitas, servicio habitual, notas del color y observaciones. Buscador integrado. Todo en un sitio.</p>
-      </article>
-
-      <article class="feat">
-        <div class="feat-ico fresh">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/><path d="M8 3.5A9 9 0 0 1 21 12"/></svg>
-        </div>
-        <h3 class="feat-title">Preguntas al reservar</h3>
-        <p class="feat-desc">Configura qué información necesitas antes de la cita: largo del pelo, color actual, tratamientos recientes. La ficha llega ya rellenada.</p>
-      </article>
-
-      <article class="feat">
-        <div class="feat-ico">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-        </div>
-        <h3 class="feat-title">Estadísticas y exportación</h3>
-        <p class="feat-desc">Estadísticas de citas exportables a Excel o CSV. Ideal para el cierre mensual con tu gestora.</p>
-      </article>
-
-      <article class="feat">
-        <div class="feat-ico fresh">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h3 class="feat-title">Accesos por rol</h3>
-        <p class="feat-desc">Gerente, subencargada, recepción y estilista. Cada persona ve y hace solo lo suyo. Invitación por correo.</p>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════ CALCULADORA DE TIEMPO ════════════════════════════════════════════ -->
-<section class="calc-bg" id="calculadora" aria-labelledby="h2-calc">
-  <div class="inner">
-    <p class="section-ey">Hazlo con tus números</p>
-    <h2 class="section-h2" id="h2-calc">¿Cuánto tiempo se<br>te va en gestionar citas?</h2>
-    <p class="section-lead">
-      Ajusta los datos a un mes normal de tu salón. Se calcula entero en tu navegador:
-      no se envía ni se guarda nada.
-    </p>
-
-    <div class="calc-card">
-
-      <div class="calc-controls">
-
-        <div class="calc-field">
-          <div class="calc-field-top">
-            <label class="calc-label" for="ct-citas">Citas que gestionas al día</label>
-            <output class="calc-val" id="ctv-citas" for="ct-citas">12</output>
-          </div>
-          <p class="calc-help">Llamadas, mensajes y anotaciones a mano.</p>
-          <input class="calc-range" type="range" id="ct-citas" min="2" max="40" step="1" value="12">
-        </div>
-
-        <div class="calc-field">
-          <div class="calc-field-top">
-            <label class="calc-label" for="ct-minutos">Minutos por cita</label>
-            <output class="calc-val" id="ctv-minutos" for="ct-minutos">5</output>
-          </div>
-          <p class="calc-help">Lo que tardas en apuntarla, confirmarla y recordarla.</p>
-          <input class="calc-range" type="range" id="ct-minutos" min="1" max="20" step="1" value="5">
-        </div>
-
-        <div class="calc-field">
-          <div class="calc-field-top">
-            <label class="calc-label" for="ct-dias">Días de trabajo al mes</label>
-            <output class="calc-val" id="ctv-dias" for="ct-dias">22</output>
-          </div>
-          <p class="calc-help">Los días que el salón abre y gestiona citas.</p>
-          <input class="calc-range" type="range" id="ct-dias" min="10" max="30" step="1" value="22">
-        </div>
-
-      </div>
-
-      <div class="calc-result">
-        <p class="calc-result-ey">Tiempo dedicado al mes</p>
-
-        <div class="calc-gauge">
-          <svg viewBox="0 0 168 168" aria-hidden="true">
-            <circle class="calc-gauge-track" cx="84" cy="84" r="74"/>
-            <circle class="calc-gauge-fill" id="ct-gauge" cx="84" cy="84" r="74"
-                    stroke-dasharray="464.96" stroke-dashoffset="464.96"/>
-          </svg>
-          <div class="calc-gauge-num">
-            <span class="calc-gauge-h" id="ct-horas">22</span>
-            <span class="calc-gauge-unit">h / mes</span>
-          </div>
-        </div>
-
-        <p class="calc-equiv">Equivale a <strong id="ct-jornadas">2,8</strong> jornadas de 8 horas</p>
-
-        <div class="calc-chips">
-          <div class="calc-chip">
-            <b id="ct-chip-dia">60 min</b>
-            <span>al día</span>
-          </div>
-          <div class="calc-chip">
-            <b id="ct-chip-citas">264</b>
-            <span>citas al mes</span>
-          </div>
-        </div>
-
-        <p class="calc-disclaimer">
-          Estimación del tiempo que dedicas hoy a gestionar citas a mano. No es un ahorro
-          garantizado: con siShow tú sigues revisando y confirmando cada solicitud.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════ PRECIOS ════════════════════════════════════════════ -->
-<section class="pricing-bg" id="precios" aria-labelledby="h2-precios">
-  <div class="inner">
-    <p class="section-ey">Precios</p>
-    <h2 class="section-h2" id="h2-precios">Una cuota fija al mes.<br>Nada más.</h2>
-    <p class="section-lead">
-      Tres planes según el tamaño de tu equipo. Te damos el precio exacto cuando hablamos contigo: depende de tu salón y se paga con renovación anual, más una puesta en marcha única (montaje, importación de clientes y formación).
-    </p>
-
-    <div class="team-picker">
-      <p class="team-q" id="team-q">¿Cuántas personas trabajáis en el salón?</p>
-      <div class="team-opts" role="group" aria-labelledby="team-q">
-        <button type="button" class="team-opt" data-plan="plan-basico" aria-pressed="false">1 a 3</button>
-        <button type="button" class="team-opt" data-plan="plan-completo" aria-pressed="false">4 a 6</button>
-        <button type="button" class="team-opt" data-plan="plan-embajador" aria-pressed="false">7 o más</button>
-      </div>
-      <p class="plan-period" id="team-msg" role="status"></p>
-    </div>
-
-    <div class="plan-grid">
-
-      <article class="plan" id="plan-basico">
-        <p class="plan-badge">Recomendado</p>
-        <h3 class="plan-name">Básico</h3>
-        <p class="plan-period">Cuota fija · pago anual</p>
-        <div class="plan-sep"></div>
-        <p class="plan-setup">+ puesta en marcha única</p>
-        <ul class="plan-feats">
-          <li><span class="chk"><svg viewBox="0 0 10 10" aria-hidden="true"><polyline points="2,5.5 4,7.5 8,3"/></svg></span>Web de reservas con tu marca</li>
-          <li><span class="chk"><svg viewBox="0 0 10 10" aria-hidden="true"><polyline points="2,5.5 4,7.5 8,3"/></svg></span>Agenda del equipo + hoja del día</li>
-          <li><span class="chk"><svg viewBox="0 0 10 10" aria-hidden="true"><polyline points="2,5.5 4,7.5 8,3"/></svg></span>Fichas de clientes con buscador</li>
-          <li><span class="chk"><svg viewBox="0 0 10 10" aria-hidden="true"><polyline points="2,5.5 4,7.5 8,3"/></svg></span>Estadísticas y exportación a Excel</li>
-          <li><span class="chk"><svg viewBox="0 0 10 10" aria-hidden="true"><polyline points="2,5.5 4,7.5 8,3"/></svg></span>Enlace de reseña en Google</li>
-          <li><span class="chk"><svg viewBox="0 0 10 10" aria-hidden="true"><polyline points="2,5.5 4,7.5 8,3"/></svg></span>Hasta 3 profesionales</li>
-        </ul>
-        <a href="mailto:infosishow@gmail.com?subject=Precio%20del%20plan%20B%C3%A1sico%20de%20siShow" class="plan-cta">Pide el precio →</a>
-      </article>
-
-      <article class="plan gold" id="plan-completo">
-        <p class="plan-badge">Recomendado</p>
-        <h3 class="plan-name">Completo</h3>
-        <p class="plan-period">Cuota fija · pago anual</p>
-        <div class="plan-sep"></div>
-        <p class="plan-setup">+ puesta en marcha única</p>
-        <ul class="plan-feats">
-          <li><span class="chk"><svg viewBox="0 0 10 10" aria-hidden="true"><polyline points="2,5.5 4,7.5 8,3"/></svg></span>Todo lo del Básico</li>
-          <li><span class="chk"><svg viewBox="0 0 10 10" aria-hidden="true"><polyline points="2,5.5 4,7.5 8,3"/></svg></span>Caja del día y cierre mensual</li>
-          <li><span class="chk"><svg viewBox="0 0 10 10" aria-hidden="true"><polyline points="2,5.5 4,7.5 8,3"/></svg></span>Asistente de datos del negocio</li>
-          <li><span class="chk"><svg viewBox="0 0 10 10" aria-hidden="true"><polyline points="2,5.5 4,7.5 8,3"/></svg></span>Analítica avanzada</li>
-          <li><span class="chk"><svg viewBox="0 0 10 10" aria-hidden="true"><polyline points="2,5.5 4,7.5 8,3"/></svg></span>Historial completo de clientes</li>
-          <li><span class="chk"><svg viewBox="0 0 10 10" aria-hidden="true"><polyline points="2,5.5 4,7.5 8,3"/></svg></span>Hasta 6 profesionales</li>
-        </ul>
-        <a href="mailto:infosishow@gmail.com?subject=Precio%20del%20plan%20Completo%20de%20siShow" class="plan-cta">Pide el precio →</a>
-      </article>
-
-      <article class="plan" id="plan-embajador">
-        <p class="plan-badge">Recomendado</p>
-        <h3 class="plan-name">Embajador</h3>
-        <p class="plan-period">Cuota fija · pago anual</p>
-        <div class="plan-sep"></div>
-        <p class="plan-setup">+ puesta en marcha única</p>
-        <ul class="plan-feats">
-          <li><span class="chk"><svg viewBox="0 0 10 10" aria-hidden="true"><polyline points="2,5.5 4,7.5 8,3"/></svg></span>Todo lo del Completo</li>
-          <li><span class="chk"><svg viewBox="0 0 10 10" aria-hidden="true"><polyline points="2,5.5 4,7.5 8,3"/></svg></span>Sin límite de profesionales</li>
-          <li><span class="chk"><svg viewBox="0 0 10 10" aria-hidden="true"><polyline points="2,5.5 4,7.5 8,3"/></svg></span>Roles personalizados para tu equipo</li>
-          <li><span class="chk"><svg viewBox="0 0 10 10" aria-hidden="true"><polyline points="2,5.5 4,7.5 8,3"/></svg></span>Informe mensual del negocio</li>
-          <li><span class="chk"><svg viewBox="0 0 10 10" aria-hidden="true"><polyline points="2,5.5 4,7.5 8,3"/></svg></span>Atención prioritaria</li>
-          <li><span class="chk"><svg viewBox="0 0 10 10" aria-hidden="true"><polyline points="2,5.5 4,7.5 8,3"/></svg></span>Acceso prioritario a funciones nuevas</li>
-        </ul>
-        <a href="mailto:infosishow@gmail.com?subject=Precio%20del%20plan%20Embajador%20de%20siShow" class="plan-cta">Pide el precio →</a>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════ FAQ ════════════════════════════════════════════ -->
-<section class="faq-bg" id="faq" aria-labelledby="h2-faq">
-  <div class="inner">
-    <p class="section-ey">Preguntas frecuentes</p>
-    <h2 class="section-h2" id="h2-faq">Lo que nos preguntan<br>en la puerta</h2>
-    <p class="section-lead">
-      Si te queda alguna duda, escríbenos a infosishow@gmail.com y te la resolvemos.
-    </p>
-
-    <div class="faq-grid">
-
-      <details class="faq-item" open>
-        <summary>
-          <span class="faq-sign" aria-hidden="true"></span>
-          <h3 class="faq-qt">¿Cobráis comisión por cada reserva?</h3>
-        </summary>
-        <p class="faq-a">No. siShow se paga con una cuota fija al mes. No cobramos ningún porcentaje por cita ni por cliente nuevo, pagues lo que pagues tú en tu salón.</p>
-      </details>
-
-      <details class="faq-item" open>
-        <summary>
-          <span class="faq-sign" aria-hidden="true"></span>
-          <h3 class="faq-qt">¿Mis clientes tienen que registrarse para pedir cita?</h3>
-        </summary>
-        <p class="faq-a">No. Entran en tu página de reservas, eligen servicio, profesional y hora, y envían la solicitud. Sin crear cuenta y sin descargar ninguna aplicación.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <span class="faq-sign" aria-hidden="true"></span>
-          <h3 class="faq-qt">¿Quién decide si una cita se confirma?</h3>
-        </summary>
-        <p class="faq-a">Tú. Cada reserva entra como solicitud en tu agenda y tú la confirmas, la cambias de hora o la rechazas. También eres tú quien fija cuánto dura cada servicio.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <span class="faq-sign" aria-hidden="true"></span>
-          <h3 class="faq-qt">¿Cómo aviso a un cliente antes de su cita?</h3>
-        </summary>
-        <p class="faq-a">Desde su ficha tienes el mensaje ya escrito para enviarlo por WhatsApp en un toque, con sus datos de la cita rellenados.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <span class="faq-sign" aria-hidden="true"></span>
-          <h3 class="faq-qt">¿Puedo pasar mis clientes desde el programa que uso ahora?</h3>
-        </summary>
-        <p class="faq-a">Lo revisamos en la puesta en marcha. Si tu programa actual permite exportar tus clientes, los pasamos nosotros junto con su historial de visitas.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <span class="faq-sign" aria-hidden="true"></span>
-          <h3 class="faq-qt">¿Cuántas personas del equipo pueden tener agenda?</h3>
-        </summary>
-        <p class="faq-a">Hasta 3 profesionales en el plan Básico, hasta 6 en el Completo y sin límite en el Embajador. Cada persona entra con su propio acceso y su propio rol.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <span class="faq-sign" aria-hidden="true"></span>
-          <h3 class="faq-qt">¿Qué incluye la puesta en marcha?</h3>
-        </summary>
-        <p class="faq-a">Montamos tu página de reservas con tus servicios, precios, duraciones y horarios, damos de alta a tu equipo, pasamos tus clientes y formamos al equipo. Se paga una sola vez.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <span class="faq-sign" aria-hidden="true"></span>
-          <h3 class="faq-qt">¿Funciona en el móvil?</h3>
-        </summary>
-        <p class="faq-a">Sí. Tu página de reservas y el panel de gestión funcionan en móvil, tablet y ordenador, y puedes instalar siShow en la pantalla de inicio del móvil como una aplicación.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <span class="faq-sign" aria-hidden="true"></span>
-          <h3 class="faq-qt">¿Puedo cambiar precios y horarios yo mismo?</h3>
-        </summary>
-        <p class="faq-a">Sí. Editas servicios, precios, duraciones y horarios desde tu panel cuando quieras, sin tocar código y sin tener que llamar a nadie.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <span class="faq-sign" aria-hidden="true"></span>
-          <h3 class="faq-qt">¿De quién son mis clientes y sus datos?</h3>
-        </summary>
-        <p class="faq-a">Tuyos. Tus clientes y su historial se quedan en tu negocio. siShow no los enseña a otros salones ni los usa en ningún buscador de citas.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <span class="faq-sign" aria-hidden="true"></span>
-          <h3 class="faq-qt">¿Para qué tipo de negocio sirve siShow?</h3>
-        </summary>
-        <p class="faq-a">Para salones de belleza, peluquerías y barberías con una o varias personas trabajando. Si tu equipo tiene turnos y servicios de distinta duración, encaja especialmente bien.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <span class="faq-sign" aria-hidden="true"></span>
-          <h3 class="faq-qt">¿Cómo empiezo?</h3>
-        </summary>
-        <p class="faq-a">Escríbenos a infosishow@gmail.com y te montamos una demo con los datos de tu propio salón. La ves en tu móvil, sin registro y sin compromiso.</p>
-      </details>
-
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════ CTA FINAL ════════════════════════════════════════════ -->
-<section class="cta-section" id="contacto" aria-labelledby="h2-cta">
-  <div class="cta-inner">
-    <h2 id="h2-cta">¿Lo ves en tu salón?<br>Te lo enseñamos en tu móvil.</h2>
-    <p>
-      Sin registro previo, sin compromiso. Te montamos la demo con los datos
-      de tu propio salón y lo ves funcionando en diez minutos.
-    </p>
-    <div class="cta-btns">
-      <a
-        href="https://wa.me/34622107116?text=Hola%2C%20he%20visto%20vuestra%20web%20y%20me%20gustar%C3%ADa%20ver%20una%20demo%20de%20siShow%20en%20mi%20sal%C3%B3n."
-        class="btn-gold-lg"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.01 2C6.48 2 2 6.48 2 12.01c0 1.98.57 3.83 1.56 5.39L2 22l4.75-1.52a9.96 9.96 0 0 0 5.26 1.49h.01c5.52 0 10-4.48 10-10.01C22 6.48 17.53 2 12.01 2Zm5.84 14.19c-.25.7-1.24 1.3-2.01 1.46-.53.11-1.23.2-3.57-.77-2.99-1.24-4.92-4.27-5.07-4.47-.15-.2-1.21-1.61-1.21-3.07 0-1.46.76-2.18 1.04-2.47.25-.26.58-.35.78-.35h.56c.18 0 .42-.01.65.5.25.56.84 1.96.91 2.1.07.15.12.32.02.52-.1.2-.15.32-.3.49-.15.17-.31.38-.44.5-.15.15-.3.31-.13.6.17.3.76 1.26 1.64 2.04 1.13 1.01 2.08 1.33 2.38 1.48.3.15.48.13.65-.07.18-.2.75-.87.95-1.17.2-.3.4-.25.66-.15.26.1 1.68.79 1.97.94.29.15.48.22.55.34.07.13.07.76-.18 1.46Z"/></svg>
-        Escríbenos por WhatsApp
-      </a>
-      <a
-        href="mailto:infosishow@gmail.com?subject=Quiero%20una%20demo%20de%20siShow&body=Hola%2C%20he%20visto%20vuestra%20web%20y%20me%20gustar%C3%ADa%20ver%20una%20demo%20de%20siShow%20en%20mi%20sal%C3%B3n."
-        class="cta-email"
-      >o escribe a infosishow@gmail.com</a>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<!-- ════════════════════════════════════════════ FOOTER ════════════════════════════════════════════ -->
-<footer>
-  <div class="ft-inner">
-    <div>
-      <a href="#" class="ft-logo">
-        <svg viewBox="0 0 100 100" aria-hidden="true">
-          <line x1="50" y1="46" x2="17" y2="9" stroke="#C48C30" stroke-width="7" stroke-linecap="round"/>
-          <line x1="50" y1="46" x2="83" y2="9" stroke="#C48C30" stroke-width="7" stroke-linecap="round"/>
-          <line x1="50" y1="46" x2="27" y2="75" stroke="#C48C30" stroke-width="7" stroke-linecap="round"/>
-          <line x1="50" y1="46" x2="73" y2="75" stroke="#C48C30" stroke-width="7" stroke-linecap="round"/>
-          <circle cx="27" cy="79" r="12.5" fill="none" stroke="#C48C30" stroke-width="7"/>
-          <circle cx="73" cy="79" r="12.5" fill="none" stroke="#C48C30" stroke-width="7"/>
-          <circle cx="50" cy="46" r="10.5" fill="#08090E"/>
-          <circle cx="50" cy="46" r="10.5" fill="none" stroke="#C48C30" stroke-width="2"/>
-          <line x1="50" y1="38.5" x2="50" y2="34" stroke="#C48C30" stroke-width="2" stroke-linecap="round"/>
-          <line x1="50" y1="53.5" x2="50" y2="58" stroke="#C48C30" stroke-width="2" stroke-linecap="round"/>
-          <line x1="42.5" y1="46" x2="38" y2="46" stroke="#C48C30" stroke-width="2" stroke-linecap="round"/>
-          <line x1="57.5" y1="46" x2="62" y2="46" stroke="#C48C30" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="50" cy="46" r="2.75" fill="#C48C30"/>
-        </svg>
-        <span class="word">si<span class="dot">S</span>how</span>
-      </a>
-      <p class="ft-about">
-        siShow es software de reservas y gestión de agenda para salones de belleza,
-        peluquerías y barberías. Tu propia página de reservas, cuota fija al mes
-        y sin comisión por cliente.
-      </p>
-      <p class="ft-entity">Servicio prestado por la Asociación Junior Empresa Daiko.</p>
-    </div>
-
-    <nav aria-label="Secciones de la web">
-      <p class="ft-col-title">La web</p>
-      <ul class="ft-list">
-        <li><a href="#funciones">Funciones</a></li>
-          <li><a href="#precios">Precios</a></li>
-        <li><a href="#faq">Preguntas frecuentes</a></li>
-      </ul>
-    </nav>
-
-    <nav aria-label="Contacto y legal">
-      <p class="ft-col-title">Contacto</p>
-      <ul class="ft-list">
-        <li><a href="mailto:infosishow@gmail.com">infosishow@gmail.com</a></li>
-        <li><a href="#contacto">Pide una demo</a></li>
-        <li><a href="aviso-legal.html">Aviso legal</a></li>
-        <li><a href="privacidad.html">Privacidad</a></li>
-        <li><a href="cookies.html">Política de cookies</a></li>
-      </ul>
-    </nav>
-  </div>
-
-  <div class="ft-bottom">
-    <span>© 2026 siShow · Asociación Junior Empresa Daiko</span>
-    <span>Software de reservas para salones, peluquerías y barberías</span>
-  </div>
-</footer>
-
-<!-- ════════════════════════════════════════════
-     DATOS ESTRUCTURADOS (JSON-LD)
-     Organization · WebSite · SoftwareApplication · FAQPage
-════════════════════════════════════════════ -->
-<script type="application/ld+json">
-{
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Software de reservas para peluquerías y barberías | siShow" name="twitter:title"/>
+<meta content="Tu propia página de reservas, sin comisión por cliente. Cuota fija al mes." name="twitter:description"/>
+<meta content="https://sishow.es/og-sishow.jpg" name="twitter:image"/>
+<meta content="siShow" name="author"/>
+<script>/* Apply the preference before styles are parsed. Storage may be unavailable. */(()=>{let t='dark';try{const s=localStorage.getItem('sishow-theme');if(['light','dark'].includes(s))t=s;}catch{}document.documentElement.dataset.theme=t;document.documentElement.classList.add('js');})();</script><meta content="light dark" name="color-scheme"/><link as="font" crossorigin="" href="assets/fonts/BigShouldersDisplay-800.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="assets/fonts/Karla-400.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="assets/fonts/Karla-700.woff2" rel="preload" type="font/woff2"/><link href="theme.css" rel="stylesheet"/><link href="style.css" rel="stylesheet"/><link href="assets/hero-tablet.css" rel="stylesheet"/><script defer="" src="theme.js"></script><script defer src="assets/hero-tablet.js"></script><script defer src="assets/hero-demo.js"></script><script defer src="app.js"></script><script defer src="disponibilidad.js"></script><script defer src="reunion.js"></script><link href="reunion.css" rel="stylesheet"/><link href="block-c.css" rel="stylesheet"/><link href="wa.css" rel="stylesheet"/><script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -1665,18 +41,20 @@ footer {
       "name": "siShow",
       "url": "https://sishow.es/",
       "email": "infosishow@gmail.com",
+      "telephone": "+34622107116",
       "description": "Software de reservas y gestión de agenda para salones de belleza, peluquerías y barberías. Cuota fija al mes, sin comisión por cliente.",
-      "parentOrganization": {
-        "@type": "Organization",
-        "name": "Asociación Junior Empresa Daiko"
+      "areaServed": {
+        "@type": "Country",
+        "name": "España"
       },
-      "areaServed": { "@type": "Country", "name": "España" },
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "ventas",
         "email": "infosishow@gmail.com",
         "telephone": "+34622107116",
-        "availableLanguage": ["es"]
+        "availableLanguage": [
+          "es"
+        ]
       }
     },
     {
@@ -1685,7 +63,9 @@ footer {
       "url": "https://sishow.es/",
       "name": "siShow",
       "inLanguage": "es-ES",
-      "publisher": { "@id": "https://sishow.es/#organizacion" }
+      "publisher": {
+        "@id": "https://sishow.es/#organizacion"
+      }
     },
     {
       "@type": "WebPage",
@@ -1694,8 +74,12 @@ footer {
       "name": "Software de reservas para peluquerías y barberías | siShow",
       "description": "Software de reservas y agenda para salones de belleza, peluquerías y barberías. Cuota fija al mes, sin comisión por cliente.",
       "inLanguage": "es-ES",
-      "isPartOf": { "@id": "https://sishow.es/#web" },
-      "about": { "@id": "https://sishow.es/#software" }
+      "isPartOf": {
+        "@id": "https://sishow.es/#web"
+      },
+      "about": {
+        "@id": "https://sishow.es/#software"
+      }
     },
     {
       "@type": "SoftwareApplication",
@@ -1706,7 +90,9 @@ footer {
       "applicationSubCategory": "Software de reservas y agenda para salones de belleza, peluquerías y barberías",
       "operatingSystem": "Web",
       "inLanguage": "es-ES",
-      "publisher": { "@id": "https://sishow.es/#organizacion" },
+      "publisher": {
+        "@id": "https://sishow.es/#organizacion"
+      },
       "description": "Software de reservas para salones de belleza, peluquerías y barberías: página de reservas con la marca del salón, agenda de equipo, fichas de clientes y estadísticas. La reserva entra como solicitud y la confirma el salón. Cuota fija al mes, sin comisión por cliente.",
       "featureList": [
         "Página de reservas con la marca del salón, sin que el cliente cree cuenta",
@@ -1723,14 +109,16 @@ footer {
     {
       "@type": "FAQPage",
       "@id": "https://sishow.es/#faq",
-      "isPartOf": { "@id": "https://sishow.es/#pagina" },
+      "isPartOf": {
+        "@id": "https://sishow.es/#pagina"
+      },
       "mainEntity": [
         {
           "@type": "Question",
           "name": "¿Cobráis comisión por cada reserva?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. siShow se paga con una cuota fija al mes. No cobramos ningún porcentaje por cita ni por cliente nuevo, pagues lo que pagues tú en tu salón."
+            "text": "No. siShow se paga con una cuota fija mensual, sin porcentaje por cita ni por cliente nuevo. Te explicamos las condiciones y la puesta en marcha antes de contratar."
           }
         },
         {
@@ -1738,7 +126,7 @@ footer {
           "name": "¿Mis clientes tienen que registrarse para pedir cita?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Entran en tu página de reservas, eligen servicio, profesional y hora, y envían la solicitud. Sin crear cuenta y sin descargar ninguna aplicación."
+            "text": "No. Entran en tu página de reservas, eligen servicio, profesional y hora, y envían la solicitud. Sin crear cuenta ni descargar una aplicación."
           }
         },
         {
@@ -1746,7 +134,7 @@ footer {
           "name": "¿Quién decide si una cita se confirma?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Tú. Cada reserva entra como solicitud en tu agenda y tú la confirmas, la cambias de hora o la rechazas. También eres tú quien fija cuánto dura cada servicio."
+            "text": "El salón. Cada reserva entra como solicitud y tú la confirmas, cambias de hora o rechazas. También fijas la duración de cada servicio. La solicitud no es una cita confirmada."
           }
         },
         {
@@ -1754,7 +142,7 @@ footer {
           "name": "¿Cómo aviso a un cliente antes de su cita?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Desde su ficha tienes el mensaje ya escrito para enviarlo por WhatsApp en un toque, con sus datos de la cita rellenados."
+            "text": "Desde la ficha puedes abrir WhatsApp con un mensaje preparado y enviarlo tú. No se envía automáticamente. Los recordatorios por correo requieren configuración y no los ofrecemos como una función activa."
           }
         },
         {
@@ -1762,7 +150,7 @@ footer {
           "name": "¿Puedo pasar mis clientes desde el programa que uso ahora?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Lo revisamos en la puesta en marcha. Si tu programa actual permite exportar tus clientes, los pasamos nosotros junto con su historial de visitas."
+            "text": "Revisamos contigo el formato antes de prometer una migración. Existe una importación manual de clientes e historial desde un archivo exportado de TPV 123. Las notas de visitas se transcriben a mano."
           }
         },
         {
@@ -1770,15 +158,7 @@ footer {
           "name": "¿Cuántas personas del equipo pueden tener agenda?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Hasta 3 profesionales en el plan Básico, hasta 6 en el Completo y sin límite en el Embajador. Cada persona entra con su propio acceso y su propio rol."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Qué incluye la puesta en marcha?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Montamos tu página de reservas con tus servicios, precios, duraciones y horarios, damos de alta a tu equipo, pasamos tus clientes y formamos al equipo. Se paga una sola vez."
+            "text": "El Básico contempla hasta 3 profesionales y el Completo hasta 6. El Embajador mantiene el alcance de hasta 6 profesionales y añade accesos de responsable de turno y recepción. Cada persona accede con su propio rol."
           }
         },
         {
@@ -1786,31 +166,7 @@ footer {
           "name": "¿Funciona en el móvil?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí. Tu página de reservas y el panel de gestión funcionan en móvil, tablet y ordenador, y puedes instalar siShow en la pantalla de inicio del móvil como una aplicación."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Puedo cambiar precios y horarios yo mismo?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sí. Editas servicios, precios, duraciones y horarios desde tu panel cuando quieras, sin tocar código y sin tener que llamar a nadie."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿De quién son mis clientes y sus datos?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Tuyos. Tus clientes y su historial se quedan en tu negocio. siShow no los enseña a otros salones ni los usa en ningún buscador de citas."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Para qué tipo de negocio sirve siShow?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Para salones de belleza, peluquerías y barberías con una o varias personas trabajando. Si tu equipo tiene turnos y servicios de distinta duración, encaja especialmente bien."
+            "text": "Sí. La página de reservas y el panel funcionan en móvil, tableta y ordenador. Puedes añadir siShow a la pantalla de inicio. Necesitas conexión a internet."
           }
         },
         {
@@ -1818,203 +174,153 @@ footer {
           "name": "¿Cómo empiezo?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Escríbenos a infosishow@gmail.com y te montamos una demo con los datos de tu propio salón. La ves en tu móvil, sin registro y sin compromiso."
+            "text": "Reserva una reunión de 30 min y cuéntanos cómo trabajáis. Por Google Meet o en tu salón, revisamos servicios, horarios y equipo, y acordamos las condiciones antes de la puesta en marcha."
           }
         }
       ]
     }
   ]
-}
-</script>
+}</script>
+<meta content="#2A211B" name="theme-color"/></head><body>
+<svg aria-hidden="true" class="svg-defs"><defs><lineargradient id="metal" x1="0" x2="0.6" y1="0" y2="1"><stop stop-color="var(--metal-light)"></stop><stop offset=".35" stop-color="var(--metal-mid)"></stop><stop offset=".55" stop-color="var(--metal-light)"></stop><stop offset="1" stop-color="var(--metal-mid)"></stop></lineargradient></defs></svg>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="header"><a aria-label="siShow, inicio" class="logo" href="#main"><svg class="brand-mark" data-brand="v3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 -3 176 63"><g class="logo-i-dot" transform="translate(25.576 -1.8) scale(.62)"><path class="logo-calendar-body" d="M8 10H31L25 29H2Z"/><path class="logo-calendar" d="M8 10H31L25 29H2Z M7 29V33H29L32 10V27"/><path class="logo-calendar logo-rings" d="M13 12C10 13 9 10 9 8V5C9 0 15 0 15 5V9 M21 12C18 13 17 10 17 8V5C17 0 23 0 23 5V9 M29 12C26 13 25 10 25 8V5C25 0 31 0 31 5V9"/><path class="logo-check" pathLength="1" stroke-width="3.5" d="M11 21L15 25L23 16"/></g><g class="logo-letters"><path class="logo-letter" data-letter="s" d="M402 -18Q225 -18 148.5 58.0Q72 134 65 309Q64 344 64.5 389.0Q65 434 67 452H293Q291 399 291.0 354.5Q291 310 292 282Q295 224 322.5 200.0Q350 176 402 176Q465 176 493.0 200.0Q521 224 522 282Q522 309 522.0 317.5Q522 326 522.0 334.0Q522 342 522 366Q522 408 507.0 433.5Q492 459 453 471L323 508Q238 534 179.0 571.5Q120 609 89.5 668.0Q59 727 58 815Q58 834 58.0 851.0Q58 868 58 886Q59 1064 138.5 1141.0Q218 1218 414 1218Q593 1218 667.5 1143.5Q742 1069 749 897Q751 863 750.0 817.0Q749 771 747 751H513Q514 773 514.5 808.0Q515 843 514.5 876.0Q514 909 513 926Q510 980 489.0 1002.0Q468 1024 414 1024Q357 1024 334.5 1002.0Q312 980 310 926Q309 901 308.5 887.0Q308 873 308 837Q308 791 322.0 759.5Q336 728 385 715L500 686Q629 654 694.5 584.5Q760 515 760 380Q760 362 760.0 341.5Q760 321 760 303Q759 131 677.0 56.5Q595 -18 402 -18Z" transform="translate(4.000 58) scale(0.031 -0.031)"/><path class="logo-i-stem" data-letter="i" d="M90 0V1200H348V0Z" transform="translate(29.327 58) scale(0.031 -0.031)"/><path class="logo-letter" data-letter="S" d="M442 -18Q243 -18 158.0 67.0Q73 152 64 349Q63 388 63.0 430.0Q63 472 65.0 513.5Q67 555 71 595H314Q310 518 309.5 442.5Q309 367 314 302Q319 248 349.5 220.5Q380 193 442 193Q503 193 531.0 220.5Q559 248 564 302Q568 342 569.5 378.0Q571 414 569.5 451.0Q568 488 564 529Q561 579 539.5 617.0Q518 655 468 668L319 706Q222 731 166.0 778.5Q110 826 85.5 898.0Q61 970 58 1068Q57 1117 57.0 1162.5Q57 1208 58 1253Q63 1384 101.5 1464.5Q140 1545 222.5 1581.5Q305 1618 442 1618Q635 1618 721.5 1533.5Q808 1449 816 1253Q818 1207 817.0 1140.0Q816 1073 813 1011H565Q568 1083 569.0 1155.5Q570 1228 567 1300Q565 1353 532.5 1380.0Q500 1407 442 1407Q380 1407 351.0 1380.0Q322 1353 316 1300Q311 1242 311.0 1184.0Q311 1126 316 1068Q321 1016 342.5 980.0Q364 944 418 931L549 900Q652 875 711.0 825.5Q770 776 795.5 702.0Q821 628 824 529Q825 496 825.0 466.5Q825 437 824.5 408.5Q824 380 822 349Q814 152 728.5 67.0Q643 -18 442 -18Z" transform="translate(42.843 58) scale(0.031 -0.031)"/><path class="logo-letter" data-letter="h" d="M89 0V1600H347V1076H393Q432 1145 476.0 1181.5Q520 1218 608 1218Q725 1218 790.0 1146.0Q855 1074 855 906V0H597V927Q597 980 572.5 1004.5Q548 1029 499 1029Q455 1029 410.0 1004.0Q365 979 347 934V0Z" transform="translate(70.185 58) scale(0.031 -0.031)"/><path class="logo-letter" data-letter="o" d="M450 -18Q316 -18 236.5 18.5Q157 55 120.0 135.5Q83 216 76 348Q74 394 72.5 459.5Q71 525 71.0 597.5Q71 670 72.0 737.5Q73 805 76 854Q83 984 119.5 1064.5Q156 1145 235.5 1181.5Q315 1218 450 1218Q585 1218 663.5 1181.0Q742 1144 778.5 1063.5Q815 983 822 854Q824 808 825.0 742.0Q826 676 826.0 603.5Q826 531 825.0 464.0Q824 397 822 348Q815 218 778.5 137.0Q742 56 663.5 19.0Q585 -18 450 -18ZM450 176Q511 176 536.5 203.0Q562 230 564 284Q566 363 567.5 442.0Q569 521 569.0 601.0Q569 681 567.5 760.0Q566 839 564 917Q562 971 536.5 997.5Q511 1024 450 1024Q390 1024 363.0 997.5Q336 971 334 917Q332 839 330.5 759.5Q329 680 329.0 600.5Q329 521 330.5 441.5Q332 362 334 284Q336 230 363.0 203.0Q390 176 450 176Z" transform="translate(99.294 58) scale(0.031 -0.031)"/><path class="logo-letter" data-letter="w" d="M179 0 29 1200H289L340 597L359 191H428L442 597L496 1198H915L967 597L980 191H1049L1069 597L1122 1200H1384L1229 0H792L756 466L740 1008H670L652 466L616 0Z" transform="translate(127.101 58) scale(0.031 -0.031)"/></g></svg></a><nav aria-label="Principal"><a href="#producto">Así funciona</a><a href="#planes">Planes</a><a href="#faq">Preguntas</a></nav><div class="header-actions"><button aria-label="Tema: oscuro. Cambiar a claro." class="theme-toggle icon-button" id="theme-toggle" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><g class="theme-icon theme-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></g><path class="theme-icon theme-moon" d="M20 14A8 8 0 0 1 10 4a8 8 0 1 0 10 10Z"/></svg><span class="sr-only" id="theme-label">Oscuro</span></button><button aria-label="Pausar animaciones" aria-pressed="false" class="motion icon-button js-only" id="pause" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><path class="motion-pause" d="M8 5v14M16 5v14"/><path class="motion-play" d="M8 5l11 7-11 7Z"/></svg></button><a aria-label="Reserva una reunión" class="button orange compact" href="#reunion"><span class="cta-label">Reserva una reunión</span><span aria-hidden="true" class="cta-short">Reunión</span><span class="cta-icon" aria-hidden="true"><svg class="cta-calendar" viewBox="0 0 36 36"><path class="cta-calendar-sheet" d="M8 10h23l-6 19H2Z"/><path d="M7 29v4h22l3-23M13 12c-3 1-4-2-4-4V5c0-5 6-5 6 0v4m6 3c-3 1-4-2-4-4V5c0-5 6-5 6 0v4m6 3c-3 1-4-2-4-4V5c0-5 6-5 6 0v4"/><path class="cta-calendar-tick" d="m11 21 4 4 8-9"/></svg></span></a></div></header>
+<main id="main">
+<section aria-labelledby="hero-title" class="hero tablet-hero" data-motion>
+<div class="hero-content tablet-copy"><p class="eyebrow light"><span class="live-dot"></span> Peluquería · Barbería · Belleza</p><h1 id="hero-title" aria-label="Más agenda menos lío"><span class="hero-line"><span aria-hidden="true">Más </span><button type="button" class="hero-word" aria-label="Cambiar agenda por clientes" aria-pressed="false"><span class="word-width" aria-hidden="true">clientes</span><span class="word-agenda" aria-hidden="true">agenda</span><span class="word-clientes" aria-hidden="true">clientes</span></button></span><span class="hero-line hero-last" aria-hidden="true">Menos lío</span></h1><p>Tu web de reservas.<br/>Tu equipo, en una agenda.</p><div class="cta-pair"><a class="button orange" href="#reunion">Reserva una reunión <span class="cta-icon" aria-hidden="true"><svg class="cta-calendar" viewBox="0 0 36 36"><path class="cta-calendar-sheet" d="M8 10h23l-6 19H2Z"/><path d="M7 29v4h22l3-23M13 12c-3 1-4-2-4-4V5c0-5 6-5 6 0v4m6 3c-3 1-4-2-4-4V5c0-5 6-5 6 0v4m6 3c-3 1-4-2-4-4V5c0-5 6-5 6 0v4"/><path class="cta-calendar-tick" d="m11 21 4 4 8-9"/></svg></span></a><a class="button secondary wa" href="https://wa.me/34622107116?text=Hola%2C%20he%20visto%20la%20web%20de%20siShow%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20mi%20sal%C3%B3n." target="_blank" rel="noopener" ><svg class="wa-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.29Z"/></svg>Escríbenos por WhatsApp</a></div><p class="hero-meeting-note">Al reservar, te preparamos una demo gratuita personalizada para tu negocio.</p></div>
+<div class="tablet-stage" data-screen-corners='[[787,261],[1421,273],[1405,713],[753,679]]'><img src="assets/hero-tablet-luz.webp" srcset="assets/hero-tablet-luz-768.webp 768w, assets/hero-tablet-luz-1152.webp 1152w, assets/hero-tablet-luz.webp 1536w" sizes="(max-width: 700px) 200vw, 100vw" class="hero-photo" fetchpriority="high" alt="Mano sujetando una tablet grande en un negocio de citas, luz de mañana." width="1536" height="1024" loading="eager"><div class="tablet-shade"></div><div class="tablet-hardware" aria-hidden="true"></div>
+<div class="tablet-screen">
+<!-- owner-component:hero -->
+<div class="owner-ui" id="hero-agenda" data-owner-ui data-prefix="hero" role="group" aria-label="Agenda de siShow · datos ficticios">
+<header class="tablet-ui-top"><span>Agenda · <time id="hero-date" data-demo-date>Hoy</time></span><b class="tablet-wordmark" role="img" aria-label="siShow"><svg class="brand-mark" data-brand="v3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 -3 176 63"><g class="logo-i-dot" transform="translate(25.576 -1.8) scale(.62)"><path class="logo-calendar-body" d="M8 10H31L25 29H2Z"/><path class="logo-calendar" d="M8 10H31L25 29H2Z M7 29V33H29L32 10V27"/><path class="logo-calendar logo-rings" d="M13 12C10 13 9 10 9 8V5C9 0 15 0 15 5V9 M21 12C18 13 17 10 17 8V5C17 0 23 0 23 5V9 M29 12C26 13 25 10 25 8V5C25 0 31 0 31 5V9"/><path class="logo-check" pathLength="1" stroke-width="3.5" d="M11 21L15 25L23 16"/></g><g class="logo-letters"><path class="logo-letter" data-letter="s" d="M402 -18Q225 -18 148.5 58.0Q72 134 65 309Q64 344 64.5 389.0Q65 434 67 452H293Q291 399 291.0 354.5Q291 310 292 282Q295 224 322.5 200.0Q350 176 402 176Q465 176 493.0 200.0Q521 224 522 282Q522 309 522.0 317.5Q522 326 522.0 334.0Q522 342 522 366Q522 408 507.0 433.5Q492 459 453 471L323 508Q238 534 179.0 571.5Q120 609 89.5 668.0Q59 727 58 815Q58 834 58.0 851.0Q58 868 58 886Q59 1064 138.5 1141.0Q218 1218 414 1218Q593 1218 667.5 1143.5Q742 1069 749 897Q751 863 750.0 817.0Q749 771 747 751H513Q514 773 514.5 808.0Q515 843 514.5 876.0Q514 909 513 926Q510 980 489.0 1002.0Q468 1024 414 1024Q357 1024 334.5 1002.0Q312 980 310 926Q309 901 308.5 887.0Q308 873 308 837Q308 791 322.0 759.5Q336 728 385 715L500 686Q629 654 694.5 584.5Q760 515 760 380Q760 362 760.0 341.5Q760 321 760 303Q759 131 677.0 56.5Q595 -18 402 -18Z" transform="translate(4.000 58) scale(0.031 -0.031)"/><path class="logo-i-stem" data-letter="i" d="M90 0V1200H348V0Z" transform="translate(29.327 58) scale(0.031 -0.031)"/><path class="logo-letter" data-letter="S" d="M442 -18Q243 -18 158.0 67.0Q73 152 64 349Q63 388 63.0 430.0Q63 472 65.0 513.5Q67 555 71 595H314Q310 518 309.5 442.5Q309 367 314 302Q319 248 349.5 220.5Q380 193 442 193Q503 193 531.0 220.5Q559 248 564 302Q568 342 569.5 378.0Q571 414 569.5 451.0Q568 488 564 529Q561 579 539.5 617.0Q518 655 468 668L319 706Q222 731 166.0 778.5Q110 826 85.5 898.0Q61 970 58 1068Q57 1117 57.0 1162.5Q57 1208 58 1253Q63 1384 101.5 1464.5Q140 1545 222.5 1581.5Q305 1618 442 1618Q635 1618 721.5 1533.5Q808 1449 816 1253Q818 1207 817.0 1140.0Q816 1073 813 1011H565Q568 1083 569.0 1155.5Q570 1228 567 1300Q565 1353 532.5 1380.0Q500 1407 442 1407Q380 1407 351.0 1380.0Q322 1353 316 1300Q311 1242 311.0 1184.0Q311 1126 316 1068Q321 1016 342.5 980.0Q364 944 418 931L549 900Q652 875 711.0 825.5Q770 776 795.5 702.0Q821 628 824 529Q825 496 825.0 466.5Q825 437 824.5 408.5Q824 380 822 349Q814 152 728.5 67.0Q643 -18 442 -18Z" transform="translate(42.843 58) scale(0.031 -0.031)"/><path class="logo-letter" data-letter="h" d="M89 0V1600H347V1076H393Q432 1145 476.0 1181.5Q520 1218 608 1218Q725 1218 790.0 1146.0Q855 1074 855 906V0H597V927Q597 980 572.5 1004.5Q548 1029 499 1029Q455 1029 410.0 1004.0Q365 979 347 934V0Z" transform="translate(70.185 58) scale(0.031 -0.031)"/><path class="logo-letter" data-letter="o" d="M450 -18Q316 -18 236.5 18.5Q157 55 120.0 135.5Q83 216 76 348Q74 394 72.5 459.5Q71 525 71.0 597.5Q71 670 72.0 737.5Q73 805 76 854Q83 984 119.5 1064.5Q156 1145 235.5 1181.5Q315 1218 450 1218Q585 1218 663.5 1181.0Q742 1144 778.5 1063.5Q815 983 822 854Q824 808 825.0 742.0Q826 676 826.0 603.5Q826 531 825.0 464.0Q824 397 822 348Q815 218 778.5 137.0Q742 56 663.5 19.0Q585 -18 450 -18ZM450 176Q511 176 536.5 203.0Q562 230 564 284Q566 363 567.5 442.0Q569 521 569.0 601.0Q569 681 567.5 760.0Q566 839 564 917Q562 971 536.5 997.5Q511 1024 450 1024Q390 1024 363.0 997.5Q336 971 334 917Q332 839 330.5 759.5Q329 680 329.0 600.5Q329 521 330.5 441.5Q332 362 334 284Q336 230 363.0 203.0Q390 176 450 176Z" transform="translate(99.294 58) scale(0.031 -0.031)"/><path class="logo-letter" data-letter="w" d="M179 0 29 1200H289L340 597L359 191H428L442 597L496 1198H915L967 597L980 191H1049L1069 597L1122 1200H1384L1229 0H792L756 466L740 1008H670L652 466L616 0Z" transform="translate(127.101 58) scale(0.031 -0.031)"/></g></svg></b></header>
+<div class="tablet-ui-body">
+<div class="tablet-agenda"><div class="tablet-agenda-title"><strong>Tu equipo, al día</strong><div class="tablet-views" role="group" aria-label="Vista de la agenda"><button type="button" data-view="day" aria-pressed="true">Día</button><button type="button" data-view="week" aria-pressed="false">Semana</button></div></div>
+<div class="tablet-professionals" role="group" aria-label="Profesional"><button type="button" data-professional="Equipo" aria-pressed="true">Equipo</button><button type="button" data-professional="Valeria" aria-pressed="false">Valeria</button><button type="button" data-professional="Sara" aria-pressed="false">Sara</button><button type="button" data-professional="Alex" aria-pressed="false">Alex</button></div>
+<div class="tablet-grid" id="hero-day" aria-label="Agenda de hoy de 10:00 a 12:00"><span></span><span class="tablet-person" data-pro="Valeria" style="grid-column:2">Valeria</span><span class="tablet-person" data-pro="Sara" style="grid-column:3">Sara</span><span class="tablet-person" data-pro="Alex" style="grid-column:4">Alex</span><time style="grid-column:1;grid-row:2">10:00</time><time style="grid-column:1;grid-row:3">10:15</time><time style="grid-column:1;grid-row:4">10:30</time><time style="grid-column:1;grid-row:5">10:45</time><time style="grid-column:1;grid-row:6">11:00</time><time style="grid-column:1;grid-row:7">11:15</time><time style="grid-column:1;grid-row:8">11:30</time><time style="grid-column:1;grid-row:9">11:45</time><div class="tablet-cell category-sage" data-pro="Valeria" data-duration="30" style="--agenda-col:2;grid-column:var(--agenda-col);grid-row:2/span 2"><div class="tablet-appointment" data-appointment="clara" data-hero-appointment="clara"><strong>Clara</strong><span>10:00 · Corte</span></div></div>
+<div class="tablet-cell category-sage" data-pro="Valeria" data-duration="45" style="--agenda-col:2;grid-column:var(--agenda-col);grid-row:4/span 3"><div class="tablet-appointment" data-appointment="daniel" data-hero-appointment="daniel"><strong>Daniel</strong><span>10:30 · Corte + lavado</span></div></div>
+<div class="tablet-cell category-lavender" data-pro="Valeria" data-duration="30" style="--agenda-col:2;grid-column:var(--agenda-col);grid-row:7/span 2"><div class="tablet-appointment" data-appointment="ines" data-hero-appointment="ines"><strong>Inés</strong><span>11:15 · Peinado</span></div></div>
+<div class="tablet-cell category-lavender" data-pro="Sara" data-duration="30" style="--agenda-col:3;grid-column:var(--agenda-col);grid-row:2/span 2"><div class="tablet-appointment" data-appointment="noelia" data-hero-appointment="noelia"><strong>Noelia</strong><span>10:00 · Lavado + peinado</span></div></div>
+<div class="tablet-cell category-lavender" data-pro="Sara" data-duration="30" style="--agenda-col:3;grid-column:var(--agenda-col);grid-row:4/span 2"><div class="tablet-appointment is-pending" data-appointment="lucia" data-hero-appointment="lucia"><strong>Lucía</strong><span>Pendiente</span></div></div>
+<div class="tablet-cell category-lavender" data-pro="Sara" data-duration="45" style="--agenda-col:3;grid-column:var(--agenda-col);grid-row:7/span 3"><div class="tablet-appointment" data-appointment="olga" data-hero-appointment="olga"><strong>Olga</strong><span>11:15 · Lavado + peinado</span></div></div>
+<div class="tablet-cell category-sky" data-pro="Alex" data-duration="15" style="--agenda-col:4;grid-column:var(--agenda-col);grid-row:2/span 1"><div class="tablet-appointment" data-appointment="marcos" data-hero-appointment="marcos"><strong>Marcos</strong><span>10:00 · Lavado</span></div></div>
+<div class="tablet-cell category-lavender" data-pro="Alex" data-duration="30" style="--agenda-col:4;grid-column:var(--agenda-col);grid-row:4/span 2"><div class="tablet-appointment" data-appointment="eva" data-hero-appointment="eva"><strong>Eva</strong><span>10:30 · Lavado + peinado</span></div></div>
+<div class="tablet-cell category-sage" data-pro="Alex" data-duration="30" style="--agenda-col:4;grid-column:var(--agenda-col);grid-row:6/span 2"><div class="tablet-appointment" data-appointment="hugo" data-hero-appointment="hugo"><strong>Hugo</strong><span>11:00 · Corte</span></div></div>
+<div class="tablet-cell category-lavender" data-pro="Alex" data-duration="15" style="--agenda-col:4;grid-column:var(--agenda-col);grid-row:8/span 1"><div class="tablet-appointment" data-appointment="irene" data-hero-appointment="irene"><strong>Irene</strong><span>11:30 · Peinado</span></div></div><div class="tablet-cell" data-pro="Valeria" style="--agenda-col:2;grid-column:var(--agenda-col);grid-row:9"><span class="tablet-free">Libre</span></div><div class="tablet-cell" data-pro="Sara" style="--agenda-col:3;grid-column:var(--agenda-col);grid-row:6"><span class="tablet-free">Libre</span></div><div class="tablet-cell" data-pro="Alex" style="--agenda-col:4;grid-column:var(--agenda-col);grid-row:3"><span class="tablet-free">Libre</span></div><div class="tablet-cell" data-pro="Alex" style="--agenda-col:4;grid-column:var(--agenda-col);grid-row:9"><span class="tablet-free">Libre</span></div></div><div class="tablet-week" id="hero-week" hidden aria-label="Calendario de esta semana de 10:00 a 12:00"></div>
+<div class="category-legend" aria-label="Colores por servicio"><span class="category-sage">Corte</span><span class="category-sky">Lavado</span><span class="category-lavender">Peinado</span><span class="pending-legend">Discontinuo: pendiente</span></div>
+</div>
+<aside class="tablet-analytics" aria-label="Analíticas"><h4>Analíticas</h4><div class="tablet-occupancy"><span class="tablet-ring" role="img" aria-label="83 % de ocupación, incluidas solicitudes pendientes"><svg viewBox="0 0 42 42" aria-hidden="true"><circle class="ring-track" cx="21" cy="21" r="16"/><circle class="ring-fill" cx="21" cy="21" r="16" pathLength="100" stroke-dasharray="83 100"/></svg><strong>83<span>%</span></strong></span><span>Ocupación</span></div><div class="tablet-week-stat"><strong class="tablet-stat" id="hero-week-count">67</strong><span class="tablet-stat-label">citas esta semana</span><div class="tablet-bars" id="hero-bars" role="img" aria-label="Citas por día"><i style="--bar:67%"></i><i style="--bar:80%"></i><i style="--bar:60%"></i><i style="--bar:87%"></i><i style="--bar:100%"></i><i style="--bar:53%"></i><i style="--bar:0%"></i></div></div><div class="tablet-next-row"><div class="tablet-next"><span>Próxima cita</span><strong>10:00 · Clara</strong><small>Valeria · Corte</small></div><button type="button" class="analytics-report js-only" title="Disponible en el panel" aria-label="Ver informe de analíticas. Disponible en el panel."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l3 3v15H6Z"/><path d="M9 15v-3m3 3V9m3 6v-5"/></svg><span>Ver informe de analíticas</span></button></div><div class="owner-tools"><div class="marketing-card"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h3l6 4V6L7 10Z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg><span><b>Marketing</b><small>Realiza campañas de captación y fidelización de clientes</small></span></div><button type="button" class="chat-trigger js-only" data-open="assistant" aria-controls="hero-assistant" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H9l-5 4z"/><path d="M8 8h8M8 12h5"/></svg><span><b>Asistente</b><small>Pregúntame por tu agenda</small></span></button></div></aside>
+</div>
+<div class="owner-request" data-request><div><b data-request-title>Lucía · Peinado</b><span data-request-copy>Sara · 10:30 · Pendiente</span></div><button type="button" data-confirm-request class="js-only">Confirmar solicitud <span aria-hidden="true">✓</span></button></div>
+<div class="owner-overlay assistant-panel" id="hero-assistant" role="dialog" aria-labelledby="hero-assistant-title" tabindex="-1" hidden><div class="owner-panel-head"><h3 id="hero-assistant-title">Tu asistente</h3><button type="button" data-close aria-label="Cerrar asistente">×</button></div><p>Consulta las citas de este ejemplo.</p><div class="assistant-questions" role="group" aria-label="Preguntas de ejemplo"><button type="button" data-question>¿Qué está pendiente?</button><button type="button" data-question>¿Cuál es la próxima cita?</button><button type="button" data-question>¿Cómo va la semana?</button></div><form class="assistant-form"><label class="sr-only" for="hero-question">Pregunta sobre las citas del ejemplo</label><input id="hero-question" maxlength="160" placeholder="Pregunta por tu agenda…" autocomplete="off"/><button type="submit" aria-label="Consultar asistente">↗</button></form><p class="assistant-answer" role="status" aria-live="polite">Hay 1 solicitud pendiente: Lucía, Peinado con Sara a las 10:30.</p><p class="example-caption">Respuestas mediante reglas sobre datos ficticios.</p></div>
+<p class="sr-only" id="hero-status" role="status" aria-live="polite"></p>
+</div>
 
-<script>
-/* En sishow.es esto va como <html lang="es">; aquí se fija en runtime */
-document.documentElement.lang = 'es';
+<!-- /owner-component:hero -->
+<p class="example-band" role="note"><svg class="example-warn" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 20h19Z"/><path d="M12 10v4.5M12 17.5v.2"/></svg><strong>Versión de ejemplo MUY simplificada: no es el producto real</strong></p><div class="tablet-glass" aria-hidden="true"></div></div>
+</div>
+</section>
+<section aria-labelledby="cut-title" class="cut-section" id="corte"><div class="cut-sticky"><p class="eyebrow">Haz sitio para lo que haces bien</p><h2 id="cut-title">Corta con<br/><span>lo que te frena</span></h2><div class="cut-paper-stage"><div class="cut-scene"><div class="cut-top"><span class="cut-card"><span class="sr-only">Llamadas a deshora</span><span class="cut-half cut-upper" aria-hidden="true"><span>Llamadas a deshora</span></span><span class="cut-half cut-lower" aria-hidden="true"><span>Llamadas a deshora</span></span></span><span class="cut-card"><span class="sr-only">Clientes sin atender</span><span class="cut-half cut-upper" aria-hidden="true"><span>Clientes sin atender</span></span><span class="cut-half cut-lower" aria-hidden="true"><span>Clientes sin atender</span></span></span><span class="cut-card"><span class="sr-only">Comisiones por reserva</span><span class="cut-half cut-upper" aria-hidden="true"><span>Comisiones por reserva</span></span><span class="cut-half cut-lower" aria-hidden="true"><span>Comisiones por reserva</span></span></span></div><div aria-hidden="true" class="cut-track"><div class="cut-track-dots"></div><div class="cut-track-done"></div><div class="scissors"><svg viewbox="0 0 180 130"><g class="blade blade-a"><path d="M76 65L170 28Q144 67 77 70Z" fill="url(#metal)" stroke="var(--metal-dark)" stroke-width="1.2"></path><path d="M80 65L53 96" stroke="url(#metal)" stroke-width="11"></path><ellipse cx="37" cy="106" fill="none" rx="22" ry="13" stroke="url(#metal)" stroke-width="9" transform="rotate(-20 37 106)"></ellipse></g><g class="blade blade-b"><path d="M76 65L170 102Q144 63 77 60Z" fill="url(#metal)" stroke="var(--metal-dark)" stroke-width="1.2"></path><path d="M80 65L53 34" stroke="url(#metal)" stroke-width="11"></path><ellipse cx="37" cy="24" fill="none" rx="22" ry="13" stroke="url(#metal)" stroke-width="9" transform="rotate(20 37 24)"></ellipse></g><circle cx="79" cy="65" fill="var(--metal-mid)" r="8" stroke="var(--metal-dark)"></circle><path d="M75 65h8" stroke="var(--metal-dark)" stroke-width="2"></path></svg></div></div></div><div class="cut-reveal"><div class="cut-cta"><a class="button orange" href="#reunion">Reserva una reunión para verlo en tu negocio <span class="cta-icon" aria-hidden="true"><svg class="cta-calendar" viewBox="0 0 36 36"><path class="cta-calendar-sheet" d="M8 10h23l-6 19H2Z"/><path d="M7 29v4h22l3-23M13 12c-3 1-4-2-4-4V5c0-5 6-5 6 0v4m6 3c-3 1-4-2-4-4V5c0-5 6-5 6 0v4m6 3c-3 1-4-2-4-4V5c0-5 6-5 6 0v4"/><path class="cta-calendar-tick" d="m11 21 4 4 8-9"/></svg></span></a><p>Sin coste ni compromiso</p></div></div><div class="cut-paper-corner" aria-hidden="true"><i class="cut-seg" style="--tilt:-6;--j1:2;--j2:5"></i><i class="cut-seg" style="--tilt:5;--j1:4;--j2:1"></i><i class="cut-seg" style="--tilt:-4;--j1:1;--j2:4"></i><i class="cut-seg" style="--tilt:7;--j1:5;--j2:2"></i><i class="cut-seg" style="--tilt:-8;--j1:2;--j2:3"></i><i class="cut-seg" style="--tilt:4;--j1:3;--j2:5"></i><i class="cut-seg" style="--tilt:-5;--j1:5;--j2:1"></i><i class="cut-seg" style="--tilt:6;--j1:1;--j2:4"></i><i class="cut-seg" style="--tilt:-3;--j1:4;--j2:2"></i><i class="cut-seg" style="--tilt:8;--j1:2;--j2:5"></i></div></div></div></section>
+<section aria-labelledby="meeting-title" class="meeting-section" id="reunion">
+<div class="meeting-layout wrap"><div class="meeting-intro"><h2 id="meeting-title">Reserva<br/><span>una reunión</span></h2><p>Cuéntanos cómo es tu salón. Te enseñamos cómo encajaría siShow en vuestro día a día.</p><ul class="meeting-trust" id="meeting-trust"><li><span aria-hidden="true">◷</span> Solo 30 min</li><li><span aria-hidden="true">✓</span> Sin compromiso</li><li><span aria-hidden="true">↗</span> Por Meet o en tu salón</li></ul><p class="meeting-alt">¿Prefieres escribirnos? <a class="button secondary wa small" href="https://wa.me/34622107116?text=Hola%2C%20he%20visto%20la%20web%20de%20siShow%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20mi%20sal%C3%B3n." target="_blank" rel="noopener" ><svg class="wa-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.29Z"/></svg>WhatsApp · 622 10 71 16</a></p><p class="meeting-note">Elige un hueco y déjanos tus datos. Te escribimos para confirmar la reunión y, si prefieres por Meet, enviarte el enlace.</p></div>
+<div class="meeting-card" id="meeting-card">
+<noscript><div class="meeting-fallback"><p>El calendario interactivo necesita JavaScript. Puedes completar este formulario o <a href="mailto:infosishow@gmail.com?subject=Reuni%C3%B3n%20con%20siShow&amp;body=Nombre%3A%20%0ASal%C3%B3n%3A%20%0ATel%C3%A9fono%20o%20email%3A%20%0AD%C3%ADa%20y%20hora%20preferidos%3A%20%0AFormato%20(Meet%20o%20visita)%3A%20%0ADirecci%C3%B3n%20(si%20visita)%3A%20%0ATipo%20de%20negocio%3A%20%0APersonas%3A%20">escribirnos por correo</a>. Si el envío falla, podrás abrir un correo con los datos que hayas rellenado.</p></div></noscript>
+<div class="paper-rings" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p class="sr-only" id="meeting-progress" role="status" aria-live="polite"></p>
+<form id="meeting-form" action="reserva.php" method="post">
+<fieldset data-meeting-panel="1"><legend id="meeting-day-title" tabindex="-1">Elige un día</legend><p class="paper-today" id="meeting-today">¿Qué día te viene bien?</p><div class="meeting-native"><label class="meeting-field" for="meeting-date">Día laborable<input type="date" id="meeting-date" name="fecha" required/></label></div><div id="meeting-calendar"><div class="meeting-period"><strong id="meeting-period" aria-live="polite">Elige un día</strong><div class="meeting-month-nav js-only" role="group" aria-label="Cambiar mes"><button type="button" id="meeting-prev-month" aria-label="Mes anterior" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button><button type="button" id="meeting-next-month" aria-label="Mes siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button></div></div><div class="paper-weekdays" aria-hidden="true"><span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span></div><div class="meeting-days" id="meeting-days" role="group" aria-label="Elige un día"></div><p class="meeting-key"><span class="key-free">Con hueco</span><span class="key-closed">No disponible</span><span class="key-today">Hoy</span><span class="key-note">Hora de Madrid</span></p></div></fieldset>
+<fieldset data-meeting-panel="2"><legend id="meeting-time-title" tabindex="-1">Elige una hora</legend><p class="meeting-hint" id="meeting-chosen-day">Hora de Madrid · franjas de 30 min.</p><div class="meeting-native"><label class="meeting-field" for="meeting-time">Hora preferida<input type="time" id="meeting-time" name="hora" step="1800" required/></label><p class="meeting-hint">Lunes y miércoles: 15:30–19:30. Martes y jueves: 10:00–12:00 y 16:00–18:00. Viernes: 16:00–18:00. Sujeto a disponibilidad.</p></div><div class="meeting-times" id="meeting-times" role="group" aria-label="Elige una hora"></div><button class="text-button meeting-back" type="button" data-meeting-back="1" hidden>← Cambiar día</button></fieldset>
+<fieldset data-meeting-panel="3"><legend id="meeting-format-title" tabindex="-1">¿Cómo nos vemos?</legend><p class="meeting-hint">La misma atención, donde te resulte más cómodo.</p><div class="meeting-formats"><label class="meeting-format"><input type="radio" name="formato" value="meet" required checked/><span>Videollamada (Google Meet)<small>Te enviamos el enlace al confirmar.</small></span></label><label class="meeting-format"><input type="radio" name="formato" value="visita"/><span>Visita a tu salón<small>Confirmamos contigo el desplazamiento.</small></span></label></div><label class="meeting-field" id="meeting-address-field" for="meeting-address">Dirección del salón (obligatoria si elegiste visita)<input id="meeting-address" name="direccion" autocomplete="street-address" maxlength="300" placeholder="Calle, número, código postal y localidad"/></label><div class="meeting-buttons"><button type="button" class="button orange" id="meeting-next" hidden>Continuar <span aria-hidden="true">→</span></button><button class="text-button meeting-back" type="button" data-meeting-back="2" hidden>← Cambiar hora</button></div></fieldset>
+<fieldset data-meeting-panel="4"><legend id="meeting-data-title" tabindex="-1">Un poco sobre tu salón</legend><p class="meeting-hint">30 min, sin compromiso. Solo usaremos tus datos para atender esta solicitud.</p><div class="meeting-fields">
+<label class="meeting-field" for="meeting-name">Tu nombre<input id="meeting-name" name="nombre" autocomplete="name" maxlength="120" required/></label><label class="meeting-field" for="meeting-salon">Nombre del salón<input id="meeting-salon" name="salon" autocomplete="organization" maxlength="160" required/></label>
+<label class="meeting-field" for="meeting-phone">Teléfono<input type="tel" id="meeting-phone" name="telefono" autocomplete="tel" maxlength="30" placeholder="Tu teléfono de contacto" aria-describedby="meeting-contact-note"/></label><label class="meeting-field" for="meeting-email">Email<input type="email" id="meeting-email" name="email" autocomplete="email" maxlength="254" placeholder="tu@salon.es" aria-describedby="meeting-contact-note"/></label><p class="meeting-contact-note" id="meeting-contact-note">Necesitamos al menos un teléfono o un email para confirmar contigo.</p>
+<label class="meeting-field" for="meeting-business">Tipo de negocio<select id="meeting-business" name="negocio" required><option value="">Elige tu actividad</option><option>Peluquería</option><option>Barbería</option><option>Salón de belleza</option><option>Estética</option><option>Otro</option></select></label><label class="meeting-field" for="meeting-team">Personas en el equipo<input type="number" id="meeting-team" name="personas" min="1" max="1000" step="1" inputmode="numeric" required/></label><label class="meeting-field full meeting-other" id="meeting-other-field" for="meeting-other">¿A qué te dedicas?<input id="meeting-other" name="negocio_otro" maxlength="120" placeholder="Escribe tu tipo de negocio"/></label><label class="meeting-field full" for="meeting-message">¿Algo que te gustaría contarnos? (opcional)<textarea id="meeting-message" name="mensaje" rows="3" maxlength="2000" placeholder="Cómo organizáis las citas, qué os gustaría mejorar…"></textarea></label></div>
+<label class="meeting-trap" aria-hidden="true">Deja este campo vacío<input type="text" name="web" tabindex="-1" autocomplete="off"/></label>
+<label class="meeting-consent"><input type="checkbox" name="consentimiento" value="si" required/><span>Acepto que siShow use mis datos para gestionar esta solicitud, según la <a href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a><span class="sr-only"> (se abre en otra pestaña)</span>.</span></label>
+<div class="meeting-summary" id="meeting-summary" aria-label="Resumen de tu reunión" hidden></div><button type="submit" class="button orange meeting-submit" id="meeting-submit">Solicitar reunión <span class="cta-icon" aria-hidden="true"><svg class="cta-calendar" viewBox="0 0 36 36"><path class="cta-calendar-sheet" d="M8 10h23l-6 19H2Z"/><path d="M7 29v4h22l3-23M13 12c-3 1-4-2-4-4V5c0-5 6-5 6 0v4m6 3c-3 1-4-2-4-4V5c0-5 6-5 6 0v4m6 3c-3 1-4-2-4-4V5c0-5 6-5 6 0v4"/><path class="cta-calendar-tick" d="m11 21 4 4 8-9"/></svg></span></button><button class="text-button meeting-back" type="button" data-meeting-back="3" hidden>← Cambiar formato</button><p class="meeting-key">La solicitud queda pendiente hasta que la confirmemos contigo.</p>
+</fieldset></form>
+<p class="meeting-status" id="meeting-status" role="status" aria-live="polite" aria-atomic="true"></p><div class="meeting-fallback" id="meeting-fallback" hidden><p id="meeting-fallback-message"></p><a id="meeting-fallback-mail" href="mailto:infosishow@gmail.com">Enviar los datos por correo ↗</a></div><div class="meeting-success" id="meeting-success" hidden><span class="meeting-check" aria-hidden="true">✓</span><h3 id="meeting-success-title" tabindex="-1">Te escribimos para confirmar</h3><p id="meeting-success-copy">Ya tenemos tu solicitud. La reunión estará confirmada cuando contactemos contigo.</p><div class="meeting-summary" id="meeting-success-summary"></div></div>
+</div></div></section>
+<section aria-labelledby="product-title" class="product-section" id="producto"><div class="wrap"><div class="product-heading"><h2 id="product-title">Tú a lo tuyo<br/><span>Todo en su sitio</span></h2><p class="photo-tag">Tanto para estéticas como para barberías</p></div><div class="product-layout">
+<div class="salon-pair">
+<div class="salon-images">
+<!-- Crédito foto "Manos ocupadas": Foto de RDNE Stock project en Pexels, https://www.pexels.com/photo/7755222/ (licencia Pexels). -->
+<figure class="beauty-photo"><img alt="Manos de una peluquera cortando un mechón de pelo mojado de una clienta" src="assets/belleza-editorial.webp" width="1536" height="1024" loading="lazy"/><figcaption>Manos ocupadas.</figcaption></figure>
+<figure class="beauty-photo"><img alt="Manos de un profesional con máquina en un negocio ficticio, sin rostro reconocible" src="assets/barberia-editorial.webp" width="1536" height="1024" loading="lazy"/><figcaption><strong>Agenda organizada.</strong></figcaption></figure>
+</div></div>
+<div class="product-demo" id="guided-demo" data-step="1" role="group" aria-label="Las dos interfaces de siShow · datos ficticios">
+<div class="flow-steps js-only" role="tablist" aria-label="Las dos caras de siShow"><button type="button" role="tab" id="flow-tab-1" aria-controls="flow-panel-1" aria-selected="true" data-step="1">Tus clientes reservan</button><button type="button" role="tab" id="flow-tab-2" aria-controls="flow-panel-2" aria-selected="false" tabindex="-1" data-step="2">Tú gestionas el negocio</button></div>
+<div class="demo-ipad"><span class="demo-camera" aria-hidden="true"></span><div class="demo-screen">
+<div class="demo-top"><span class="demo-example" id="demo-interface-label">Interfaz del cliente que reserva</span></div>
+<div class="flow-stage">
+<div class="flow-panel" id="flow-panel-1" role="tabpanel" aria-labelledby="flow-tab-1" tabindex="0">
+<div class="client-layout"><div class="salon-story"><img class="salon-cover" src="assets/demo-salon-v9.webp" width="900" height="600" loading="lazy" alt="Salón de peluquería ficticio vacío, con espejos y sillones en tonos cálidos"/><div class="salon-story-copy"><p class="salon-location">Tu salón de barrio</p><h3>Peluquería Ejemplo</h3><p>Un rato para ti.<br/>Nosotros cuidamos el resto.</p></div><img class="salon-detail" src="assets/demo-lavado-v9.webp" width="900" height="600" loading="lazy" alt="Zona de lavado de un salón ficticio, sin personas"/></div>
+<div class="client-booking"><h3>Tu próxima cita</h3><p class="client-note">Elige, solicita y el salón confirma.</p><div aria-label="Reserva con datos ficticios. Elige servicio, profesional y hora." class="booking-widget" id="demo" role="group">
 
-/* ── Nav: transparente sobre el hero, sólida al bajar ── */
-(function () {
-  var nav = document.getElementById('nav');
-  var anchor = document.getElementById('hero-anchor');
-  if (!nav || !anchor) return;
-  new IntersectionObserver(
-    function (e) { nav.classList.toggle('is-scrolled', !e[0].isIntersecting); },
-    { rootMargin: '-62px 0px 0px 0px', threshold: 0 }
-  ).observe(anchor);
-}());
+<div class="m-body">
+<p class="m-lbl" id="lbl-svc">Elige servicio</p>
+<div aria-labelledby="lbl-svc" class="m-svcs" role="group">
+<button aria-pressed="true" class="m-svc sel" data-service="Corte + lavado" data-duration="45" type="button">Corte + lavado <span class="m-svc-dur">45 min</span></button>
+<button aria-pressed="false" class="m-svc" data-service="Lavado + peinado" data-duration="30" type="button">Lavado + peinado <span class="m-svc-dur">30 min</span></button>
+<button aria-pressed="false" class="m-svc" data-service="Peinado" data-duration="30" type="button">Peinado <span class="m-svc-dur">30 min</span></button>
+</div>
+<p class="m-lbl" id="lbl-pro">Profesional</p>
+<div aria-labelledby="lbl-pro" class="m-pros" role="group">
+<button aria-pressed="true" class="m-pro sel" type="button"><span aria-hidden="true" class="m-pro-av">V</span>Valeria</button>
+<button aria-pressed="false" class="m-pro" type="button"><span aria-hidden="true" class="m-pro-av">S</span>Sara</button>
+<button aria-pressed="false" class="m-pro" type="button"><span aria-hidden="true" class="m-pro-av">A</span>Alex</button>
+</div>
+<p class="m-lbl" id="lbl-hora">Hoy · horas de ejemplo</p>
+<div aria-labelledby="lbl-hora" class="m-slots" role="group">
+<button aria-label="10:00, ocupada" class="m-slot off" disabled="" type="button">10:00</button>
+<button aria-label="11:00, ocupada" class="m-slot off" disabled type="button">11:00</button>
+<button aria-pressed="true" class="m-slot sel" type="button">12:00</button>
+<button aria-pressed="false" class="m-slot" type="button">16:00</button>
+<button aria-pressed="false" class="m-slot" type="button">17:00</button>
+<button aria-pressed="false" class="m-slot" type="button">18:00</button>
+<button aria-pressed="false" class="m-slot" type="button">18:30</button>
+<button aria-pressed="false" class="m-slot" type="button">19:00</button>
+</div>
+<button class="m-cta button orange full js-only" id="demo-enviar" type="button">Solicitar →</button>
+<p class="m-foot">Es una solicitud. El salón decide si la confirma.</p>
+<p class="booking-status" id="booking-status" role="status"></p><noscript><p class="noscript">Este es un ejemplo. En tu web se eligen servicio, profesional y hora; el salón confirma la solicitud.</p></noscript></div>
+</div></div></div>
+</div>
+<div class="flow-panel" id="flow-panel-2" role="tabpanel" aria-labelledby="flow-tab-2" tabindex="0">
+<!-- owner-component:owner -->
+<div class="owner-ui" id="owner-agenda" data-owner-ui data-prefix="owner" role="group" aria-label="Agenda de siShow · datos ficticios">
+<header class="tablet-ui-top"><span>Agenda · <time id="owner-date" data-demo-date>Hoy</time></span><b class="tablet-wordmark" role="img" aria-label="siShow"><svg class="brand-mark" data-brand="v3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 -3 176 63"><g class="logo-i-dot" transform="translate(25.576 -1.8) scale(.62)"><path class="logo-calendar-body" d="M8 10H31L25 29H2Z"/><path class="logo-calendar" d="M8 10H31L25 29H2Z M7 29V33H29L32 10V27"/><path class="logo-calendar logo-rings" d="M13 12C10 13 9 10 9 8V5C9 0 15 0 15 5V9 M21 12C18 13 17 10 17 8V5C17 0 23 0 23 5V9 M29 12C26 13 25 10 25 8V5C25 0 31 0 31 5V9"/><path class="logo-check" pathLength="1" stroke-width="3.5" d="M11 21L15 25L23 16"/></g><g class="logo-letters"><path class="logo-letter" data-letter="s" d="M402 -18Q225 -18 148.5 58.0Q72 134 65 309Q64 344 64.5 389.0Q65 434 67 452H293Q291 399 291.0 354.5Q291 310 292 282Q295 224 322.5 200.0Q350 176 402 176Q465 176 493.0 200.0Q521 224 522 282Q522 309 522.0 317.5Q522 326 522.0 334.0Q522 342 522 366Q522 408 507.0 433.5Q492 459 453 471L323 508Q238 534 179.0 571.5Q120 609 89.5 668.0Q59 727 58 815Q58 834 58.0 851.0Q58 868 58 886Q59 1064 138.5 1141.0Q218 1218 414 1218Q593 1218 667.5 1143.5Q742 1069 749 897Q751 863 750.0 817.0Q749 771 747 751H513Q514 773 514.5 808.0Q515 843 514.5 876.0Q514 909 513 926Q510 980 489.0 1002.0Q468 1024 414 1024Q357 1024 334.5 1002.0Q312 980 310 926Q309 901 308.5 887.0Q308 873 308 837Q308 791 322.0 759.5Q336 728 385 715L500 686Q629 654 694.5 584.5Q760 515 760 380Q760 362 760.0 341.5Q760 321 760 303Q759 131 677.0 56.5Q595 -18 402 -18Z" transform="translate(4.000 58) scale(0.031 -0.031)"/><path class="logo-i-stem" data-letter="i" d="M90 0V1200H348V0Z" transform="translate(29.327 58) scale(0.031 -0.031)"/><path class="logo-letter" data-letter="S" d="M442 -18Q243 -18 158.0 67.0Q73 152 64 349Q63 388 63.0 430.0Q63 472 65.0 513.5Q67 555 71 595H314Q310 518 309.5 442.5Q309 367 314 302Q319 248 349.5 220.5Q380 193 442 193Q503 193 531.0 220.5Q559 248 564 302Q568 342 569.5 378.0Q571 414 569.5 451.0Q568 488 564 529Q561 579 539.5 617.0Q518 655 468 668L319 706Q222 731 166.0 778.5Q110 826 85.5 898.0Q61 970 58 1068Q57 1117 57.0 1162.5Q57 1208 58 1253Q63 1384 101.5 1464.5Q140 1545 222.5 1581.5Q305 1618 442 1618Q635 1618 721.5 1533.5Q808 1449 816 1253Q818 1207 817.0 1140.0Q816 1073 813 1011H565Q568 1083 569.0 1155.5Q570 1228 567 1300Q565 1353 532.5 1380.0Q500 1407 442 1407Q380 1407 351.0 1380.0Q322 1353 316 1300Q311 1242 311.0 1184.0Q311 1126 316 1068Q321 1016 342.5 980.0Q364 944 418 931L549 900Q652 875 711.0 825.5Q770 776 795.5 702.0Q821 628 824 529Q825 496 825.0 466.5Q825 437 824.5 408.5Q824 380 822 349Q814 152 728.5 67.0Q643 -18 442 -18Z" transform="translate(42.843 58) scale(0.031 -0.031)"/><path class="logo-letter" data-letter="h" d="M89 0V1600H347V1076H393Q432 1145 476.0 1181.5Q520 1218 608 1218Q725 1218 790.0 1146.0Q855 1074 855 906V0H597V927Q597 980 572.5 1004.5Q548 1029 499 1029Q455 1029 410.0 1004.0Q365 979 347 934V0Z" transform="translate(70.185 58) scale(0.031 -0.031)"/><path class="logo-letter" data-letter="o" d="M450 -18Q316 -18 236.5 18.5Q157 55 120.0 135.5Q83 216 76 348Q74 394 72.5 459.5Q71 525 71.0 597.5Q71 670 72.0 737.5Q73 805 76 854Q83 984 119.5 1064.5Q156 1145 235.5 1181.5Q315 1218 450 1218Q585 1218 663.5 1181.0Q742 1144 778.5 1063.5Q815 983 822 854Q824 808 825.0 742.0Q826 676 826.0 603.5Q826 531 825.0 464.0Q824 397 822 348Q815 218 778.5 137.0Q742 56 663.5 19.0Q585 -18 450 -18ZM450 176Q511 176 536.5 203.0Q562 230 564 284Q566 363 567.5 442.0Q569 521 569.0 601.0Q569 681 567.5 760.0Q566 839 564 917Q562 971 536.5 997.5Q511 1024 450 1024Q390 1024 363.0 997.5Q336 971 334 917Q332 839 330.5 759.5Q329 680 329.0 600.5Q329 521 330.5 441.5Q332 362 334 284Q336 230 363.0 203.0Q390 176 450 176Z" transform="translate(99.294 58) scale(0.031 -0.031)"/><path class="logo-letter" data-letter="w" d="M179 0 29 1200H289L340 597L359 191H428L442 597L496 1198H915L967 597L980 191H1049L1069 597L1122 1200H1384L1229 0H792L756 466L740 1008H670L652 466L616 0Z" transform="translate(127.101 58) scale(0.031 -0.031)"/></g></svg></b></header>
+<div class="tablet-ui-body">
+<div class="tablet-agenda"><div class="tablet-agenda-title"><strong>Tu equipo, al día</strong><div class="tablet-views" role="group" aria-label="Vista de la agenda"><button type="button" data-view="day" aria-pressed="true">Día</button><button type="button" data-view="week" aria-pressed="false">Semana</button></div></div>
+<div class="tablet-professionals" role="group" aria-label="Profesional"><button type="button" data-professional="Equipo" aria-pressed="true">Equipo</button><button type="button" data-professional="Valeria" aria-pressed="false">Valeria</button><button type="button" data-professional="Sara" aria-pressed="false">Sara</button><button type="button" data-professional="Alex" aria-pressed="false">Alex</button></div>
+<div class="tablet-grid" id="owner-day" aria-label="Agenda de hoy de 10:00 a 12:00"><span></span><span class="tablet-person" data-pro="Valeria" style="grid-column:2">Valeria</span><span class="tablet-person" data-pro="Sara" style="grid-column:3">Sara</span><span class="tablet-person" data-pro="Alex" style="grid-column:4">Alex</span><time style="grid-column:1;grid-row:2">10:00</time><time style="grid-column:1;grid-row:3">10:15</time><time style="grid-column:1;grid-row:4">10:30</time><time style="grid-column:1;grid-row:5">10:45</time><time style="grid-column:1;grid-row:6">11:00</time><time style="grid-column:1;grid-row:7">11:15</time><time style="grid-column:1;grid-row:8">11:30</time><time style="grid-column:1;grid-row:9">11:45</time><div class="tablet-cell category-sage" data-pro="Valeria" data-duration="30" style="--agenda-col:2;grid-column:var(--agenda-col);grid-row:2/span 2"><div class="tablet-appointment" data-appointment="clara" ><strong>Clara</strong><span>10:00 · Corte</span></div></div>
+<div class="tablet-cell category-sage" data-pro="Valeria" data-duration="45" style="--agenda-col:2;grid-column:var(--agenda-col);grid-row:4/span 3"><div class="tablet-appointment" data-appointment="daniel" ><strong>Daniel</strong><span>10:30 · Corte + lavado</span></div></div>
+<div class="tablet-cell category-lavender" data-pro="Valeria" data-duration="30" style="--agenda-col:2;grid-column:var(--agenda-col);grid-row:7/span 2"><div class="tablet-appointment" data-appointment="ines" ><strong>Inés</strong><span>11:15 · Peinado</span></div></div>
+<div class="tablet-cell category-lavender" data-pro="Sara" data-duration="30" style="--agenda-col:3;grid-column:var(--agenda-col);grid-row:2/span 2"><div class="tablet-appointment" data-appointment="noelia" ><strong>Noelia</strong><span>10:00 · Lavado + peinado</span></div></div>
+<div class="tablet-cell category-lavender" data-pro="Sara" data-duration="30" style="--agenda-col:3;grid-column:var(--agenda-col);grid-row:4/span 2"><div class="tablet-appointment is-pending" data-appointment="lucia" ><strong>Lucía</strong><span>Pendiente</span></div></div>
+<div class="tablet-cell category-lavender" data-pro="Sara" data-duration="45" style="--agenda-col:3;grid-column:var(--agenda-col);grid-row:7/span 3"><div class="tablet-appointment" data-appointment="olga" ><strong>Olga</strong><span>11:15 · Lavado + peinado</span></div></div>
+<div class="tablet-cell category-sky" data-pro="Alex" data-duration="15" style="--agenda-col:4;grid-column:var(--agenda-col);grid-row:2/span 1"><div class="tablet-appointment" data-appointment="marcos" ><strong>Marcos</strong><span>10:00 · Lavado</span></div></div>
+<div class="tablet-cell category-lavender" data-pro="Alex" data-duration="30" style="--agenda-col:4;grid-column:var(--agenda-col);grid-row:4/span 2"><div class="tablet-appointment" data-appointment="eva" ><strong>Eva</strong><span>10:30 · Lavado + peinado</span></div></div>
+<div class="tablet-cell category-sage" data-pro="Alex" data-duration="30" style="--agenda-col:4;grid-column:var(--agenda-col);grid-row:6/span 2"><div class="tablet-appointment" data-appointment="hugo" ><strong>Hugo</strong><span>11:00 · Corte</span></div></div>
+<div class="tablet-cell category-lavender" data-pro="Alex" data-duration="15" style="--agenda-col:4;grid-column:var(--agenda-col);grid-row:8/span 1"><div class="tablet-appointment" data-appointment="irene" ><strong>Irene</strong><span>11:30 · Peinado</span></div></div><div class="tablet-cell" data-pro="Valeria" style="--agenda-col:2;grid-column:var(--agenda-col);grid-row:9"><span class="tablet-free">Libre</span></div><div class="tablet-cell" data-pro="Sara" style="--agenda-col:3;grid-column:var(--agenda-col);grid-row:6"><span class="tablet-free">Libre</span></div><div class="tablet-cell" data-pro="Alex" style="--agenda-col:4;grid-column:var(--agenda-col);grid-row:3"><span class="tablet-free">Libre</span></div><div class="tablet-cell" data-pro="Alex" style="--agenda-col:4;grid-column:var(--agenda-col);grid-row:9"><span class="tablet-free">Libre</span></div></div><div class="tablet-week" id="owner-week" hidden aria-label="Calendario de esta semana de 10:00 a 12:00"></div>
+<div class="category-legend" aria-label="Colores por servicio"><span class="category-sage">Corte</span><span class="category-sky">Lavado</span><span class="category-lavender">Peinado</span><span class="pending-legend">Discontinuo: pendiente</span></div>
+</div>
+<aside class="tablet-analytics" aria-label="Analíticas"><h4>Analíticas</h4><div class="tablet-occupancy"><span class="tablet-ring" role="img" aria-label="83 % de ocupación, incluidas solicitudes pendientes"><svg viewBox="0 0 42 42" aria-hidden="true"><circle class="ring-track" cx="21" cy="21" r="16"/><circle class="ring-fill" cx="21" cy="21" r="16" pathLength="100" stroke-dasharray="83 100"/></svg><strong>83<span>%</span></strong></span><span>Ocupación</span></div><div class="tablet-week-stat"><strong class="tablet-stat" id="owner-week-count">67</strong><span class="tablet-stat-label">citas esta semana</span><div class="tablet-bars" id="owner-bars" role="img" aria-label="Citas por día"><i style="--bar:67%"></i><i style="--bar:80%"></i><i style="--bar:60%"></i><i style="--bar:87%"></i><i style="--bar:100%"></i><i style="--bar:53%"></i><i style="--bar:0%"></i></div></div><div class="tablet-next-row"><div class="tablet-next"><span>Próxima cita</span><strong>10:00 · Clara</strong><small>Valeria · Corte</small></div><button type="button" class="analytics-report js-only" title="Disponible en el panel" aria-label="Ver informe de analíticas. Disponible en el panel."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l3 3v15H6Z"/><path d="M9 15v-3m3 3V9m3 6v-5"/></svg><span>Ver informe de analíticas</span></button></div><div class="owner-tools"><div class="marketing-card"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h3l6 4V6L7 10Z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg><span><b>Marketing</b><small>Realiza campañas de captación y fidelización de clientes</small></span></div><button type="button" class="chat-trigger js-only" data-open="assistant" aria-controls="owner-assistant" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H9l-5 4z"/><path d="M8 8h8M8 12h5"/></svg><span><b>Asistente</b><small>Pregúntame por tu agenda</small></span></button></div></aside>
+</div>
+<div class="owner-request" data-request><div><b data-request-title>Lucía · Peinado</b><span data-request-copy>Sara · 10:30 · Pendiente</span></div><button type="button" data-confirm-request class="js-only">Confirmar solicitud <span aria-hidden="true">✓</span></button></div>
+<div class="owner-overlay assistant-panel" id="owner-assistant" role="dialog" aria-labelledby="owner-assistant-title" tabindex="-1" hidden><div class="owner-panel-head"><h3 id="owner-assistant-title">Tu asistente</h3><button type="button" data-close aria-label="Cerrar asistente">×</button></div><p>Consulta las citas de este ejemplo.</p><div class="assistant-questions" role="group" aria-label="Preguntas de ejemplo"><button type="button" data-question>¿Qué está pendiente?</button><button type="button" data-question>¿Cuál es la próxima cita?</button><button type="button" data-question>¿Cómo va la semana?</button></div><form class="assistant-form"><label class="sr-only" for="owner-question">Pregunta sobre las citas del ejemplo</label><input id="owner-question" maxlength="160" placeholder="Pregunta por tu agenda…" autocomplete="off"/><button type="submit" aria-label="Consultar asistente">↗</button></form><p class="assistant-answer" role="status" aria-live="polite">Hay 1 solicitud pendiente: Lucía, Peinado con Sara a las 10:30.</p><p class="example-caption">Respuestas mediante reglas sobre datos ficticios.</p></div>
+<p class="sr-only" id="owner-status" role="status" aria-live="polite"></p>
+</div>
 
-/* ── Demo del hero: elegir servicio, profesional y hora ── */
-(function () {
-  var demo = document.getElementById('demo');
-  if (!demo) return;
-
-  function grupo(selector) {
-    var botones = demo.querySelectorAll(selector);
-    Array.prototype.forEach.call(botones, function (btn) {
-      btn.addEventListener('click', function () {
-        Array.prototype.forEach.call(botones, function (otro) {
-          otro.classList.remove('sel');
-          if (!otro.disabled) otro.setAttribute('aria-pressed', 'false');
-        });
-        btn.classList.add('sel');
-        btn.setAttribute('aria-pressed', 'true');
-        ocultarAviso();
-      });
-    });
-  }
-
-  grupo('.m-svc');
-  grupo('.m-pro');
-  grupo('.m-slot:not(.off)');
-
-  var enviar    = document.getElementById('demo-enviar');
-  var aviso     = document.getElementById('demo-aviso');
-  var verAgenda = document.getElementById('demo-ver-agenda');
-  var agenda    = document.getElementById('demo-agenda');
-  var temporizador;
-
-  function ocultarAviso() {
-    if (!aviso) return;
-    clearTimeout(temporizador);
-    aviso.classList.remove('is-on');
-    if (enviar) {
-      enviar.classList.remove('is-sent');
-      enviar.textContent = 'Solicitar cita →';
-    }
-    if (verAgenda) verAgenda.hidden = true;
-    if (agenda) agenda.hidden = true;
-  }
-
-  if (enviar && aviso) {
-    enviar.addEventListener('click', function () {
-      aviso.classList.add('is-on');
-      enviar.classList.add('is-sent');
-      enviar.textContent = 'Solicitud enviada';
-      if (verAgenda) verAgenda.hidden = false;
-      clearTimeout(temporizador);
-      temporizador = setTimeout(ocultarAviso, 9000);
-    });
-  }
-
-  if (verAgenda && agenda) {
-    verAgenda.addEventListener('click', function () {
-      var abierta = !agenda.hidden;
-      agenda.hidden = abierta;
-      verAgenda.textContent = abierta ? 'Ver cómo la ve el equipo ↓' : 'Ocultar agenda ↑';
-      clearTimeout(temporizador);
-      temporizador = setTimeout(ocultarAviso, 9000);
-    });
-  }
-}());
-
-/* ── Tijeras: se mueven al entrar la sección en pantalla ── */
-(function () {
-  var head = document.getElementById('scissors-head');
-  if (!head) return;
-  var hecho = false;
-  new IntersectionObserver(function (entradas) {
-    entradas.forEach(function (e) {
-      if (e.isIntersecting && !hecho) {
-        hecho = true;
-        head.classList.add('is-cut');
-      }
-    });
-  }, { threshold: .5 }).observe(head);
-}());
-
-/* ── Calculadora de tiempo ── */
-(function () {
-  var citas   = document.getElementById('ct-citas');
-  var minutos = document.getElementById('ct-minutos');
-  var dias    = document.getElementById('ct-dias');
-  if (!citas || !minutos || !dias) return;
-
-  var vCitas   = document.getElementById('ctv-citas');
-  var vMinutos = document.getElementById('ctv-minutos');
-  var vDias    = document.getElementById('ctv-dias');
-  var horasEl  = document.getElementById('ct-horas');
-  var jornadas = document.getElementById('ct-jornadas');
-  var chipDia  = document.getElementById('ct-chip-dia');
-  var chipMes  = document.getElementById('ct-chip-citas');
-  var gauge    = document.getElementById('ct-gauge');
-
-  var CIRCUNFERENCIA = 2 * Math.PI * 74;   // r=74
-  var TOPE_HORAS = 60;                      // circulo completo a partir de aqui
-
-  function pinta() {
-    var nCitas   = +citas.value;
-    var nMinutos = +minutos.value;
-    var nDias    = +dias.value;
-
-    var minDia  = nCitas * nMinutos;
-    var minMes  = minDia * nDias;
-    var horas   = minMes / 60;
-    var citasMes = nCitas * nDias;
-
-    vCitas.textContent   = nCitas;
-    vMinutos.textContent = nMinutos;
-    vDias.textContent    = nDias;
-
-    horasEl.textContent  = horas.toLocaleString('es-ES', { maximumFractionDigits: 1 });
-    jornadas.textContent = (horas / 8).toLocaleString('es-ES', { maximumFractionDigits: 1 });
-    chipDia.textContent  = minDia + ' min';
-    chipMes.textContent  = citasMes.toLocaleString('es-ES');
-
-    var frac = Math.min(horas / TOPE_HORAS, 1);
-    var offset = CIRCUNFERENCIA * (1 - frac);
-    gauge.setAttribute('stroke-dashoffset', offset.toFixed(1));
-  }
-
-  [citas, minutos, dias].forEach(function (c) { c.addEventListener('input', pinta); });
-  pinta();
-}());
-
-/* ── Precios: el plan destacado sigue al tamaño del equipo ── */
-(function () {
-  var opciones = document.querySelectorAll('.team-opt');
-  var mensaje  = document.getElementById('team-msg');
-  if (!opciones.length) return;
-
-  var POR_DEFECTO = 'plan-completo';
-  var TEXTOS = {
-    'plan-basico':    'El plan Básico cubre hasta 3 profesionales con agenda propia.',
-    'plan-completo':  'El plan Completo llega hasta 6 profesionales con agenda propia.',
-    'plan-embajador': 'El plan Embajador no tiene límite de profesionales.'
-  };
-
-  function destacar(id, etiqueta) {
-    ['plan-basico', 'plan-completo', 'plan-embajador'].forEach(function (pid) {
-      var tarjeta = document.getElementById(pid);
-      if (!tarjeta) return;
-      var esta = (pid === id);
-      tarjeta.classList.toggle('gold', esta);
-      var badge = tarjeta.querySelector('.plan-badge');
-      if (badge && esta) badge.textContent = etiqueta;
-    });
-  }
-
-  Array.prototype.forEach.call(opciones, function (opt) {
-    opt.addEventListener('click', function () {
-      var yaEstaba = opt.getAttribute('aria-pressed') === 'true';
-
-      Array.prototype.forEach.call(opciones, function (o) {
-        o.setAttribute('aria-pressed', 'false');
-      });
-
-      if (yaEstaba) {
-        destacar(POR_DEFECTO, 'Recomendado');
-        if (mensaje) mensaje.textContent = '';
-        return;
-      }
-
-      opt.setAttribute('aria-pressed', 'true');
-      var destino = opt.getAttribute('data-plan');
-      destacar(destino, 'Para tu equipo');
-      if (mensaje) mensaje.textContent = TEXTOS[destino] || '';
-    });
-  });
-}());
-
-</script>
-
-</body>
-</html>
+<!-- /owner-component:owner -->
+</div></div><p class="example-band" role="note"><svg class="example-warn" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 20h19Z"/><path d="M12 10v4.5M12 17.5v.2"/></svg><strong>Versión de ejemplo MUY simplificada: no es el producto real</strong></p><noscript><p class="noscript">Ejemplo estático: tus clientes solicitan una cita y tu salón la confirma. Activa JavaScript para probarlo.</p></noscript><div class="demo-home" aria-hidden="true"></div></div></div></div></div>
+<p class="sr-only" id="demo-status" role="status"></p></div></section>
+<section aria-labelledby="control-title" class="control-section"><div class="wrap"><div class="control-heading"><div><p class="eyebrow">Esto es siShow</p><h2 id="control-title">El control del día<br/><span>De un vistazo</span></h2></div></div>
+<div class="day-ipad demo-ipad"><span class="demo-camera" aria-hidden="true"></span><div class="demo-screen"><div class="day-board" id="day-board" data-motion role="group" aria-label="Control de la mañana · datos ficticios, compartidos con la agenda del inicio"><header class="day-board-head"><div><span>Tu mañana</span><p>10:00 — 12:00</p></div><span class="day-example">Datos ficticios</span></header>
+<dl class="day-metrics"><div class="day-metric"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="3"/><path d="M8 3v4m8-4v4M4 10h16m-12 5 3 3 5-5"/></svg><dt>Citas confirmadas</dt><dd id="day-confirmed">9</dd></div><div class="day-metric"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><dt>Solicitud pendiente</dt><dd id="day-pending">1</dd></div><div class="day-metric"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 8v8m-4-4h8"/></svg><dt>Huecos libres</dt><dd id="day-free">4</dd></div><div class="day-metric"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 1-9 9m0 0h9V3"/></svg><dt>% de ocupación</dt><dd id="day-occupancy">83</dd></div></dl><div class="day-timeline" aria-label="Agenda de 10:00 a 12:00 por profesional"><div class="day-hours" aria-hidden="true"><span></span><time>10:00</time><time>10:30</time><time>11:00</time><time>11:30</time></div><div class="day-row"><div class="day-person"><span aria-hidden="true">V</span><strong>Valeria</strong></div><div class="day-lane"><div class="day-slot category-sage" data-day-appointment="clara" style="--slot-start:0.000%;--slot-size:25.000%"><time class="day-slot-time">10:00</time><strong>Clara</strong><span>Corte</span></div><div class="day-slot category-sage" data-day-appointment="daniel" style="--slot-start:25.000%;--slot-size:37.500%"><time class="day-slot-time">10:30</time><strong>Daniel</strong><span>Corte + lavado</span></div><div class="day-slot category-lavender" data-day-appointment="ines" style="--slot-start:62.500%;--slot-size:25.000%"><time class="day-slot-time">11:15</time><strong>Inés</strong><span>Peinado</span></div><div class="day-slot day-free" style="--slot-start:87.500%;--slot-size:12.5%"><time class="day-slot-time">11:45</time><span>Libre</span></div></div></div><div class="day-row"><div class="day-person"><span aria-hidden="true">S</span><strong>Sara</strong></div><div class="day-lane"><div class="day-slot category-lavender" data-day-appointment="noelia" style="--slot-start:0.000%;--slot-size:25.000%"><time class="day-slot-time">10:00</time><strong>Noelia</strong><span>Lavado + peinado</span></div><div class="day-slot category-lavender day-pending" data-day-appointment="lucia" style="--slot-start:25.000%;--slot-size:25.000%"><time class="day-slot-time">10:30</time><strong>Lucía</strong><span>Pendiente</span></div><div class="day-slot category-lavender" data-day-appointment="olga" style="--slot-start:62.500%;--slot-size:37.500%"><time class="day-slot-time">11:15</time><strong>Olga</strong><span>Lavado + peinado</span></div><div class="day-slot day-free" style="--slot-start:50.000%;--slot-size:12.5%"><time class="day-slot-time">11:00</time><span>Libre</span></div></div></div><div class="day-row"><div class="day-person"><span aria-hidden="true">A</span><strong>Alex</strong></div><div class="day-lane"><div class="day-slot category-sky" data-day-appointment="marcos" style="--slot-start:0.000%;--slot-size:12.500%"><time class="day-slot-time">10:00</time><strong>Marcos</strong><span>Lavado</span></div><div class="day-slot category-lavender" data-day-appointment="eva" style="--slot-start:25.000%;--slot-size:25.000%"><time class="day-slot-time">10:30</time><strong>Eva</strong><span>Lavado + peinado</span></div><div class="day-slot category-sage" data-day-appointment="hugo" style="--slot-start:50.000%;--slot-size:25.000%"><time class="day-slot-time">11:00</time><strong>Hugo</strong><span>Corte</span></div><div class="day-slot category-lavender" data-day-appointment="irene" style="--slot-start:75.000%;--slot-size:12.500%"><time class="day-slot-time">11:30</time><strong>Irene</strong><span>Peinado</span></div><div class="day-slot day-free" style="--slot-start:12.500%;--slot-size:12.5%"><time class="day-slot-time">10:15</time><span>Libre</span></div><div class="day-slot day-free" style="--slot-start:87.500%;--slot-size:12.5%"><time class="day-slot-time">11:45</time><span>Libre</span></div></div></div></div><div class="day-upcoming" aria-label="Próximas citas"><h3>Próximas citas</h3><div class="day-upcoming-cards"><article class="category-sage"><time>10:00</time><strong>Clara · Corte</strong><span>Valeria</span></article><article class="category-lavender"><time>10:00</time><strong>Noelia · Lavado + peinado</strong><span>Sara</span></article><article class="category-sky"><time>10:00</time><strong>Marcos · Lavado</strong><span>Alex</span></article></div><div class="day-actions"><button type="button" title="Disponible en el panel">Editar vista</button><button type="button" title="Disponible en el panel">Ver fichas de clientes</button></div></div><div class="day-mix" aria-label="Servicios de la franja"><h3>Servicios de la franja</h3><div class="day-mix-bar" role="img" aria-label="Corte y combinaciones 3, Lavado 1, Peinado y combinaciones 6"><i class="category-sage" style="flex:3">3</i><i class="category-sky" style="flex:1">1</i><i class="category-lavender" style="flex:6">6</i></div></div><footer class="day-board-foot"><span class="category-legend day-legend" aria-label="Colores por servicio"><span class="category-sage">Corte</span><span class="category-sky">Lavado</span><span class="category-lavender">Peinado</span><span class="pending-legend">Discontinuo: pendiente</span></span><p>Ocupación de esta franja, incluidas las solicitudes pendientes.</p></footer></div><p class="example-band" role="note"><svg class="example-warn" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 20h19Z"/><path d="M12 10v4.5M12 17.5v.2"/></svg><strong>Versión de ejemplo MUY simplificada: no es el producto real</strong></p></div></div></div></section>
+<section aria-labelledby="plans-title" class="plans-section wrap" id="planes"><div class="section-heading"><div><p class="eyebrow">Tu salón marca el ritmo</p><h2 id="plans-title">Lo que incluye<br/><span>Todo claro</span></h2></div><p>Cuota fija mensual.<br/>Sin comisión por cita.</p></div><!-- Presupuesto según tu equipo Añadir una fila de precios solo después de ratificarlos. --><div aria-labelledby="plans-title" class="plans-table-wrap" role="region"><table class="plans-table"><caption>Comparativa de funciones disponibles por plan</caption><colgroup><col class="feature-column"/><col/><col/><col/></colgroup><thead><tr><th scope="col">Función</th><th scope="col">Básico<span class="plan-audience">Equipos de hasta 3</span></th><th scope="col">Completo<span class="plan-audience">Equipos de hasta 6</span></th><th scope="col">Embajador<span class="plan-audience">Con turnos y recepción</span></th></tr></thead><tbody><tr><th scope="row">Web de reservas con tu marca</th><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td></tr><tr><th scope="row">Solicitud que confirma el salón</th><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td></tr><tr><th scope="row">Preguntas configurables al reservar</th><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td></tr><tr><th scope="row">Agenda del equipo y hoja del día</th><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td></tr><tr><th scope="row">Fichas con buscador y notas de visitas</th><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td></tr><tr><th scope="row">Estadísticas de citas y exportación</th><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td></tr><tr><th scope="row">Enlace para pedir reseña en Google</th><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td></tr><tr><th scope="row">Profesionales con agenda propia</th><td>Hasta 3</td><td>Hasta 6</td><td>Hasta 6</td></tr><tr><th scope="row">Asistente de datos mediante reglas</th><td class="plan-unavailable"><span aria-hidden="true">—</span><span class="sr-only">No incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td></tr><tr><th scope="row">Historial completo y analítica avanzada</th><td class="plan-unavailable"><span aria-hidden="true">—</span><span class="sr-only">No incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td></tr><tr><th scope="row">Cierre y exportación de caja interna¹</th><td class="plan-unavailable"><span aria-hidden="true">—</span><span class="sr-only">No incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td></tr><tr><th scope="row">Accesos de responsable de turno y recepción</th><td class="plan-unavailable"><span aria-hidden="true">—</span><span class="sr-only">No incluido</span></td><td class="plan-unavailable"><span aria-hidden="true">—</span><span class="sr-only">No incluido</span></td><td><svg aria-hidden="true" class="plan-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg><span class="sr-only">Incluido</span></td></tr></tbody></table></div><div class="plans-note"><p>¹ Caja interna para registrar cobros. No emite tiques ni facturas.</p><a class="text-button" href="#reunion">Reserva una reunión <span class="cta-icon" aria-hidden="true"><svg class="cta-calendar" viewBox="0 0 36 36"><path class="cta-calendar-sheet" d="M8 10h23l-6 19H2Z"/><path d="M7 29v4h22l3-23M13 12c-3 1-4-2-4-4V5c0-5 6-5 6 0v4m6 3c-3 1-4-2-4-4V5c0-5 6-5 6 0v4m6 3c-3 1-4-2-4-4V5c0-5 6-5 6 0v4"/><path class="cta-calendar-tick" d="m11 21 4 4 8-9"/></svg></span></a></div></section>
+<section aria-labelledby="budget-title" class="budget-section wrap">
+<div class="budget-inner"><div><p class="eyebrow">Un presupuesto para tu equipo</p><h2 id="budget-title">¿Cuánto costaría<br/><span>para tu salón?</span></h2></div><div><p>Depende de cuántas personas sois y de cómo trabajáis. En una reunión de 30 min conocemos tu salón, te enseñamos siShow y te damos un presupuesto para tu equipo.</p><p>Con las condiciones claras y sin compromiso.</p><div class="budget-actions"><a class="button orange" href="#reunion">Reserva una reunión <span class="cta-icon" aria-hidden="true"><svg class="cta-calendar" viewBox="0 0 36 36"><path class="cta-calendar-sheet" d="M8 10h23l-6 19H2Z"/><path d="M7 29v4h22l3-23M13 12c-3 1-4-2-4-4V5c0-5 6-5 6 0v4m6 3c-3 1-4-2-4-4V5c0-5 6-5 6 0v4m6 3c-3 1-4-2-4-4V5c0-5 6-5 6 0v4"/><path class="cta-calendar-tick" d="m11 21 4 4 8-9"/></svg></span></a></div></div></div>
+</section>
+<section aria-labelledby="faq-title" class="faq-section" id="faq"><div class="wrap faq-layout"><div><p class="eyebrow">Antes de empezar</p><h2 id="faq-title">Las cosas<br/><span>por su nombre</span></h2><p class="faq-intro">Respuestas a lo que nos preguntáis en el salón.</p></div><div class="faq-list"><details><summary>¿Cobráis comisión por cada reserva?<span aria-hidden="true">+</span></summary><p>No. siShow se paga con una cuota fija mensual, sin porcentaje por cita ni por cliente nuevo. Te explicamos las condiciones y la puesta en marcha antes de contratar.</p></details><details><summary>¿Mis clientes tienen que registrarse para pedir cita?<span aria-hidden="true">+</span></summary><p>No. Entran en tu página de reservas, eligen servicio, profesional y hora, y envían la solicitud. Sin crear cuenta ni descargar una aplicación.</p></details><details><summary>¿Quién decide si una cita se confirma?<span aria-hidden="true">+</span></summary><p>El salón. Cada reserva entra como solicitud y tú la confirmas, cambias de hora o rechazas. También fijas la duración de cada servicio. La solicitud no es una cita confirmada.</p></details><details><summary>¿Cómo aviso a un cliente antes de su cita?<span aria-hidden="true">+</span></summary><p>Desde la ficha puedes abrir WhatsApp con un mensaje preparado y enviarlo tú. No se envía automáticamente. Los recordatorios por correo requieren configuración y no los ofrecemos como una función activa.</p></details><details><summary>¿Puedo pasar mis clientes desde el programa que uso ahora?<span aria-hidden="true">+</span></summary><p>Revisamos contigo el formato antes de prometer una migración. Existe una importación manual de clientes e historial desde un archivo exportado de TPV 123. Las notas de visitas se transcriben a mano.</p></details><details><summary>¿Cuántas personas del equipo pueden tener agenda?<span aria-hidden="true">+</span></summary><p>El Básico contempla hasta 3 profesionales y el Completo hasta 6. El Embajador mantiene el alcance de hasta 6 profesionales y añade accesos de responsable de turno y recepción. Cada persona accede con su propio rol.</p></details><details><summary>¿Funciona en el móvil?<span aria-hidden="true">+</span></summary><p>Sí. La página de reservas y el panel funcionan en móvil, tableta y ordenador. Puedes añadir siShow a la pantalla de inicio. Necesitas conexión a internet.</p></details><details><summary>¿Cómo empiezo?<span aria-hidden="true">+</span></summary><p>Reserva una reunión de 30 min y cuéntanos cómo trabajáis. Por Google Meet o en tu salón, revisamos servicios, horarios y equipo, y acordamos las condiciones antes de la puesta en marcha.</p></details></div></div></section>
+<section aria-labelledby="contact-title" class="closing wrap" id="contacto"><div class="closing-content"><p class="eyebrow">Hablemos de tu salón</p><h2 id="contact-title">Tu próximo cambio<br/><span>es de libreta</span></h2><p>Te enseñamos siShow con tu forma de trabajar.</p><div class="closing-actions"><a class="button orange" href="#reunion" id="contact-mail">Reserva una reunión <span class="cta-icon" aria-hidden="true"><svg class="cta-calendar" viewBox="0 0 36 36"><path class="cta-calendar-sheet" d="M8 10h23l-6 19H2Z"/><path d="M7 29v4h22l3-23M13 12c-3 1-4-2-4-4V5c0-5 6-5 6 0v4m6 3c-3 1-4-2-4-4V5c0-5 6-5 6 0v4m6 3c-3 1-4-2-4-4V5c0-5 6-5 6 0v4"/><path class="cta-calendar-tick" d="m11 21 4 4 8-9"/></svg></span></a><a class="button secondary wa" href="https://wa.me/34622107116?text=Hola%2C%20he%20visto%20la%20web%20de%20siShow%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20mi%20sal%C3%B3n." target="_blank" rel="noopener" ><svg class="wa-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.29Z"/></svg>Escríbenos por WhatsApp</a></div><div class="contact-alt"><a href="mailto:infosishow@gmail.com">infosishow@gmail.com</a><a class="wa-text" href="https://wa.me/34622107116?text=Hola%2C%20he%20visto%20la%20web%20de%20siShow%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20mi%20sal%C3%B3n." target="_blank" rel="noopener"><svg class="wa-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.29Z"/></svg><span>WhatsApp 622 10 71 16</span></a><button class="js-only" id="copy-email">Copiar</button></div><span class="contact-status" id="copy-status" role="status"></span><p class="contact-note">30 min, sin compromiso. Por Google Meet o en tu salón.</p></div></section>
+</main><footer class="footer wrap"><a aria-label="siShow, inicio" class="logo" href="#main"><svg class="brand-mark" data-brand="v3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 -3 176 63"><g class="logo-i-dot" transform="translate(25.576 -1.8) scale(.62)"><path class="logo-calendar-body" d="M8 10H31L25 29H2Z"/><path class="logo-calendar" d="M8 10H31L25 29H2Z M7 29V33H29L32 10V27"/><path class="logo-calendar logo-rings" d="M13 12C10 13 9 10 9 8V5C9 0 15 0 15 5V9 M21 12C18 13 17 10 17 8V5C17 0 23 0 23 5V9 M29 12C26 13 25 10 25 8V5C25 0 31 0 31 5V9"/><path class="logo-check" pathLength="1" stroke-width="3.5" d="M11 21L15 25L23 16"/></g><g class="logo-letters"><path class="logo-letter" data-letter="s" d="M402 -18Q225 -18 148.5 58.0Q72 134 65 309Q64 344 64.5 389.0Q65 434 67 452H293Q291 399 291.0 354.5Q291 310 292 282Q295 224 322.5 200.0Q350 176 402 176Q465 176 493.0 200.0Q521 224 522 282Q522 309 522.0 317.5Q522 326 522.0 334.0Q522 342 522 366Q522 408 507.0 433.5Q492 459 453 471L323 508Q238 534 179.0 571.5Q120 609 89.5 668.0Q59 727 58 815Q58 834 58.0 851.0Q58 868 58 886Q59 1064 138.5 1141.0Q218 1218 414 1218Q593 1218 667.5 1143.5Q742 1069 749 897Q751 863 750.0 817.0Q749 771 747 751H513Q514 773 514.5 808.0Q515 843 514.5 876.0Q514 909 513 926Q510 980 489.0 1002.0Q468 1024 414 1024Q357 1024 334.5 1002.0Q312 980 310 926Q309 901 308.5 887.0Q308 873 308 837Q308 791 322.0 759.5Q336 728 385 715L500 686Q629 654 694.5 584.5Q760 515 760 380Q760 362 760.0 341.5Q760 321 760 303Q759 131 677.0 56.5Q595 -18 402 -18Z" transform="translate(4.000 58) scale(0.031 -0.031)"/><path class="logo-i-stem" data-letter="i" d="M90 0V1200H348V0Z" transform="translate(29.327 58) scale(0.031 -0.031)"/><path class="logo-letter" data-letter="S" d="M442 -18Q243 -18 158.0 67.0Q73 152 64 349Q63 388 63.0 430.0Q63 472 65.0 513.5Q67 555 71 595H314Q310 518 309.5 442.5Q309 367 314 302Q319 248 349.5 220.5Q380 193 442 193Q503 193 531.0 220.5Q559 248 564 302Q568 342 569.5 378.0Q571 414 569.5 451.0Q568 488 564 529Q561 579 539.5 617.0Q518 655 468 668L319 706Q222 731 166.0 778.5Q110 826 85.5 898.0Q61 970 58 1068Q57 1117 57.0 1162.5Q57 1208 58 1253Q63 1384 101.5 1464.5Q140 1545 222.5 1581.5Q305 1618 442 1618Q635 1618 721.5 1533.5Q808 1449 816 1253Q818 1207 817.0 1140.0Q816 1073 813 1011H565Q568 1083 569.0 1155.5Q570 1228 567 1300Q565 1353 532.5 1380.0Q500 1407 442 1407Q380 1407 351.0 1380.0Q322 1353 316 1300Q311 1242 311.0 1184.0Q311 1126 316 1068Q321 1016 342.5 980.0Q364 944 418 931L549 900Q652 875 711.0 825.5Q770 776 795.5 702.0Q821 628 824 529Q825 496 825.0 466.5Q825 437 824.5 408.5Q824 380 822 349Q814 152 728.5 67.0Q643 -18 442 -18Z" transform="translate(42.843 58) scale(0.031 -0.031)"/><path class="logo-letter" data-letter="h" d="M89 0V1600H347V1076H393Q432 1145 476.0 1181.5Q520 1218 608 1218Q725 1218 790.0 1146.0Q855 1074 855 906V0H597V927Q597 980 572.5 1004.5Q548 1029 499 1029Q455 1029 410.0 1004.0Q365 979 347 934V0Z" transform="translate(70.185 58) scale(0.031 -0.031)"/><path class="logo-letter" data-letter="o" d="M450 -18Q316 -18 236.5 18.5Q157 55 120.0 135.5Q83 216 76 348Q74 394 72.5 459.5Q71 525 71.0 597.5Q71 670 72.0 737.5Q73 805 76 854Q83 984 119.5 1064.5Q156 1145 235.5 1181.5Q315 1218 450 1218Q585 1218 663.5 1181.0Q742 1144 778.5 1063.5Q815 983 822 854Q824 808 825.0 742.0Q826 676 826.0 603.5Q826 531 825.0 464.0Q824 397 822 348Q815 218 778.5 137.0Q742 56 663.5 19.0Q585 -18 450 -18ZM450 176Q511 176 536.5 203.0Q562 230 564 284Q566 363 567.5 442.0Q569 521 569.0 601.0Q569 681 567.5 760.0Q566 839 564 917Q562 971 536.5 997.5Q511 1024 450 1024Q390 1024 363.0 997.5Q336 971 334 917Q332 839 330.5 759.5Q329 680 329.0 600.5Q329 521 330.5 441.5Q332 362 334 284Q336 230 363.0 203.0Q390 176 450 176Z" transform="translate(99.294 58) scale(0.031 -0.031)"/><path class="logo-letter" data-letter="w" d="M179 0 29 1200H289L340 597L359 191H428L442 597L496 1198H915L967 597L980 191H1049L1069 597L1122 1200H1384L1229 0H792L756 466L740 1008H670L652 466L616 0Z" transform="translate(127.101 58) scale(0.031 -0.031)"/></g></svg></a><p>Tu salón.<br/> A tu manera.</p><nav aria-label="Páginas legales"><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="cookies.html">Cookies</a></nav><span>© 2026 siShow</span><a class="wa-text" href="https://wa.me/34622107116?text=Hola%2C%20he%20visto%20la%20web%20de%20siShow%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20mi%20sal%C3%B3n." target="_blank" rel="noopener"><svg class="wa-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.29Z"/></svg><span>WhatsApp 622 10 71 16</span></a></footer>
+<a class="wa-float" href="https://wa.me/34622107116?text=Hola%2C%20he%20visto%20la%20web%20de%20siShow%20y%20me%20gustar%C3%ADa%20hablar%20sobre%20mi%20sal%C3%B3n." target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp (se abre en una pestaña nueva)"><svg class="wa-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.29Z"/></svg><span class="wa-float-text">WhatsApp</span></a></body></html>

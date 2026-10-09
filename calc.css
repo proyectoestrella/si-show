@@ -1,0 +1,9 @@
+/* Páginas de calculadora independientes. Reutiliza theme.css, style.css y block-c.css. */
+.calc-page .calc-bar{min-height:72px}
+.calc-page .calculator-pair.calc-solo{grid-template-columns:minmax(0,1fr);max-width:600px;margin-inline:auto;grid-auto-rows:auto}
+.calc-page .calculator-section{padding-top:clamp(32px,6vw,72px)}
+.calc-page .calc-cta-lead{color:var(--muted);margin:0}
+.calc-page .calc-phone{margin:0;font-size:14px;color:var(--muted)}
+.calc-page .calc-phone a{color:var(--text);text-underline-offset:4px}
+.calc-page .calc-footer .cta-pair{justify-content:center}
+.calc-page .calc-header{width:min(100%,600px);margin-inline:auto}
