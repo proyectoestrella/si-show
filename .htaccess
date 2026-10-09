@@ -1,0 +1,8 @@
+# Apache 2.4 / Hostinger. Work files and private requests are never public.
+Options -Indexes
+RewriteEngine On
+RewriteRule ^(?:\.git|\.agents|\.codex|\.aws)(?:/|$) - [F,L,NC]
+RewriteRule ^(?:privado|_carlos|propuestas-hero|logos|scripts|evidencias|sishow-reservas)(?:/|$) - [F,L,NC]
+<FilesMatch "(?i)(\.json$|^\.|^INFORME.*\.md$|^README.*\.md$)">
+  Require all denied
+</FilesMatch>

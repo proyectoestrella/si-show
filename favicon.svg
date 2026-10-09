@@ -1,12 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="22" fill="#0C1018"/>
-  <line x1="50" y1="47" x2="23" y2="17" stroke="#C48C30" stroke-width="7.2" stroke-linecap="round"/>
-  <line x1="50" y1="47" x2="77" y2="17" stroke="#C48C30" stroke-width="7.2" stroke-linecap="round"/>
-  <line x1="50" y1="47" x2="31" y2="72" stroke="#C48C30" stroke-width="7.2" stroke-linecap="round"/>
-  <line x1="50" y1="47" x2="69" y2="72" stroke="#C48C30" stroke-width="7.2" stroke-linecap="round"/>
-  <circle cx="31" cy="75.5" r="10.5" fill="none" stroke="#C48C30" stroke-width="7.2"/>
-  <circle cx="69" cy="75.5" r="10.5" fill="none" stroke="#C48C30" stroke-width="7.2"/>
-  <circle cx="50" cy="47" r="9" fill="#0C1018"/>
-  <circle cx="50" cy="47" r="9" fill="none" stroke="#C48C30" stroke-width="1.8"/>
-  <circle cx="50" cy="47" r="2.3" fill="#C48C30"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" role="img"><title>siShow · calendario confirmado</title><rect width="40" height="40" rx="7" fill="#2A211B"/><g transform="translate(2.5 2)"><path fill="#FFFDFA" d="M8 10H31L25 29H2Z"/><path fill="none" stroke="#EDA876" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M8 10H31L25 29H2Z M7 29V33H29L32 10V27 M13 12C10 13 9 10 9 8V5C9 0 15 0 15 5V9 M21 12C18 13 17 10 17 8V5C17 0 23 0 23 5V9 M29 12C26 13 25 10 25 8V5C25 0 31 0 31 5V9"/><path fill="none" stroke="#181511" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" d="M11 21L15 25L23 16"/></g></svg>

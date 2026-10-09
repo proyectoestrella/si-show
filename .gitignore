@@ -1,0 +1,3 @@
+# Requests are runtime data, never source files.
+/privado/reservas/
+/sishow-reservas/
