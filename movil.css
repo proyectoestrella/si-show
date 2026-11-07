@@ -1,0 +1,112 @@
+/* siShow · capa MÓVIL (mobile first). Se carga la última y ajusta ritmo, cabecera,
+   objetivos táctiles y lectura en pantallas estrechas. Escritorio (>700 px) no se toca,
+   salvo el botón de menú, que solo existe en móvil. */
+
+/* Mes en el día 1 del calendario: texto generado por CSS (data-month), de modo que el nombre
+   accesible del botón (aria-label) contiene todo el texto visible del botón. */
+.meeting-card .meeting-day[data-month]::after{content:attr(data-month);position:absolute;top:5px;left:0;right:0;text-align:center;font-size:10px;font-weight:700;line-height:1.4;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+
+/* Botón de menú: oculto por defecto, solo aparece en móvil con JS. */
+.nav-toggle{display:none}
+
+/* Que la imagen de fondo del hero (200 % de ancho) no sobresalga del viewport. */
+@media(max-width:1100px){.tablet-stage{overflow:hidden}}
+
+@media(max-width:700px){
+  :root{--header-height:56px;--section-space:48px}
+
+  /* ---------- 1 · Cabecera: una sola fila de 56 px ---------- */
+  .header{min-height:56px;flex-wrap:nowrap;gap:8px;padding:6px max(12px,3.4vw)}
+  .header>.logo{width:100px;height:44px;flex:none}
+  .header-actions{margin-left:auto;gap:4px;flex:none}
+  .header-actions .icon-button{width:44px;height:44px;min-height:44px}
+  .header-actions .compact{min-height:44px;padding:6px 14px;font-size:14px;gap:0}
+  .header-actions .compact>span.cta-icon{display:none}
+  .header .icon-button::after,.icon-button::after{display:none}
+  .js .nav-toggle{display:inline-flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;padding:0;margin-left:2px;border:1px solid var(--control-border);border-radius:50%;background:var(--surface);color:var(--text)}
+  .nav-toggle svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+  .nav-toggle[aria-expanded=true]{background:var(--surface-2);border-color:var(--text)}
+  /* Sin JS la navegación sigue visible en una segunda fila; con JS es un panel desplegable. */
+  .header nav{order:3;width:100%;justify-content:center;gap:4px 22px;font-size:15px;margin:0}
+  .header nav a{min-height:44px}
+  .js .header nav{display:none;position:absolute;top:100%;left:0;right:0;z-index:31;flex-direction:column;align-items:stretch;gap:0;padding:6px max(12px,3.4vw) 10px;background:var(--bg);border-bottom:1px solid var(--border);box-shadow:var(--shadow);font-size:17px}
+  .js .header.nav-open nav{display:flex}
+  .js .header nav a{min-height:52px;padding-inline:4px;border-bottom:1px solid var(--border)}
+  .js .header nav a:last-child{border-bottom:0}
+
+  /* ---------- 2 · Ritmo entre secciones ---------- */
+  main>section{scroll-margin-top:0} /* el desplazamiento ya lo gestiona scroll-padding-top del html */
+  .meeting-section,.product-section,.control-section,.plans-section,.budget-section,.faq-section,.closing{padding-block:var(--section-space)}
+  /* Cada bloque tiene su propio fondo (alternando) y un filo: se distingue de un vistazo.
+     Las secciones «.wrap» no ocupan todo el ancho, así que el fondo se extiende con sombra recortada. */
+  .meeting-section,.product-section,.control-section,.faq-section{border-top:1px solid var(--border)}
+  .control-section{background:var(--surface)}
+  .budget-section{background:var(--surface-2);box-shadow:0 0 0 100vmax var(--surface-2);clip-path:inset(0 -100vmax)}
+  /* La sección pegajosa de las tijeras ocupa SIEMPRE toda la pantalla bajo la cabecera:
+     así no asoma la sección siguiente mientras está fijada. */
+  .cut-section{--cut-stage-height:max(560px,calc(100vh - var(--header-height)));--cut-stage-height:max(560px,calc(100dvh - var(--header-height)))}
+  @media(prefers-reduced-motion:no-preference){.js .cut-section:not(.paused *){height:calc(var(--cut-stage-height) + 360px)}}
+
+  /* La foto de fondo del hero ya no se sale del viewport (antes 200 % de ancho desplazado) */
+  .tablet-stage>.hero-photo{left:0;width:100%;object-position:69.3% 50%}
+
+  /* ---------- Hero compacto: el botón principal queda por encima del aviso ---------- */
+  .hero.tablet-hero .tablet-copy{padding-block:18px 28px}
+  .hero.tablet-hero .eyebrow{font-size:14px;letter-spacing:.04em;margin-bottom:8px}
+  .hero.tablet-hero h1{margin-bottom:12px}
+  .hero.tablet-hero .tablet-copy>p.hero-sub{font-size:17px;line-height:1.4;margin-bottom:16px}
+  .hero.tablet-hero .tablet-copy>.hero-meeting-note{font-size:14px;margin-top:12px}
+  .cta-pair{gap:10px}
+  .hero .cta-pair .button{min-height:52px}
+
+  .day-slot:not(.day-free){min-height:88px}
+  .day-slot.day-free{min-height:34px}
+
+  /* ---------- 3 · Objetivos táctiles ≥ 44 px ---------- */
+  .plan-tag-link{display:inline-flex;align-items:center;min-height:44px}
+  .plan-cta{min-height:48px}
+  .contact-note a,.closing a:not(.button),.footer .wa-text{display:inline-flex;align-items:center;min-height:44px}
+  .tablet-views button,.owner-ui .tablet-views button{min-height:44px;min-width:44px}
+  .tablet-professionals button{min-height:44px}
+  .owner-ui .week-pager button{min-height:44px;width:44px}
+  /* «Más información» del aviso de cookies (el aviso en sí no se modifica) */
+  .sishow-cookies-text a{display:inline-block;padding-block:12px;margin-block:-12px}
+
+  /* Calendario de la reunión: 7 columnas de 44 px mínimo y filas más bajas */
+  .meeting-card{padding:40px 6px 22px}
+  .meeting-card .meeting-days,.paper-weekdays{gap:0}
+  .meeting-card .meeting-day{min-height:46px;padding:2px 0}
+  #meeting-days{min-height:calc(6*46px + 6px)}
+  .meeting-card .meeting-time{min-height:50px}
+  main .meeting-card .meeting-day[data-month]::after{position:static;display:block;font-size:14px;line-height:1;margin-top:-3px;letter-spacing:.03em}
+  main .meeting-card .meeting-day strong{line-height:1}
+
+  /* ---------- Texto legible (≥ 14 px fuera de las demos) ---------- */
+  main .meeting-intro .meeting-note,main #meeting-status,main .meeting-card .meeting-status,main .meeting-trust li,main .meeting-key span,main .meeting-progress button,
+  main .meeting-hint,main .plan-features li,main .plan-feat,main .plans-note,main .plans-note p,main .plans-note sup,main .contact-note,main #copy-email,
+  main .paper-weekdays span{font-size:14px}
+  .footer>nav,.footer>nav a,.footer>span{font-size:14px}
+  .footer>.wa-text{grid-column:1/-1}
+}
+
+/* Pantallas cortas: el hero se compacta para que «Reserva una reunión» quede sobre el aviso de cookies */
+@media(max-width:700px) and (max-height:700px){
+  .hero.tablet-hero .tablet-copy{padding-top:12px}
+  .hero.tablet-hero .eyebrow{margin-bottom:4px}
+  .hero.tablet-hero h1{font-size:clamp(52px,17vw,64px);margin-bottom:8px}
+  .hero.tablet-hero .tablet-copy>p.hero-sub{font-size:16px;line-height:1.35;margin-bottom:12px}
+  .hero .cta-pair .button{min-height:48px}
+}
+
+/* ---------- Pantallas muy estrechas (≤ 359 px) ---------- */
+@media(max-width:359px){
+  .header{gap:4px;padding-inline:8px}
+  .header>.logo{width:70px;height:34px}
+  .header-actions .compact{padding-inline:10px;font-size:13px}
+}
+
+@media(max-width:700px){
+  /* Pie: logo algo menor y menos aire inferior (el botón de WhatsApp deja 76 px libres) */
+  .footer .logo{width:200px;height:84px}
+  .footer{padding-bottom:max(var(--section-gap),80px)}
+}
