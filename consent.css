@@ -1,0 +1,20 @@
+/* Aviso de cookies de siShow. Usa los tokens de theme.css (claro/oscuro vía html[data-theme]). */
+.sishow-cookies{position:fixed;z-index:70;left:max(12px,env(safe-area-inset-left));right:max(12px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;max-width:640px;padding:16px 18px;border:1px solid var(--border,#D2C5B5);border-radius:var(--radius-sm,8px);background:var(--surface,#FFFDFA);color:var(--text,#29241F);box-shadow:var(--shadow,0 16px 40px rgba(0,0,0,.2));font:400 15px/1.5 var(--body,Karla,Arial,sans-serif)}
+.sishow-cookies[hidden]{display:none}
+.sishow-cookies:focus{outline:none}
+.sishow-cookies:focus-visible{outline:3px solid var(--focus,#A44C20);outline-offset:3px}
+.sishow-cookies-text{margin:0;flex:1 1 280px;min-width:0;color:var(--text,#29241F);overflow-wrap:anywhere}
+.sishow-cookies-text strong{display:block;font-weight:700;margin-bottom:2px}
+.sishow-cookies-text a{color:var(--accent,#78593F);text-decoration:underline;text-underline-offset:3px}
+.sishow-cookies-actions{display:flex;gap:10px;flex:0 0 auto}
+/* Aceptar y Rechazar comparten exactamente el mismo estilo (peso visual idéntico). */
+.sishow-cookies-btn{flex:1 1 0;min-width:104px;min-height:44px;padding:10px 20px;border:2px solid var(--accent-btn,#6F5844);border-radius:999px;background:var(--accent-btn,#6F5844);color:var(--on-accent,#FFFDFA);font:700 15px/1 var(--body,Karla,Arial,sans-serif);cursor:pointer}
+.sishow-cookies-btn:hover{filter:brightness(.94)}
+.sishow-cookies-btn:focus-visible,.sishow-cookies-text a:focus-visible{outline:3px solid var(--focus,#A44C20);outline-offset:3px}
+@media(max-width:560px){.sishow-cookies{padding:14px;font-size:14px}.sishow-cookies-actions{width:100%}}
+/* Si la página tiene el botón flotante de WhatsApp, el aviso se coloca encima de él en pantallas estrechas. */
+@media(max-width:900px){body:has(.wa-float) .sishow-cookies{bottom:calc(max(12px,env(safe-area-inset-bottom)) + 64px)}}
+/* En pantallas anchas hay sitio al lado del botón de WhatsApp: el aviso baja al borde. */
+@media(min-width:901px){.sishow-cookies{left:max(16px,env(safe-area-inset-left));right:auto;bottom:max(16px,env(safe-area-inset-bottom))}}
+/* Deja espacio al final de la página mientras el aviso está abierto. */
+html.sishow-cookies-open body{padding-bottom:calc(var(--sishow-cookies-h,0px) + 80px)}
