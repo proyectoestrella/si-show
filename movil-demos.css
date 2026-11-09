@@ -1,0 +1,16 @@
+/* siShow · PROPUESTA de demos más cortas en móvil (≤ 700 px). Capa opcional y reversible:
+   quitar el <link> de index.html la desactiva por completo. No toca escritorio ni el HTML de las demos.
+   1) «El control del día»: métricas + la agenda de una profesional + próximas citas (sin la hoja entera).
+   2) Planes: tarjetas en una fila deslizable con imán (en vez de tres tarjetas apiladas). */
+@media(max-width:700px){
+  /* 1 · Control del día */
+  .day-timeline .day-row~.day-row{display:none}
+  .day-board>.day-mix{display:none}
+  .day-upcoming-cards>*:nth-child(n+3){display:none}
+
+  /* 2 · Planes: fila deslizable. Ancho 84 % para que asome la siguiente tarjeta. */
+  .plans-grid{display:flex;grid-template-columns:none;max-width:none;gap:14px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:4vw;margin-inline:-4vw;padding-inline:4vw;padding-bottom:14px;-webkit-overflow-scrolling:touch}
+  .plans-grid>.plan-card{flex:0 0 84%;scroll-snap-align:start;min-width:0}
+  .plans-grid::-webkit-scrollbar{height:6px}
+  .plans-grid::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+}
