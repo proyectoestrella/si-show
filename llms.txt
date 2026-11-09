@@ -1,13 +1,13 @@
 # siShow
 
-> siShow es un software de reservas y agenda para peluquerías, barberías y salones de belleza de España. Cada salón tiene su propia página de reservas con su marca; el equipo gestiona citas, fichas de clientes y hoja del día desde un panel. Cuota fija al mes, sin comisión por cliente ni por cita.
+> siShow es un software de reservas y agenda para salones de belleza y peluquerías con equipo, en España. Cada salón tiene su propia página de reservas con su marca; el equipo gestiona citas, fichas de clientes y hoja del día desde un panel. Cuota fija al mes, sin comisión por cliente ni por cita.
 
 Se escribe «siShow» (también «siShow.es»).
 
 ## Qué es y para quién
 - Una página de reservas con la marca del salón y un panel de agenda para el equipo. La clienta reserva sin crear cuenta y sin descargar nada.
 - Cada reserva entra como solicitud: el salón la confirma, la cambia de hora o la rechaza, y fija la duración de cada servicio.
-- Para peluquerías, barberías y salones de belleza con una o varias personas en el equipo.
+- Para salones de belleza y peluquerías con equipo (dos o más profesionales), con servicios de duración distinta y una dueña que quiere decidir cada cita.
 
 ## Qué no es
 - No es un marketplace ni trae clientes nuevos al salón.
@@ -19,10 +19,10 @@ Se escribe «siShow» (también «siShow.es»).
 
 ## Páginas
 - [Inicio](https://sishow.es/): qué es siShow, planes y preguntas frecuentes
+- [Software de reservas para salones de belleza](https://sishow.es/reservas-online-salones-de-belleza.html)
 - [Software de reservas para peluquerías](https://sishow.es/software-reservas-peluquerias.html)
-- [Agenda online para barberías](https://sishow.es/agenda-online-barberias.html)
-- [Reservas online para salones de belleza](https://sishow.es/reservas-online-salones-de-belleza.html)
-- [Reservas sin comisión por cita](https://sishow.es/reservas-sin-comision-peluqueria.html)
+- [Alternativa a la libreta de citas](https://sishow.es/alternativa-libreta-de-citas.html)
+- [Reservas sin comisión por cita](https://sishow.es/reservas-sin-comision-salon-de-belleza.html)
 
 ## Contacto
 - Reunión de 30 minutos: https://sishow.es/#reunion

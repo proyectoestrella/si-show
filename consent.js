@@ -111,7 +111,7 @@
       '<p class="sishow-cookies-text"><strong>Cookies</strong> ' +
       'Usamos cookies de analítica (Google Analytics) solo si las aceptas, para saber cómo se usa la web. ' +
       'Puedes cambiar de opinión cuando quieras. ' +
-      '<a href="cookies.html">Más información</a>.</p>' +
+      '<a href="cookies.html">Más información sobre cookies</a>.</p>' +
       '<div class="sishow-cookies-actions">' +
       '<button type="button" class="sishow-cookies-btn" data-choice="' + ACCEPTED + '">Aceptar</button>' +
       '<button type="button" class="sishow-cookies-btn" data-choice="' + REJECTED + '">Rechazar</button>' +

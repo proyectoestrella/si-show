@@ -1,5 +1,35 @@
+# siShow · sishow.es
+# Todo el contenido público es rastreable, también por los asistentes de IA y de búsqueda.
+
 User-agent: *
 Allow: /
 Disallow: /privado/
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
 
 Sitemap: https://sishow.es/sitemap.xml
