@@ -1,0 +1,16 @@
+/* Páginas de aterrizaje SEO (guías). Se apoya en theme.css y legal.css. */
+.gd-lead{font-size:clamp(18px,2.4vw,22px);line-height:1.5;color:var(--muted);margin-top:18px;max-width:46ch}
+.gd-cta{display:inline-flex;align-items:center;min-height:48px;padding:12px 26px;border-radius:999px;background:var(--orange);color:#1D1A17;font-weight:700;text-decoration:none;margin-top:22px}
+.lg-body a.gd-cta{color:#1D1A17;text-decoration:none}
+.gd-cta:hover{filter:brightness(1.06)}
+.gd-q{border:1px solid var(--border);border-radius:12px;padding:0 18px;background:var(--surface)}
+.gd-q+.gd-q{margin-top:10px}
+.gd-q summary{cursor:pointer;min-height:48px;display:flex;align-items:center;font-weight:700;color:var(--text);font-size:16px}
+.gd-q p{padding-bottom:16px}
+.gd-box{margin-top:36px;padding:22px;border:1px solid var(--border);border-left:4px solid var(--orange);border-radius:0 12px 12px 0;background:var(--surface)}
+.gd-rel{list-style:none;padding-left:0!important}
+.gd-rel a{display:inline-flex;align-items:center;min-height:44px}
+.lg-back{display:inline-flex;align-items:center;min-height:44px;padding-inline:4px}
+.theme-toggle{width:44px;height:44px;min-height:44px}
+.lg-footer-links a{display:inline-flex;align-items:center;min-height:44px;min-width:44px}
+.sishow-cookies-text a{display:inline-block;padding-block:12px;margin-block:-12px}

@@ -6,3 +6,6 @@ RewriteRule ^(?:privado|_carlos|propuestas-hero|logos|scripts|evidencias|sishow-
 <FilesMatch "(?i)(\.json$|^\.|^INFORME.*\.md$|^README.*\.md$)">
   Require all denied
 </FilesMatch>
+
+# Página 404 propia (noindex, con enlaces a las guías).
+ErrorDocument 404 /404.html

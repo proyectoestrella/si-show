@@ -51,3 +51,9 @@ html:not(.js) .plans-toggle{display:none}
 .plan-features li:not(.plan-more)+li.plan-more{border-top:1.5px solid color-mix(in srgb,var(--text) 34%,transparent);margin-top:8px}
 @media(max-width:1100px){.hero.tablet-hero .tablet-copy>p.hero-sub{font-size:clamp(18px,4.8vw,22px)}.hero.tablet-hero .tablet-copy>p.hero-meeting-note{font-size:15px;line-height:1.5}}
 @media(max-width:520px){.benefits{gap:10px}.benefits li{padding:14px 16px;gap:4px}.benefits span{font-size:14px}}
+
+/* Enlaces a las guías (SEO): bloque discreto antes del pie */
+.guias-links{display:flex;flex-wrap:wrap;gap:4px 22px;align-items:center;width:min(92%,1100px);margin:0 auto;padding:22px 0 6px;font-size:14px;border-top:1px solid var(--border)}
+.guias-links strong{width:100%;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.guias-links a{display:inline-flex;align-items:center;min-height:44px;color:var(--muted);text-underline-offset:3px}
+.guias-links a:hover{color:var(--text)}
