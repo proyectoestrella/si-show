@@ -125,3 +125,38 @@
   .footer .logo{width:200px;height:84px}
   .footer{padding-bottom:max(var(--section-gap),80px)}
 }
+
+/* ======================================================================================
+   Ronda 3 (10-nov) · MÓVIL PRIMERO de verdad: lectura a tamaño real, sin sensación de «poco zoom».
+   Causas halladas: (1) el 71 % del texto estaba entre 10 y 15 px mientras los titulares medían
+   54-78 px (proporción de escritorio); (2) las demos son maquetas en miniatura con letra de 10-12 px.
+   Solo ≤ 700 px: escritorio no se toca.
+   ====================================================================================== */
+@media(max-width:700px){
+  /* Titulares: proporción móvil (la fuente es condensada; siguen siendo el protagonista). */
+  .hero.tablet-hero h1{font-size:clamp(52px,calc(88vw / 5.2),68px);line-height:.95}
+  main h2:not(.cut-sticky h2){font-size:clamp(40px,10.6vw,52px);line-height:1}
+  .closing-content h2{font-size:clamp(40px,10.6vw,52px)}
+
+  /* Texto corrido y etiquetas: 16 px (antes 14-15). */
+  main .faq-list details p,main .plan-feat,main .plan-features .sr-only,main .benefits li span,main .benefit-zero span,
+  main .meeting-intro .meeting-note,main #meeting-status,main .meeting-card .meeting-status,main .meeting-trust li,
+  main .plans-note,main .plans-note p,main .plans-note a,main .contact-note,main .contact-alt a,main .closing .wa-text span,
+  main .photo-tag,main .hero-meeting-note,main .hero .eyebrow,main .meeting-key span,main .meeting-alt .button,
+  main .plans-more-label,main .cut-cta p,main legend,main .key-note,main .key-closed,
+  .footer>nav a,.footer>span{font-size:16px}
+  main .hero.tablet-hero .tablet-copy>.hero-meeting-note{font-size:16px}
+  main .plan-cta,main .m-slot,main .tablet-appointment strong,main .day-slot strong{font-size:16px}
+  main .plan-features li{line-height:1.4}
+  .header-actions .compact{font-size:15px}
+
+  /* Demos (maquetas de la app): letra mínima 13 px; lo demás de la maqueta conserva su jerarquía. */
+  main .owner-ui small,main .owner-ui span,main .owner-ui b,main .tablet-grid span,main .tablet-grid time,
+  main .day-board dt,main .day-board p,main .day-board span,main .day-board strong,main .day-board button,
+  main .booking-widget .m-foot,main .flow-panel p,main .client-note,main .flow-label,main .demo-example,
+  main .product-demo span,main .product-demo strong{font-size:max(13px,1em)}
+  main .owner-ui small{font-size:13px}
+  /* Con letra mayor, la rejilla de la maqueta del hero crece y empuja la leyenda (antes se solapaban). */
+  main .tablet-agenda>.tablet-grid{flex:0 0 auto}
+  main .category-legend{margin-top:6px;font-size:13px}
+}
